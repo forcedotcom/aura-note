@@ -1,6 +1,5 @@
 package org.lumenframework.demo.notes.models;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import lumen.system.Annotations.LumenEnabled;
@@ -14,7 +13,8 @@ import com.j256.ormlite.dao.DaoManager;
 
 @Model
 public class NoteList {
-	public NoteList() throws SQLException {
+	public NoteList() throws Exception {
+		HelloNotes.main(null);
 		Dao<Note, Long> noteDao = DaoManager.createDao(HelloNotes.getConnection(), Note.class);
 		
 		notes = noteDao.queryForAll();

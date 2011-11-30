@@ -38,7 +38,7 @@ public class HelloNotes {
 		System.out.println("All Notes : %s " + noteDao.queryForAll());
 
 		// close the connection source
-		connectionSource.close();
+		//connectionSource.close();
 	}
 
 	public static ConnectionSource getConnection() throws SQLException {
