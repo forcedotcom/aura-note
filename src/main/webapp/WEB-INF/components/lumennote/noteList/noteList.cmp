@@ -1,4 +1,4 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList">
+<lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel">
 	<ol>
 		<lumen:foreach items="{!m.notes}" var="note">
             <ul>{!note.title}</ul>

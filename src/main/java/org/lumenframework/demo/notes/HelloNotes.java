@@ -1,6 +1,8 @@
 package org.lumenframework.demo.notes;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Date;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -16,16 +18,13 @@ public class HelloNotes {
 		// instantiate the dao
 		Dao<Note, Long> noteDao = DaoManager.createDao(connectionSource, Note.class);
 
-		// if you need to create the 'note', make it.
-		TableUtils.createTableIfNotExists(connectionSource, Note.class);
-
 		// Once we have configured our database objects, we can use them to
 		// persist a Note to the database and query for it from the database by
 		// its ID:
 
 		// create an instance of Note
 		Note note = new Note();
-		note.setTitle("yo");
+		note.setTitle("yo " + DateFormat.getDateTimeInstance().format(new Date()));
 		note.setBody("this is my body");
 
 		// persist the note object to the database
@@ -48,10 +47,17 @@ public class HelloNotes {
 
 			// create a connection source to our database
 			connectionSource = new JdbcPooledConnectionSource(databaseUrl);
+			
+			initSchema();
 		}
 
 		return connectionSource;
 	}
-
+	
+	private static void initSchema() throws SQLException {
+		// if you need to create the 'note', make it.
+		TableUtils.createTableIfNotExists(connectionSource, Note.class);
+	}
+	
 	private static ConnectionSource connectionSource;
 }
