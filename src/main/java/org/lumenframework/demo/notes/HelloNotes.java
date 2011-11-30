@@ -20,7 +20,7 @@ public class HelloNotes {
         Dao<Note, Long> noteDao =
             DaoManager.createDao(connectionSource, Note.class);
 
-        // if you need to create the 'notes' table make this call
+        // if you need to create the 'note', make it.
         TableUtils.createTableIfNotExists(connectionSource, Note.class);
 
         //Once we have configured our database objects, we can use them to persist a Note to the database and query for it from the database by its ID:
