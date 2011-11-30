@@ -6,6 +6,9 @@
 	<groupId>org.lumenframework.demo</groupId>
 	<artifactId>lumen-note</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
@@ -37,12 +40,28 @@
 			<artifactId>pjl-comp-filter</artifactId>
 			<version>1.7</version>
 		</dependency>
+		<dependency>
+			<groupId>com.j256.ormlite</groupId>
+			<artifactId>ormlite-core</artifactId>
+			<version>4.30</version>
+		</dependency>
+		<dependency>
+			<groupId>com.j256.ormlite</groupId>
+			<artifactId>ormlite-jdbc</artifactId>
+			<version>4.30</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.162</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.0.4.v20111024</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
