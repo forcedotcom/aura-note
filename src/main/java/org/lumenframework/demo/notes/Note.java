@@ -33,11 +33,11 @@ public class Note {
 	}
 	
 	public void setTitle(String title) {
-		this.title = title == null?"":body;
+		this.title = title;
 	}
 
 	public String getBody() {
-		return body == null?"":body;
+		return body;
 	}
 	
 	public void setBody(String body) {
@@ -46,6 +46,6 @@ public class Note {
 	
 	@Override
 	public String toString() {
-		return String.format("\n#%s: %s \n\t%s", getId(), getTitle(), getBody());
+		return String.format("\n#%s: %s \n\t%s", getId(), title==null?"":title, body==null?"":body);
 	}
 }
