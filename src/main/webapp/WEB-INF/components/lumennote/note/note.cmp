@@ -3,6 +3,6 @@
     <ui:button label="Edit" press="{!c.edit}"/>
 	<article>
 	    <h1>{!v.note.title}</h1>
-	    <div>{!v.note.body}</div>
+	    <div><lumen:unescapedHtml value="{!v.note.body}"/></div>
     </article>
 </lumen:component>

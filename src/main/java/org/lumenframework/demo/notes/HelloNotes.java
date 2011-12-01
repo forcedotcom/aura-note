@@ -24,7 +24,7 @@ public class HelloNotes {
 		// create an instance of Note
 		Note note = new Note();
 		note.setTitle("yo " + Calendar.getInstance().getTimeInMillis());
-		note.setBody("this is my body");
+		note.setBody("this is my <em style=\"color: green\">body</em>");
 
 		// persist the note object to the database
 		noteDao.create(note);
