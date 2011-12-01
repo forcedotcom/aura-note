@@ -1,4 +1,4 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList" extends="lumennote:list">
+<lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel" controller="java://org.lumenframework.demo.notes.controllers.NoteListController" extends="lumennote:list">
     <lumen:set attribute="header">
     	<ui:block class="listHeader">
     		<lumen:set attribute="right">

@@ -1,4 +1,4 @@
-<lumen:application controller="java://org.lumenframework.demo.notes.controllers.NotesController">
+<lumen:application>
   <div>
     <header>
     	<h1>lumen:note</h1>
