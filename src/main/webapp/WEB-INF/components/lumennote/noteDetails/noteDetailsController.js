@@ -13,8 +13,8 @@
         		}
         	}
         })
-		
-		var content = component.find("content");
+        
+		var content = component.find("notes");
 		var body = content.getValue("v.body");
 		body.setValue(noteView);
 	}

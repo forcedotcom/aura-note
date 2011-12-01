@@ -1,5 +1,7 @@
 <lumen:component>
     <lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
-    <h1>{!v.note.title}</h1>
-    <div>{!v.note.body}</div>
+	<article>
+	    <h1>{!v.note.title}</h1>
+	    <div>{!v.note.body}</div>
+    </article>
 </lumen:component>
