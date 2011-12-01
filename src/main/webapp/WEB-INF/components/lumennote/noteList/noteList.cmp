@@ -1,12 +1,14 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList" extends="lumennote:list">
+<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList">
     <header>
 		<ui:button label="Create a note" press="{!c.createNote}" />
     </header>
-	<lumen:foreach items="{!m.notes}" var="note">
-        <lumennote:listRow>
-        	<lumen:set attribute="right">timestamp</lumen:set>
-        	<h3 class="title">{!note.title}</h3>
-        	<p class="description">2nd line</p>
-        </lumennote:listRow>
-    </lumen:foreach>
+    <lumennote:list>
+		<lumen:foreach items="{!m.notes}" var="note">
+	        <lumennote:listRow>
+	        	<lumen:set attribute="right">timestamp</lumen:set>
+	        	<lumen:set attribute="subject">{!note.title}</lumen:set>
+	        	Second line of text
+	        </lumennote:listRow>
+	    </lumen:foreach>
+    </lumennote:list>
 </lumen:component>

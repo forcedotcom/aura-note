@@ -1,14 +1,14 @@
+body, html{height: 100%;	-webkit-box-sizing: border-box;
+}
 body{
 	background: #666 url(/img/bg.png);
 	text-rendering: optimizeLegibility;
 	font-size: 15px;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.lumennoteNotes{
-	margin: 0 20px;
+	overflow: hidden;
 }
 .lumennoteNotes header{
-	padding: 10px 10px;
+	padding: 10px 30px;
 }
 .lumennoteNotes header h1{
 	font-size: 30px;
@@ -16,20 +16,16 @@ body{
     color: #bbb;
 }
 .lumennoteNotes .wrapper{
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F9), to(#DDDFE1));
+	margin: 0 20px;
+	background-color: #fff;
 	border-radius: 10px;
 	-webkit-box-shadow: -2px 0 12px rgba(0,0,0,.8);
 }
-.lumennoteNotes .wrapper .bBody{
-	
-}
-.lumennoteNotes .wrapper .bLeft{
+.lumennoteNotes .wrapper > .bLeft{
 	width: 320px;
-	max-height: 400px;
+	border-right: 1px solid #666;
+	background-color: #f6f6f6;
 }
-.lumennoteNotes .bBody{
-}
-
 
 /* ui:button.css */
 .lumennoteNotes .uiButton{

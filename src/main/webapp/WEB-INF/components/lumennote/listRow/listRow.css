@@ -1,11 +1,15 @@
 .lumennoteListRow{
 	display: block;
-	padding: 5px;
-    border-top: 1px solid rgba(0,0,0,.4);
+	padding: 5px 10px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    font-size: 14px;
 }
-.lumennoteListRow .bLeft{
-	
+.lumennoteListRow .subject{
+	font-weight: bold;
+	margin:5px 0;
 }
+.lumennoteListRow .desc,
 .lumennoteListRow .bRight{
-	
+	font-size: 13px;
+	color: #999;
 }
