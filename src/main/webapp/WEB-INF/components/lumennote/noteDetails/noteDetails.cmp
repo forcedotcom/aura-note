@@ -1,6 +1,6 @@
 <lumen:component>
 	<lumen:handler event="lumennote:openNote" action="{!c.openNote}" />
-	<article>
-		Your note body(s) will show up here soon!
+	<article lumen:id="content">
+		A Note's body will show up here when you select one from the list
 	</article>
 </lumen:component>
