@@ -5,18 +5,19 @@ import java.util.List;
 import lumen.system.Annotations.LumenEnabled;
 import lumen.system.Annotations.Model;
 
-import org.lumenframework.demo.notes.HelloNotes;
+import org.lumenframework.demo.notes.DataStore;
 import org.lumenframework.demo.notes.Note;
 
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.support.ConnectionSource;
 
 @Model
 public class NoteListModel {
+	
+	private static DataStore dataStore = DataStore.getInstance();
+	private final List<Note> notes;
+	
 	public NoteListModel() throws Exception {
-		ConnectionSource connection = HelloNotes.getConnection();
-		Dao<Note, Long> noteDao = DaoManager.createDao(connection, Note.class);
+		Dao<Note, Long> noteDao = dataStore.getNoteDao();
 		
 		notes = noteDao.queryBuilder().orderBy("createdOn", false).query();
 			
@@ -29,6 +30,4 @@ public class NoteListModel {
 	public List<Note> getNotes() {
 		return notes;
 	}
-	
-	private final List<Note> notes;
 }
