@@ -25,6 +25,13 @@
 		});
 		
 		action.setCallback(this, function(a){
+			var event = $L.get("e.lumennote:openNote")
+			event.setParams({
+				mode : "view",
+				note : note
+			});
+			event.fire();
+			
 			var event = $L.get("e.lumennote:noteAdded");
 			event.setParams({note : a.getReturnValue()});
 			event.fire();

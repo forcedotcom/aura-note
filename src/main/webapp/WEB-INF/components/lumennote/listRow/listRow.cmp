@@ -1,9 +1,12 @@
 <lumen:component extends="ui:block" extensible="true">
     <lumen:attribute name="desc" type="Lumen.Component[]"/>
+    <lumen:attribute name="onclick" type="Lumen.Action"/>
     <lumen:attribute name="left" type="Lumen.Component[]"/>
     <lumen:attribute name="right" type="Lumen.Component[]"/>
-    <h2 class="subject truncate">{!v.body}</h2>
-    <lumen:renderif isTrue="{!v.desc != null}">
-        <p class="desc truncate">{!v.desc}</p>
-    </lumen:renderif>
+    <div onclick="{!v.onclick}">
+	    <h2 class="subject truncate">{!v.body}</h2>
+	    <lumen:renderif isTrue="{!v.desc != null}">
+	        <p class="desc truncate">{!v.desc}</p>
+	    </lumen:renderif>
+    </div>
 </lumen:component>
