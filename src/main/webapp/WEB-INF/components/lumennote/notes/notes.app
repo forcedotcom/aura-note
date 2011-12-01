@@ -1,9 +1,13 @@
-<lumen:application controller="java://org.lumenframework.demo.notes.controllers.NotesController">
-	<ui:button label="Create a note" press="{!c.createNote}"/>
-	<ui:block>
+<lumen:application preload="lumennote">
+  <div>
+    <header>
+    	<h1>lumen:note</h1>
+    </header>
+	<ui:block class="wrapper">
 		<lumen:set attribute="left">
 			<lumennote:noteList/>
 		</lumen:set>
-		Your note body(s) will show up here soon!
+		<lumennote:noteDetails/>
 	</ui:block>
+  </div>
 </lumen:application>
