@@ -1,0 +1,3 @@
+<lumen:component extends="ui:block" extensible="true">
+	<li>{!v.body}</li>
+</lumen:component>
