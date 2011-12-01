@@ -1,11 +1,11 @@
-body, html{height: 100%;	-webkit-box-sizing: border-box;
-}
+body, html{height: 100%;}
 body{
 	background: #666 url(/img/bg.png);
 	text-rendering: optimizeLegibility;
 	font-size: 15px;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	overflow: hidden;
+	color: #5C676B;
 }
 .lumennoteNotes header{
 	padding: 10px 30px;
@@ -27,6 +27,12 @@ body{
 	background-color: #f6f6f6;
 }
 
+/* common stuff */
+.lumennoteNotes .truncate{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 /* ui:button.css */
 .lumennoteNotes .uiButton{
 	font-weight: bold;

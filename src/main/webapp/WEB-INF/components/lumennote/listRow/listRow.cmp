@@ -1,9 +1,9 @@
 <lumen:component extends="ui:block" extensible="true">
-    <lumen:attribute name="subject" type="Lumen.Component[]"/>
+    <lumen:attribute name="desc" type="Lumen.Component[]"/>
     <lumen:attribute name="left" type="Lumen.Component[]"/>
     <lumen:attribute name="right" type="Lumen.Component[]"/>
-    <lumen:renderif isTrue="{!v.subject != null}">
-        <h2 class="subject truncate">{!v.subject}</h2>
+    <h2 class="subject truncate">{!v.body}</h2>
+    <lumen:renderif isTrue="{!v.desc != null}">
+        <p class="desc truncate">{!v.desc}</p>
     </lumen:renderif>
-	<p class="desc truncate">{!v.body}</p>
 </lumen:component>
