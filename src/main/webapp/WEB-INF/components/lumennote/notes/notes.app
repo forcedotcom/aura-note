@@ -1,7 +1,7 @@
 <lumen:application controller="java://org.lumenframework.demo.notes.controllers.NotesController">
   <div>
     <header>
-    	<h1>lumen note</h1>
+    	<h1>lumen:note</h1>
     </header>
 	<ui:block class="wrapper">
 		<lumen:set attribute="left">

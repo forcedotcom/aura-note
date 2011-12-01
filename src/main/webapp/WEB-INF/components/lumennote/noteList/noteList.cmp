@@ -1,14 +1,17 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList">
-    <header>
-		<ui:button label="Create a note" press="{!c.createNote}" />
-    </header>
-    <lumennote:list>
-		<lumen:foreach items="{!m.notes}" var="note">
-	        <lumennote:listRow>
-	        	<lumen:set attribute="right">timestamp</lumen:set>
-	        	<lumen:set attribute="desc">You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are.</lumen:set>
-	        	{!note.title}
-	        </lumennote:listRow>
-	    </lumen:foreach>
-    </lumennote:list>
+<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList" extends="lumennote:list">
+    <lumen:set attribute="header">
+    	<ui:block class="listHeader">
+    		<lumen:set attribute="right">
+				<ui:button label="Create a note" press="{!c.createNote}" />
+    		</lumen:set>
+    		 <ui:inputSearch placeholder="Search Notes..." class="searchbox"/>
+    	</ui:block>
+	</lumen:set>
+	<lumen:foreach items="{!m.notes}" var="note">
+        <lumennote:listRow>
+        	<lumen:set attribute="right">timestamp</lumen:set>
+        	<lumen:set attribute="desc">You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are.</lumen:set>
+        	{!note.title}
+        </lumennote:listRow>
+    </lumen:foreach>
 </lumen:component>
