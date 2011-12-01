@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 import com.j256.ormlite.jdbc.JdbcPooledConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.support.DatabaseConnection;
 import com.j256.ormlite.table.TableUtils;
 
 public class DataStore {
@@ -37,11 +36,6 @@ public class DataStore {
 	}
 	
 	public ConnectionSource getConnectionSource() throws SQLException {
-		if (connectionSource == null) {
-			// create a connection source to our database
-			connectionSource = new JdbcPooledConnectionSource(databaseUrl);
-		}
-
 		return connectionSource;
 	}
 
