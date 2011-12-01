@@ -2,7 +2,7 @@
     <lumen:set attribute="header">
     	<ui:block class="listHeader">
     		<lumen:set attribute="right">
-				<ui:button label="Create a note" press="{!c.createNote}" />
+				<ui:button label="New Note" press="{!c.createNote}" />
     		</lumen:set>
     		 <ui:inputSearch placeholder="Search Notes..." class="searchbox"/>
     	</ui:block>
