@@ -1,7 +1,14 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel">
-	<ol>
+<lumen:component model="java://org.lumenframework.demo.notes.models.NoteList">
+    <header>
+		<ui:button label="Create a note" press="{!c.createNote}" />
+    </header>
+    <lumennote:list>
 		<lumen:foreach items="{!m.notes}" var="note">
-            <ul>{!note.title}</ul>
+	        <lumennote:listRow>
+	        	<lumen:set attribute="right">timestamp</lumen:set>
+	        	<lumen:set attribute="desc">You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are.</lumen:set>
+	        	{!note.title}
+	        </lumennote:listRow>
 	    </lumen:foreach>
-    </ol>
+    </lumennote:list>
 </lumen:component>
