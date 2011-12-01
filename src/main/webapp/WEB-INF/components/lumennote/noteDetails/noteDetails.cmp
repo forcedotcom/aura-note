@@ -1,0 +1,4 @@
+<lumen:component>
+	<lumen:handler event="lumennote:openNote" action="{!c.openNote}" />
+	<div lumen:id="notes"/>
+</lumen:component>
