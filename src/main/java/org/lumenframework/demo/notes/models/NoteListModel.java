@@ -18,9 +18,11 @@ public class NoteListModel {
 		ConnectionSource connection = HelloNotes.getConnection();
 		Dao<Note, Long> noteDao = DaoManager.createDao(connection, Note.class);
 		
-		notes = noteDao.queryForAll();
-	
-		notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
+		notes = noteDao.queryBuilder().orderBy("createdOn", false).query();
+			
+		if (notes.isEmpty()) {
+			notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
+		}
 	}
 	
 	@LumenEnabled

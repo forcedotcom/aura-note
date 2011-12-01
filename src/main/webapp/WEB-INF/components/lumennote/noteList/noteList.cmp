@@ -9,7 +9,7 @@
 	</lumen:set>
 	<lumen:foreach items="{!m.notes}" var="note">
         <lumennote:listRow>
-        	<lumen:set attribute="right">timestamp</lumen:set>
+        	<lumen:set attribute="right"><ui:outputDateTime value="{!note.createdOnAsCalendar}"/></lumen:set>
         	<lumen:set attribute="desc">You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are.</lumen:set>
         	{!note.title}
         </lumennote:listRow>

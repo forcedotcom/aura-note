@@ -1,4 +1,5 @@
 <lumen:component>
+	<lumen:handler event="lumennote:openNote" action="{!c.openNote}" />
 	<article>
 		Your note body(s) will show up here soon!
 	</article>

@@ -1,8 +1,7 @@
 package org.lumenframework.demo.notes;
 
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -24,7 +23,7 @@ public class HelloNotes {
 
 		// create an instance of Note
 		Note note = new Note();
-		note.setTitle("yo " + DateFormat.getDateTimeInstance().format(new Date()));
+		note.setTitle("yo " + Calendar.getInstance().getTimeInMillis());
 		note.setBody("this is my body");
 
 		// persist the note object to the database
