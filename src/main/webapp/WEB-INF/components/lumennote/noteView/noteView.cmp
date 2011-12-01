@@ -1,0 +1,11 @@
+<lumen:component extends="lumennote:note">
+    <lumen:set attribute="buttons">
+    	<ui:button label="Edit" press="{!c.edit}"/>
+	</lumen:set>
+	<lumen:set attribute="title">
+		{!v.note.title}
+	</lumen:set>
+	<lumen:set attribute="body">
+		<lumen:unescapedHtml value="{!v.note==null?'':v.note.body}"/>
+	</lumen:set>
+</lumen:component>

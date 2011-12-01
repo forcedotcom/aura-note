@@ -1,4 +1,7 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel" controller="java://org.lumenframework.demo.notes.controllers.NoteListController" extends="lumennote:list">
+<lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel" extends="lumennote:list">
+
+	<lumen:handler event="lumennote:noteAdded" action="{!c.noteAdded}" />
+	
     <lumen:set attribute="header">
     	<ui:block class="listHeader">
     		<lumen:set attribute="right">
@@ -7,7 +10,9 @@
     		 <ui:inputSearch placeholder="Search Notes..." class="searchbox"/>
     	</ui:block>
 	</lumen:set>
-	<lumen:foreach items="{!m.notes}" var="note">
-       	<lumennote:noteListRow note="{!note}"/>
-    </lumen:foreach>
+	<span lumen:id="list">
+		<lumen:foreach items="{!m.notes}" var="note">
+	       	<lumennote:noteListRow note="{!note}"/>
+	    </lumen:foreach>
+    </span>
 </lumen:component>

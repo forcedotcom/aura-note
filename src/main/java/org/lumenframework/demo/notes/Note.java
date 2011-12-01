@@ -45,6 +45,10 @@ public class Note implements JsonSerializable {
 		this.body = body;
 	}
 	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public Calendar getCreatedOnAsCalendar() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(createdOn);

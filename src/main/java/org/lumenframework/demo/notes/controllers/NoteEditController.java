@@ -11,15 +11,25 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 
 @Controller
-public class NoteListController {
+public class NoteEditController {
 	@LumenEnabled
-    public static void createNoteAction(@Key("title")String title, @Key("body")String body) throws Exception {
+    public static Note saveNote(@Key("id")Long id, @Key("title")String title, @Key("body")String body) throws Exception {
 		Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
 
-		Note note = new Note();
+		Note note;
+		if(id != null){
+			note = noteDao.queryForId(id);
+		}else{
+			note = new Note();
+		}
 		note.setTitle(title);
 		note.setBody(body);
 
-		noteDao.create(note);
+		if(id != null){
+			noteDao.update(note);
+		}else{
+			noteDao.create(note);
+		}
+		return note;
 	}
 }

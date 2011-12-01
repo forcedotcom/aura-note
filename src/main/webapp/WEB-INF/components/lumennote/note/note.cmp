@@ -1,8 +1,14 @@
-<lumen:component>
+<lumen:component abstract="true" provider="js://lumennote.note">
+	<lumen:attribute name="mode" type="String" default="view"/>
     <lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
-    <ui:button label="Edit" press="{!c.edit}"/>
+    
+    <lumen:attribute name="buttons" type="Lumen.Component[]"/>
+    <lumen:attribute name="title" type="Lumen.Component[]"/>
+    
+    {!v.buttons}
+    
 	<article>
-	    <h1>{!v.note.title}</h1>
-	    <div><lumen:unescapedHtml value="{!v.note.body}"/></div>
+		<h1>Title: {!v.title}</h1>
+	    <div>{!v.body}</div>
     </article>
 </lumen:component>
