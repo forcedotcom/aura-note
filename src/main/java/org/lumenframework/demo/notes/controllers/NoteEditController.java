@@ -18,6 +18,7 @@ import com.j256.ormlite.dao.DaoManager;
 
 @Controller
 public class NoteEditController {
+	
 	@LumenEnabled
     public static Component saveNote(@Key("id")Long id, @Key("title")String title, @Key("body")String body, @Key("sort")String sort) throws Exception {
 		Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
