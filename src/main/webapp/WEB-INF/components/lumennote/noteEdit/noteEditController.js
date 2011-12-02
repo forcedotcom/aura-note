@@ -21,7 +21,8 @@
 		action.setParams({
 			title : note.get("title"),
 			body : note.get("body"),
-			id : note.get("id")
+			id : note.get("id"),
+			sort : component.get("v.sort")
 		});
 		
 		action.setCallback(this, function(a){

@@ -1,6 +1,7 @@
 <lumen:component abstract="true" provider="js://lumennote.note">
 	<lumen:attribute name="mode" type="String" default="view"/>
     <lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
+    <lumen:attribute name="sort" type="String"/>
     
     <lumen:attribute name="buttons" type="Lumen.Component[]"/>
     <lumen:attribute name="title" type="Lumen.Component[]"/>
