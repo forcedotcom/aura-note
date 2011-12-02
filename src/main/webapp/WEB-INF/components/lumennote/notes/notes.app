@@ -7,7 +7,7 @@
         <lumen:set attribute="left">
             <lumennote:sidebar lumen:id="sidebar"/>
         </lumen:set>
-        <lumennote:noteDetails lumen:id="details"/>
+        <lumennote:details lumen:id="details"/>
     </ui:block>
   </div>
 </lumen:application>
