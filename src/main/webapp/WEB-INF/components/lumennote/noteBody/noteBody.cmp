@@ -1,0 +1,5 @@
+<lumen:component>
+	<lumen:attribute name="value" type="String"/>
+	<lumen:attribute name="maxHeight" type="String"/>
+	<iframe src="about:blank" lumen:id="iframe" scrolling="no"></iframe>
+</lumen:component>
