@@ -77,7 +77,7 @@ public class Note implements JsonSerializable {
 	@DatabaseField
 	private String title;
 
-	@DatabaseField
+	@DatabaseField(dataType=DataType.LONG_STRING)
 	private String body;
 
 	@DatabaseField(dataType=DataType.DATE)
