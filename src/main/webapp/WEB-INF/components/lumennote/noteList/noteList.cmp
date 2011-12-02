@@ -1,6 +1,4 @@
 <lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel" extends="lumennote:list">
-
-	<lumen:handler event="lumennote:noteAdded" action="{!c.noteAdded}" />
 	
     <lumen:set attribute="header">
     	<ui:block class="listHeader">
