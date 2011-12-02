@@ -1,7 +1,9 @@
 <lumen:component extends="lumennote:listRow">
     <lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
 	<lumen:set attribute="right"><ui:outputDateTime value="{!v.note.createdOnAsCalendar}"/></lumen:set>
-    <lumen:set attribute="desc">{!v.note.body}</lumen:set>
+    <lumen:set attribute="desc">
+    	<lumen:unescapedHtml value="{!v.note.body}"/>
+    </lumen:set>
     <lumen:set attribute="onclick" value="{!c.openNote}"/>
     {!v.note.title}
 </lumen:component>
