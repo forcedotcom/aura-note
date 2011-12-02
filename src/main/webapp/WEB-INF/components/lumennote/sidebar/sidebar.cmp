@@ -1,0 +1,29 @@
+<lumen:component extends="lumennote:list">
+	<lumen:attribute name="sort" type="String" default="createdOn.desc"/>
+  	<lumen:handler event="lumennote:noteAdded" action="{!c.noteAdded}" />
+	
+    <lumen:set attribute="header">
+    	<ui:block class="listHeader">
+    		<lumen:set attribute="right">
+				<ui:button label="New Note" press="{!c.createNote}" />
+    		</lumen:set>
+    		 <ui:inputSearch placeholder="Search Notes..." class="searchbox"/>
+    	</ui:block>
+    	<ui:block class="listHeader">
+    		 Sort :
+    		 <select onchange="{!c.sort}" lumen:id="sort">
+    		 	<optgroup label="Create Date">
+	    		 	<option value="createdOn.desc" selected="{!v.createdOn.desc == 'createdOn.desc'}">Newest First</option>
+	    		 	<option value="createdOn.asc" selected="{!v.createdOn.asc == 'createdOn.asc'}">Oldest First</option>
+    		 	</optgroup>
+    		 	<optgroup label="Alphabetical">
+	    		 	<option value="title.asc" selected="{!v.createdOn.desc == 'titleOn.asc'}">A First</option>
+	    		 	<option value="title.desc" selected="{!v.createdOn.desc == 'titleOn.desc'}">Z First</option>
+    		 	</optgroup>
+    		 </select>
+    	</ui:block>
+	</lumen:set>
+	<span lumen:id="list">
+		<lumennote:noteList  sort="{!v.sort}"/>
+	</span>
+</lumen:component>
