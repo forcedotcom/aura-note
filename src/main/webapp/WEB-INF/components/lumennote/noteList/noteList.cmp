@@ -22,9 +22,7 @@
     		 </select>
     	</ui:block>
 	</lumen:set>
-	<span lumen:id="list">
-		<lumen:foreach items="{!m.notes}" var="note">
-	       	<lumennote:noteListRow note="{!note}"/>
-	    </lumen:foreach>
-    </span>
+	<lumen:foreach items="{!m.notes}" var="note">
+       	<lumennote:noteListRow note="{!note}"/>
+    </lumen:foreach>
 </lumen:component>
