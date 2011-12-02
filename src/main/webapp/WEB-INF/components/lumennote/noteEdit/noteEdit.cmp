@@ -1,4 +1,5 @@
 <lumen:component extends="lumennote:note" controller="java://org.lumenframework.demo.notes.controllers.NoteEditController" >
+	<lumen:set attribute="class" value="edit"/>
     <lumen:set attribute="buttons">
     	<ui:button label="Cancel" press="{!c.cancel}"/>
     	<ui:button label="Save" press="{!c.save}"/>
@@ -7,6 +8,6 @@
 		<ui:inputText value="{!v.note.title}"/>	
 	</lumen:set>
 	<lumen:set attribute="body">
-		<ui:inputText value="{!v.note.body}"/>	
+		<ui:inputTextArea value="{!v.note.body}"/>	
 	</lumen:set>
 </lumen:component>

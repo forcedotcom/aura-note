@@ -2,14 +2,16 @@
 	<lumen:attribute name="mode" type="String" default="view"/>
     <lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
     <lumen:attribute name="sort" type="String"/>
+    <lumen:attribute name="class" type="String" default="view"/>
     
     <lumen:attribute name="buttons" type="Lumen.Component[]"/>
     <lumen:attribute name="title" type="Lumen.Component[]"/>
     
-    {!v.buttons}
-    
-	<article>
-		<h1>Title: {!v.title}</h1>
-	    <div>{!v.body}</div>
+	<article class="{!v.class}">
+		<ui:block class="header">
+			<h2 class="noteTitle">{!v.title}</h2>
+			<lumen:set attribute="right">{!v.buttons}</lumen:set>
+	    </ui:block>
+	    <p class="noteBody">{!v.body}</p>
     </article>
 </lumen:component>

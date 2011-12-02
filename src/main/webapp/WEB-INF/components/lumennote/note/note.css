@@ -1,0 +1,25 @@
+.lumennoteNote{
+}
+.lumennoteNote > .header{
+	background-color: #f6f6f6;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	padding: 5px;
+	font-weight: bold;	
+	font-size: 16px;
+}
+.lumennoteNote > .header h2{
+	padding: 5px;
+}
+.lumennoteNote .noteBody{
+	padding:10px;
+}
+.lumennoteNote.edit input,
+.lumennoteNote.edit textarea{
+	-webkit-appearance: none;
+	font: inherit;
+	color: inherit;
+	border: 1px dashed #ccc;
+	border-radius: 5px;
+	padding: 3px;
+	background-color: transparent;
+}
