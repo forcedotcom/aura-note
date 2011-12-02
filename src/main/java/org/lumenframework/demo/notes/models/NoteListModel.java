@@ -43,6 +43,7 @@ public class NoteListModel {
 		SortDir sortDir = SortDir.valueOf(sortSplit.get(1));
 		
 		String query = (String)cmp.getAttributes().getValue("query");
+		QueryBuilder<Note, Long> qb = noteDao.queryBuilder();
 		if(!TextUtil.isNullEmptyOrWhitespace(query)){
 			List<Long> ids = Lists.newArrayList();
 			GenericRawResults<String[]> searchResults = noteDao.queryRaw("SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
@@ -53,16 +54,16 @@ public class NoteListModel {
 			}finally{
 				searchResults.close();
 			}
-			QueryBuilder<Note, Long> qb = noteDao.queryBuilder();
+			
 			qb.setWhere(qb.where().in("id", ids));
-			qb.orderBy(sortCol.name(), sortDir == SortDir.asc);
-			notes = qb.query();
-		}else{
-			notes = noteDao.queryBuilder().orderBy(sortCol.name(), sortDir == SortDir.asc).query();
+		}
+		qb.orderBy(sortCol.name(), sortDir == SortDir.asc);
+		qb.limit(10L);
+		
+		notes = qb.query();
 				
-			if (notes.isEmpty()) {
-				notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
-			}
+		if (notes.isEmpty()) {
+			notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
 		}
 	}
 	
