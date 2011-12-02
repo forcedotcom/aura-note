@@ -2,6 +2,8 @@ package org.lumenframework.demo.notes.models;
 
 import java.util.List;
 
+import lumen.Lumen;
+import lumen.instance.BaseComponent;
 import lumen.system.Annotations.LumenEnabled;
 import lumen.system.Annotations.Model;
 
@@ -18,6 +20,10 @@ public class NoteListModel {
 	
 	public NoteListModel() throws Exception {
 		Dao<Note, Long> noteDao = dataStore.getNoteDao();
+		
+		BaseComponent<?,?> cmp = Lumen.getContextService().getCurrentContext().getCurrentComponent();
+		String sort = (String)cmp.getAttributes().getValue("sort");
+		System.out.println(sort);
 		
 		notes = noteDao.queryBuilder().orderBy("createdOn", false).query();
 			
