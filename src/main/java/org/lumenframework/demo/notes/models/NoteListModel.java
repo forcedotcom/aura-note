@@ -11,7 +11,10 @@ import lumen.util.TextUtil;
 import org.lumenframework.demo.notes.DataStore;
 import org.lumenframework.demo.notes.Note;
 
+import com.google.common.collect.Lists;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.GenericRawResults;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 enum SortCol{
 	title,
@@ -27,22 +30,39 @@ enum SortDir{
 public class NoteListModel {
 	
 	private static DataStore dataStore = DataStore.getInstance();
-	private final List<Note> notes;
+	private  List<Note> notes;
 	
 	public NoteListModel() throws Exception {
 		Dao<Note, Long> noteDao = dataStore.getNoteDao();
 		
 		BaseComponent<?,?> cmp = Lumen.getContextService().getCurrentContext().getCurrentComponent();
+		
+
 		List<String> sortSplit = TextUtil.splitSimple(".",(String)cmp.getAttributes().getValue("sort"));
 		SortCol sortCol = SortCol.valueOf(sortSplit.get(0));
 		SortDir sortDir = SortDir.valueOf(sortSplit.get(1));
 		
-		
-		
-		notes = noteDao.queryBuilder().orderBy(sortCol.name(), sortDir == SortDir.asc).query();
-			
-		if (notes.isEmpty()) {
-			notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
+		String query = (String)cmp.getAttributes().getValue("query");
+		if(!TextUtil.isNullEmptyOrWhitespace(query)){
+			List<Long> ids = Lists.newArrayList();
+			GenericRawResults<String[]> searchResults = noteDao.queryRaw("SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
+			try{
+				for(String[] row : searchResults){
+					ids.add(Long.parseLong(TextUtil.replaceAllRegex(row[0], "[()]", "")));
+				}
+			}finally{
+				searchResults.close();
+			}
+			QueryBuilder<Note, Long> qb = noteDao.queryBuilder();
+			qb.setWhere(qb.where().in("id", ids));
+			qb.orderBy(sortCol.name(), sortDir == SortDir.asc);
+			notes = qb.query();
+		}else{
+			notes = noteDao.queryBuilder().orderBy(sortCol.name(), sortDir == SortDir.asc).query();
+				
+			if (notes.isEmpty()) {
+				notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
+			}
 		}
 	}
 	

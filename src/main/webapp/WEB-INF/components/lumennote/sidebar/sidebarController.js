@@ -31,5 +31,26 @@
 		var noteList = $L.componentService.newComponent(event.getParam("noteList"));
 		list.destroy();
 		list.setValue([noteList]);
+	},
+	
+	search : function(component, event){
+		var sort = component.find("sort").getElement();
+		var action = $L.get("c.lumen://ComponentController.getComponent");
+		
+		action.setParams({
+			name : "lumennote:noteList",
+		    attributes : {
+		    	sort : sort.value,
+		    	query : event.getParam("value")
+		    }
+		});
+		
+		action.setCallback(this, function(a){
+			var event = $L.get("e.lumennote:noteAdded");
+			event.setParams({noteList : a.getReturnValue()});
+			event.fire();
+		});
+		
+		this.runAfter(action);
 	}
 })

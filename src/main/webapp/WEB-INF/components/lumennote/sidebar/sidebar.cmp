@@ -7,7 +7,7 @@
     		<lumen:set attribute="right">
 				<ui:button label="New Note" press="{!c.createNote}" />
     		</lumen:set>
-    		 <ui:inputSearch placeholder="Search Notes..." class="searchbox"/>
+    		 <ui:inputSearch placeholder="Search Notes..." class="searchbox" submitSearch="{!c.search}" autoSubmit="true"/>
     	</ui:block>
     	<ui:block class="listHeader">
     		 Sort :
