@@ -33,7 +33,7 @@
 			event.fire();
 			
 			var event = $L.get("e.lumennote:noteAdded");
-			event.setParams({note : a.getReturnValue()});
+			event.setParams({noteList : a.getReturnValue()});
 			event.fire();
 		});
 		

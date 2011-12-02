@@ -1,5 +1,8 @@
 package org.lumenframework.demo.notes.controllers;
 
+import lumen.Lumen;
+import lumen.def.ComponentDef;
+import lumen.instance.Component;
 import lumen.system.Annotations.Controller;
 import lumen.system.Annotations.Key;
 import lumen.system.Annotations.LumenEnabled;
@@ -13,7 +16,7 @@ import com.j256.ormlite.dao.DaoManager;
 @Controller
 public class NoteEditController {
 	@LumenEnabled
-    public static Note saveNote(@Key("id")Long id, @Key("title")String title, @Key("body")String body) throws Exception {
+    public static Component saveNote(@Key("id")Long id, @Key("title")String title, @Key("body")String body) throws Exception {
 		Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
 
 		Note note;
@@ -30,6 +33,6 @@ public class NoteEditController {
 		}else{
 			noteDao.create(note);
 		}
-		return note;
+		return Lumen.getInstanceService().getInstance("lumennote:noteList", ComponentDef.class);
 	}
 }
