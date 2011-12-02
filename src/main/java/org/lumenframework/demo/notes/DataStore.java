@@ -1,9 +1,13 @@
 package org.lumenframework.demo.notes;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+
+import org.h2.fulltext.FullText;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.jdbc.JdbcDatabaseConnection;
 import com.j256.ormlite.jdbc.JdbcPooledConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
@@ -35,6 +39,20 @@ public class DataStore {
 	private void updateDatabase() throws SQLException{
 		ConnectionSource connectionSource = getConnectionSource();
 		TableUtils.createTableIfNotExists(connectionSource, Note.class);
+		
+		JdbcDatabaseConnection connection = (JdbcDatabaseConnection)connectionSource.getReadWriteConnection();
+		try{
+			Connection jdbcConnection = connection.getInternalConnection();
+			
+			try{
+				FullText.createIndex(jdbcConnection, "PUBLIC", "NOTE", "TITLE,BODY");
+			}catch(Exception e){
+				//Probably already exists.
+			}
+			
+		}finally{
+			connectionSource.releaseConnection(connection);
+		}
 	}
 	
 	public ConnectionSource getConnectionSource() throws SQLException {
@@ -42,7 +60,13 @@ public class DataStore {
 	}
 	
 	public Dao<Note, Long> getNoteDao() throws SQLException{
+		
 		return DaoManager.createDao(getConnectionSource(), Note.class);
+	}
+	
+	public Connection getConnection() throws SQLException{
+		ConnectionSource connectionSource = getConnectionSource();
+		return ((JdbcDatabaseConnection)connectionSource.getReadWriteConnection()).getInternalConnection();
 	}
 
 }
