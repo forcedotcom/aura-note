@@ -15,7 +15,6 @@
 	save : function(component){
 		var action = component.get("c.saveNote");
 		var note = component.getValue("v.note");
-		force.log(note);
 		note.getValue("title").commit();
 		note.getValue("body").commit();
 		
