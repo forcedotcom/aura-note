@@ -1,5 +1,3 @@
 <lumen:component extensible="true">
-    <lumen:attribute name="header" type="Lumen.Component[]"/>
-	<header>{!v.header}</header>
 	<ul>{!v.body}</ul>
 </lumen:component>

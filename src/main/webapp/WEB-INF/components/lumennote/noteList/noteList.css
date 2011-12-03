@@ -1,9 +1,0 @@
-header.lumennoteList{
-	background-color: #fff;
-	border-bottom: 1px solid rgba(0,0,0,.2);
-}
-header.lumennoteList input[type="search"]{
-	font-size: 16px;
-	width: 100%;
-    border:1px solid #a0a8ab;
-}

@@ -1,4 +1,4 @@
-body, html{height: 100%;}
+body, html, .lumennoteNotes .wrapper > * {height: 100%;}
 body{
 	background: #666 url(/img/bg.png);
 	text-rendering: optimizeLegibility;
@@ -16,15 +16,16 @@ body{
     color: #bbb;
 }
 .lumennoteNotes .wrapper{
-	margin: 0 20px;
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 50px 20px 20px;
 	background-color: #fff;
 	border-radius: 10px;
 	-webkit-box-shadow: -2px 0 12px rgba(0,0,0,.8);
-}
-.lumennoteNotes .wrapper > .bLeft{
-	width: 320px;
-	border-right: 1px solid #666;
-	background-color: #f6f6f6;
 }
 
 /* common stuff */
