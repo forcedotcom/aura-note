@@ -39,8 +39,14 @@ public class NoteListModel {
 		
 
 		List<String> sortSplit = TextUtil.splitSimple(".",(String)cmp.getAttributes().getValue("sort"));
-		SortCol sortCol = SortCol.valueOf(sortSplit.get(0));
-		SortDir sortDir = SortDir.valueOf(sortSplit.get(1));
+		
+		SortCol sortCol = SortCol.createdOn;
+		SortDir sortDir = SortDir.desc;
+		
+		if(sortSplit != null){
+			sortCol = SortCol.valueOf(sortSplit.get(0));
+			sortDir = SortDir.valueOf(sortSplit.get(1));
+		}
 		
 		String query = (String)cmp.getAttributes().getValue("query");
 		QueryBuilder<Note, Long> qb = noteDao.queryBuilder();
