@@ -13,6 +13,25 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "note")
 public class Note implements JsonSerializable {
+	
+	@DatabaseField(generatedId = true)
+	private long id;
+
+	@DatabaseField
+	private String title;
+
+	@DatabaseField(dataType=DataType.LONG_STRING)
+	private String body;
+
+	@DatabaseField(dataType=DataType.DATE)
+	private Date createdOn;
+	
+	@DatabaseField
+	private Double latitude;
+	
+	@DatabaseField
+	private Double longitude;
+	
 	public Note() {
 		// ORMLite needs a no-arg constructor
 		this.createdOn = Calendar.getInstance().getTime();
@@ -66,20 +85,25 @@ public class Note implements JsonSerializable {
 		json.writeMapEntry("id", getId());
 		json.writeMapEntry("title", getTitle());
 		json.writeMapEntry("body", getBody());
+		json.writeMapEntry("latitude", getLatitude());
+		json.writeMapEntry("longitude", getLongitude());
 		json.writeMapEntry("createdOn", getCreatedOnAsCalendar());
 		json.writeMapEnd();
 	}
-	
 
-	@DatabaseField(generatedId = true)
-	private long id;
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
 
-	@DatabaseField
-	private String title;
+	public Double getLongitude() {
+		return longitude;
+	}
 
-	@DatabaseField(dataType=DataType.LONG_STRING)
-	private String body;
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
 
-	@DatabaseField(dataType=DataType.DATE)
-	private Date createdOn;
+	public Double getLatitude() {
+		return latitude;
+	}
 }

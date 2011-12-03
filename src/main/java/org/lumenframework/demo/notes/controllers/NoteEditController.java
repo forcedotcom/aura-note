@@ -1,5 +1,6 @@
 package org.lumenframework.demo.notes.controllers;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 import lumen.Lumen;
@@ -20,7 +21,12 @@ import com.j256.ormlite.dao.DaoManager;
 public class NoteEditController {
 	
 	@LumenEnabled
-    public static Component saveNote(@Key("id")Long id, @Key("title")String title, @Key("body")String body, @Key("sort")String sort) throws Exception {
+    public static Component saveNote(@Key("id")Long id,
+    								 @Key("title")String title,
+    								 @Key("body")String body,
+    								 @Key("sort")String sort,
+    								 @Key("latitude")BigDecimal latitude,
+    								 @Key("longitude")BigDecimal longitude) throws Exception {
 		Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
 
 		Note note;
@@ -31,6 +37,10 @@ public class NoteEditController {
 		}
 		note.setTitle(title);
 		note.setBody(body);
+		if(latitude != null && longitude != null){
+			note.setLatitude(latitude.doubleValue());
+			note.setLongitude(longitude.doubleValue());
+		}
 
 		if(id != null){
 			noteDao.update(note);

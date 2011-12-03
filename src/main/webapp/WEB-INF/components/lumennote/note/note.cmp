@@ -19,6 +19,9 @@
 	    	<li class="tag">periwinkle</li>
 	    	<li class="tag">burnt sienna</li>
 	    </ul>
+	    <lumen:renderIf isTrue="{!v.note.latitude != null}">
+	    	<img src="{!'http://maps.googleapis.com/maps/api/staticmap?center='+v.note.latitude+','+v.note.longitude+'&amp;zoom=11&amp;size=100x100&amp;sensor=false'}"/>
+	    </lumen:renderIf>
 	    <p class="noteBody">{!v.body}</p>
     </article>
 </lumen:component>

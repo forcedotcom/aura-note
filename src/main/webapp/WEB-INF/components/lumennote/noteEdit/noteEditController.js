@@ -21,6 +21,8 @@
 		action.setParams({
 			title : note.get("title"),
 			body : note.get("body"),
+			latitude : note.get("latitude"),
+			longitude : note.get("longitude"),
 			id : note.get("id"),
 			sort : component.get("v.sort")
 		});
@@ -39,5 +41,25 @@
 		});
 		
 		this.runAfter(action);
+	},
+	
+	setLocation : function(component){
+		var note = component.getValue("v.note");
+		
+		
+		var success = function(results){
+			note.getValue("latitude").setValue(results.coords.latitude);
+			note.getValue("longitude").setValue(results.coords.longitude);
+		};
+		
+		var failure = function(results){
+			force.log("failure");
+		};
+		
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(success, failure);
+		}else{
+			failure();
+		}
 	}
 })
