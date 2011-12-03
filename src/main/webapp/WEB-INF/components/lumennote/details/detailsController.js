@@ -3,7 +3,7 @@
 		var note = event.getParam("note");
 		var mode = event.getParam("mode");
 		if(mode === "new"){
-			note = $L.expressionService.create(null, {title : "", body : ""})
+			note = $L.expressionService.create(null, {title : "", body : "", latitude : null, longitude: null})
 		}
 
 		var noteView = $L.services.component.newLocalComponent({

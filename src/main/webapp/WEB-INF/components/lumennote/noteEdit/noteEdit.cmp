@@ -5,7 +5,8 @@
     	<ui:button label="Save" press="{!c.save}"/>
 	</lumen:set>
 	<lumen:set attribute="title">
-		<ui:inputText value="{!v.note.title}" lumen:id="title"/>	
+		<ui:inputText value="{!v.note.title}" lumen:id="title"/>
+		<ui:button label="Set Location" press="{!c.setLocation}"/>
 	</lumen:set>
 	<lumen:set attribute="body">
 		<ui:inputTextArea value="{!v.note.body}"/>	
