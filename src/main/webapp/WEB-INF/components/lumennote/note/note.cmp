@@ -12,7 +12,17 @@
 			<h2 class="noteTitle">{!v.title}</h2>
 			<lumen:set attribute="right">{!v.buttons}</lumen:set>
 	   </ui:block>
-	    <ul class="tags">{!v.tags}
+	    <ul class="tags">
+		    <lumen:if isTrue="{!v.note.latitude != null}">
+				<ui:button class="locationButton" iconClass="icon" press="{!c.togggleLocationImages}">
+			    	Location set: {!v.note.longitude+', '+v.note.latitude}
+			    	<a href="{!'http://maps.google.com/?q='+v.note.latitude+','+v.note.longitude}" target="_new" class="locationImages" lumen:id="locImages">
+				    	<img src="{!'http://maps.googleapis.com/maps/api/staticmap?center='+v.note.latitude+','+v.note.longitude+'&amp;zoom=11&amp;size=100x100&amp;sensor=false'}"/>
+				    	<img src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}"/>
+			    	</a>
+				</ui:button>
+		    </lumen:if>
+	    	{!v.tags}
 			 
 	    <!--
 	    	Tags: 

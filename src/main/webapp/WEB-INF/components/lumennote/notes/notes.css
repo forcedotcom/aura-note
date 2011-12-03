@@ -56,6 +56,6 @@ body{
 	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
 	color: #fff;
 }
-.lumennoteNotes .uiButton img{
+.lumennoteNotes .uiButton > img{
 	display: none;
 }

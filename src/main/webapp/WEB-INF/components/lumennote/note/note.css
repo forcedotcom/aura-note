@@ -26,6 +26,32 @@
 	background-color: #eee;
 	border-radius: 3px;
 }
+.lumennoteNote .locationButton{
+	position: relative;
+}
+.lumennoteNote .locationButton .icon{
+	display: inline-block;
+	background-image: url(/img/location.png);
+	width:9px;
+	height:13px;
+	margin-right:5px;
+}
+.lumennoteNote .locationButton > div{
+	display: inline-block;
+}
+.lumennoteNote .locationImages{
+	display: none;	
+	position: absolute;
+	top:25px;
+	right: 0;
+	background-color: #fff;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.699219) 0px 1px 3px;
+	border-radius: 5px;
+	padding: 10px;
+}
+.lumennoteNote .locationImages.show{
+	display: block;
+}
 .lumennoteNote .noteBody{
 	padding:10px;
 }
