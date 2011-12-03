@@ -1,5 +1,3 @@
-.lumennoteNote{
-}
 .lumennoteNote > .header{
 	background-color: #eee;
 	border-bottom: 1px solid #ccc;
@@ -8,9 +6,13 @@
 	font-size: 16px;
 	border-top-right-radius:  10px;
 }
-.lumennoteNote > .header h2{
-	padding: 5px;
-}/*
+.lumennoteNote .noteTitle{
+	margin: 8px;
+	padding-right:10px;
+}
+.lumennoteNote > .header .bRight{
+	padding: 2px;
+}
 .lumennoteNote .tags{
 	border-bottom: 1px solid #eee;
 	padding: 3px 10px;
@@ -24,7 +26,6 @@
 	background-color: #eee;
 	border-radius: 3px;
 }
-*/
 .lumennoteNote .noteBody{
 	padding:10px;
 }

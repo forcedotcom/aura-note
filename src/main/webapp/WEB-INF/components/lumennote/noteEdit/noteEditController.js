@@ -50,7 +50,7 @@
 		var success = function(results){
 			note.add("latitude",results.coords.latitude);
 			note.add("longitude",results.coords.longitude);
-			note.getValue("latitude").setValue(results.coords.latitude);;
+			note.getValue("latitude").setValue(results.coords.latitude);
 			note.getValue("longitude").setValue(results.coords.longitude);
 		};
 		
