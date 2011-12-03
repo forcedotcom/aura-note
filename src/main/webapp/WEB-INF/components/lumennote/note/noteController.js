@@ -12,7 +12,7 @@
 	
 	togggleLocationImages: function(component){
 		var locImages = component.find("locImages").getElement();
-		$F.util.addClass(locImages, "show");
+		$F.util.toggleClass(locImages, "show");
 		$F.log(locImages)
 	}
 })
