@@ -21,6 +21,7 @@
 	    </ul>-->
 	    <lumen:renderIf isTrue="{!v.note.latitude != null}">
 	    	<img src="{!'http://maps.googleapis.com/maps/api/staticmap?center='+v.note.latitude+','+v.note.longitude+'&amp;zoom=11&amp;size=100x100&amp;sensor=false'}"/>
+	    	<img src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}"/>
 	    </lumen:renderIf>
 	    <p class="noteBody">{!v.body}</p>
     </article>
