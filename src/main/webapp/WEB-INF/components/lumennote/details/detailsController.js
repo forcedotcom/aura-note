@@ -24,5 +24,10 @@
 		var body = content.getValue("v.body");
 		//body.destroy();
 		body.setValue(noteView);
+		
+		setTimeout(function() {
+			// Let the world know that we need resize calcs
+			$L.get("e.ui:updateSize").fire();
+		}, 400);
 	}
 })

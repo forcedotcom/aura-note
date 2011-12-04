@@ -1,8 +1,7 @@
 ({
 	afterRender : function(cmp){
-		var iframe = cmp.find("iframe").getElement();
-		iframe.style.maxHeight = cmp.get("v.maxHeight");
-		iframe.contentDocument.body.innerHTML = cmp.get("v.value");
+		var content = cmp.find("content").getElement();
+		content.style.maxHeight = cmp.get("v.maxHeight");
 		this.superAfterRender();
 	}
 })

@@ -1,0 +1,13 @@
+<lumen:component extends="lumen:template">
+	<lumen:set attribute="title" value="Lumen Notes"/>
+
+	<lumen:set attribute="extraMetaTags">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+	</lumen:set>
+	
+	<lumen:set attribute="lumenInitBlock">
+		<script>
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		</script>
+	</lumen:set>	
+</lumen:component>

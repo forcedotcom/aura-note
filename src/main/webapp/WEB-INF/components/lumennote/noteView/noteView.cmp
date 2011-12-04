@@ -1,4 +1,5 @@
 <lumen:component extends="lumennote:note">
+    <lumen:set attribute="masked" value="true"/>
     <lumen:set attribute="buttons">
     	<ui:button label="Edit" press="{!c.edit}"/>
 	</lumen:set>

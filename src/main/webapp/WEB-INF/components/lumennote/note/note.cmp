@@ -7,8 +7,9 @@
 	<lumen:attribute name="buttons" type="Lumen.Component[]" />
 	<lumen:attribute name="title" type="Lumen.Component[]" />
 	<lumen:attribute name="tags" type="Lumen.Component[]" />
+	<lumen:attribute name="masked" type="boolean" />
 
-	<article>
+	<article class="content">
 		<ui:borderLayout>
 			<lumen:set attribute="north">
 				<ui:block class="header">
@@ -40,7 +41,7 @@
 				</ul>
 			</lumen:set>
 			<ui:scroller>
-				<p class="noteBody">{!v.body}</p>
+				<div class="{!v.masked ? 'mask' : ''}">&nbsp;</div><p class="noteBody">{!v.body}</p>
 			</ui:scroller>
 		</ui:borderLayout>
 	</article>
