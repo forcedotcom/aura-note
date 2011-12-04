@@ -1,0 +1,39 @@
+<html>
+<head><title>Lumennote Web Clipper Options</title></head>
+<script type="text/javascript">
+
+// Saves options to localStorage.
+function save() {
+  var server = document.getElementById("server");
+  localStorage["server"] = server.value;
+
+  // Update status to let user know options were saved.
+  var status = document.getElementById("status");
+  status.innerHTML = "Options Saved.";
+  setTimeout(function() {
+    status.innerHTML = "";
+  }, 750);
+}
+
+// Restores select box state to saved value from localStorage.
+function restore() {
+  var server = localStorage["server"];
+  if(!server){
+    server = "http://localhost:8080/";
+  }
+  document.getElementById("server").value = server;
+}
+
+</script>
+
+<body onload="restore()">
+
+<div id="status">&nbsp;</div>
+
+Lumennote Server URL:
+<input id="server" style="width:300px"/>
+
+<br>
+<button onclick="save()">Save</button>
+</body>
+</html>  

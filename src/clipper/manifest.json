@@ -1,0 +1,10 @@
+{
+  "name": "Lumennote Web Clipper",
+  "version": "1.0",
+  "description": "Save elements of web pages to Lumen Note.",
+  "permissions": ["contextMenus","tabs","http://*/*", 
+      "https://*/*"],
+  "background_page": "background.html",
+"options_page": "options.html"
+
+}
