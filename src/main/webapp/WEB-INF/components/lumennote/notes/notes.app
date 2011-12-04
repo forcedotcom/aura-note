@@ -1,4 +1,4 @@
-<lumen:application preload="lumennote" >
+<lumen:application preload="lumennote">
   <div>
     <header>
 	    <h1>lumen:note</h1>

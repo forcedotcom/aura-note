@@ -6,3 +6,4 @@
            <lumennote:noteListRow lumen:id="row" note="{!note}"/>
     </lumen:foreach>
 </lumen:component>
+

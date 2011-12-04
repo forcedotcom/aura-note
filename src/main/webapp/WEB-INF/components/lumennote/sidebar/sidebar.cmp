@@ -1,33 +1,37 @@
 <lumen:component>
     <lumen:attribute name="sort" type="String" default="createdOn.desc"/>
       <lumen:handler event="lumennote:noteAdded" action="{!c.noteAdded}" />
-	<div>
-	    <header>
-	        <ui:block class="listHeader">
-				<ui:inputSearch placeholder="Search Notes..." class="searchbox" submitSearch="{!c.search}" autoSubmit="true"/>
-	            <lumen:set attribute="right"><ui:button lumen:id="newNote" label="New Note" press="{!c.createNote}" /></lumen:set>
-	        </ui:block>
-	    </header>
-	   	<header>
-			Sort: <select onchange="{!c.sort}" lumen:id="sort">
-				<optgroup label="Create Date">
-					<option value="createdOn.desc"
-						selected="{!v.createdOn.desc == 'createdOn.desc'}">Newest
-						First</option>
-					<option value="createdOn.asc"
-						selected="{!v.createdOn.asc == 'createdOn.asc'}">Oldest
-						First</option>
-				</optgroup>
-				<optgroup label="Alphabetical">
-					<option value="title.asc"
-						selected="{!v.createdOn.desc == 'titleOn.asc'}">A First</option>
-					<option value="title.desc"
-						selected="{!v.createdOn.desc == 'titleOn.desc'}">Z First</option>
-				</optgroup>
-			</select>
-		</header>
-	    <ul lumen:id="list">
-	        <lumennote:noteList sort="{!v.sort}"/>
-	    </ul>
-	</div>
+	<ui:borderLayout>
+		<lumen:set attribute="north">
+		    <header>
+		        <ui:block class="listHeader">
+					<ui:inputSearch placeholder="Search Notes..." class="searchbox" submitSearch="{!c.search}" autoSubmit="true"/>
+		            <lumen:set attribute="right"><ui:button lumen:id="newNote" label="New Note" press="{!c.createNote}" /></lumen:set>
+		        </ui:block>
+		    </header>
+		   	<header>
+				Sort: <select onchange="{!c.sort}" lumen:id="sort">
+					<optgroup label="Create Date">
+						<option value="createdOn.desc"
+							selected="{!v.createdOn.desc == 'createdOn.desc'}">Newest
+							First</option>
+						<option value="createdOn.asc"
+							selected="{!v.createdOn.asc == 'createdOn.asc'}">Oldest
+							First</option>
+					</optgroup>
+					<optgroup label="Alphabetical">
+						<option value="title.asc"
+							selected="{!v.createdOn.desc == 'titleOn.asc'}">A First</option>
+						<option value="title.desc"
+							selected="{!v.createdOn.desc == 'titleOn.desc'}">Z First</option>
+					</optgroup>
+				</select>
+			</header>
+		</lumen:set>
+		<ui:scroller>
+		    <ul lumen:id="list">
+		        <lumennote:noteList sort="{!v.sort}"/>
+		    </ul>
+	    </ui:scroller>
+	</ui:borderLayout>
 </lumen:component>
