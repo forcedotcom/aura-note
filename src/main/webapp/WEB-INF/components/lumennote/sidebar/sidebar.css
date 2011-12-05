@@ -2,14 +2,14 @@
     width: 320px;
     border-right: 1px solid #ccc;
 }
-.lumennoteSidebar header{
+header.lumennoteSidebar{
     border-bottom: 1px solid #ccc;
     padding: 8px;
 }
-.lumennoteSidebar header .listHeader > .bRight{
+header.lumennoteSidebar .listHeader > .bRight{
 	margin-left: 10px;
 }
-.lumennoteSidebar header input[type="search"]{
+header.lumennoteSidebar input[type="search"]{
 	font-size: 16px;
 	width: 100%;
     border:1px solid #a0a8ab;

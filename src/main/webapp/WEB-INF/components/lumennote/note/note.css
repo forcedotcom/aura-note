@@ -43,16 +43,17 @@
 	display: inline-block;
 }
 .lumennoteNote .locationImages{
-	display: none;	
-	position: absolute;
-	top:25px;
-	right: 0;
+	display: none;
 	background-color: #fff;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.699219) 0px 1px 3px;
 	border-radius: 5px;
-	padding: 10px;
+	border: 1px solid #ccc;
+	margin-top: 3px;
+	padding: 5px;
+	height: 0;
+	-webkit-transition: height 2s ease-in-out;
 }
 .lumennoteNote .locationImages.show{
+	height: 100px;
 	display: block;
 }
 .lumennoteNote .noteBody{
