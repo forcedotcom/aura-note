@@ -1,6 +1,7 @@
 .lumennoteSidebar{
     width: 320px;
     border-right: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
 }
 header.lumennoteSidebar{
     border-bottom: 1px solid #ccc;

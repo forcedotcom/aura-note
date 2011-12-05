@@ -50,10 +50,9 @@
 	margin-top: 3px;
 	padding: 5px;
 	height: 0;
-	-webkit-transition: height 2s ease-in-out;
 }
 .lumennoteNote .locationImages.show{
-	height: 100px;
+	height: auto;
 	display: block;
 }
 .lumennoteNote .noteBody{

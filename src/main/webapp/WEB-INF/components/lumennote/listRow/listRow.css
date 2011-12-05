@@ -4,6 +4,7 @@
     border-bottom: 1px solid rgba(0,0,0,.2);
     font-size: 14px;
     cursor:pointer;
+    min-height: 40px;
 }
 .lumennoteListRow:hover{
 	background-color:#eee;
