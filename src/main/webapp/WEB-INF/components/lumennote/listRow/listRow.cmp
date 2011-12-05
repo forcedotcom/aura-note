@@ -4,17 +4,13 @@
     <lumen:attribute name="left" type="Lumen.Component[]"/>
     <lumen:attribute name="right" type="Lumen.Component[]"/>
     <li onclick="{!v.onclick}">
-    	<ui:borderLayout>
-	    	<lumen:set attribute="north">
-		    	<ui:block>
-			    	<lumen:set attribute="left">{!v.left}</lumen:set>
-			    	<lumen:set attribute="right">{!v.right}</lumen:set>
-				    <h2 class="subject truncate">{!v.body}</h2>
-				</ui:block>
-			</lumen:set>
-		    <lumen:renderif isTrue="{!v.desc != null}">
-		        <p class="desc truncate">{!v.desc}</p>
-		    </lumen:renderif>
-		</ui:borderLayout>				
+    	<ui:block>
+	    	<lumen:set attribute="left">{!v.left}</lumen:set>
+	    	<lumen:set attribute="right">{!v.right}</lumen:set>
+		    <h2 class="subject truncate">{!v.body}</h2>
+		</ui:block>
+	    <lumen:renderif isTrue="{!v.desc != null}">
+	        <p class="desc truncate">{!v.desc}</p>
+	    </lumen:renderif>
 	</li>
 </lumen:component>
