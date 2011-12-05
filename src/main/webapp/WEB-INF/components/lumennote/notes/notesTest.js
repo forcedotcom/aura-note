@@ -47,8 +47,8 @@
                             var buttons = details.getSuper().get("v.buttons");
                             $F.test.assertEquals(1, buttons.length, "expected 1 button");
                             $F.test.assertEquals("Edit", buttons[0].find("div").getElement().innerText, "Edit button not displayed");
-                            $F.test.assertEquals(title, details.getElement().getElementsByClassName("noteTitle")[0].innerText, "wrong title in detail");
-                            $F.test.assertEquals(body, details.getElement().getElementsByClassName("lumennoteNoteBody")[0].contentDocument.getElementsByTagName("body")[0].innerText, "wrong body in detail");
+                            $F.test.assertEquals(title, details.getSuper().get("v.title")[0].getElement().textContent, "wrong title in detail");
+                            $F.test.assertEquals(body, details.getSuper().get("v.body")[0].find("content").getElement().innerText, "wrong body in detail");
                         }
                     );
 
@@ -58,7 +58,7 @@
                         function(){
                             var row = list.get("v.body")[0].find("row")[0].getElement();
                             $F.test.assertEquals(title, row.getElementsByClassName("subject")[0].childNodes[0].textContent, "wrong title in list");
-                            $F.test.assertEquals(body, row.getElementsByTagName("iframe")[0].contentDocument.getElementsByTagName("body")[0].innerText, "wrong body in list");
+                            $F.test.assertEquals(body, row.getElementsByClassName("lumennoteNoteBody")[0].innerText, "wrong body in list");
                         }
                     );
                 }

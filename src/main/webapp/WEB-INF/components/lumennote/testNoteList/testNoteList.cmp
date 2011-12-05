@@ -1,0 +1,6 @@
+<lumen:component model="java://org.lumenframework.demo.notes.models.TestNoteListModel">
+    <lumen:attribute name="sort" type="String" default="createdOn.desc"/>
+    <lumen:attribute name="query" type="String" default=""/>
+    <lumennote:noteList lumen:id="list" sort="{!v.sort}" query="{!v.query == '' ? m.key : v.query}"/>
+</lumen:component>
+
