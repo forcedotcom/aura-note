@@ -1,4 +1,6 @@
-<lumen:component>
+<lumen:component implements="lumennote:noteData">
 	<lumen:handler event="lumennote:openNote" action="{!c.openNote}" />
+	<lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
+    <lumen:attribute name="mode" type="String"/>
 	<div lumen:id="notes"/>
 </lumen:component>

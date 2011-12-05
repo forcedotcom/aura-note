@@ -1,0 +1,5 @@
+<lumen:interface>
+	<lumen:attribute name="url" type="String"/>
+	<lumen:attribute name="image" type="String"/>
+	<lumen:attribute name="text" type="String"/>
+</lumen:interface>
