@@ -71,7 +71,7 @@ Clipper.clipURL = function(data){
 Clipper.clipSelection = function(data){
     var selection = data.selectionText;
     chrome.windows.create({
-        url : Clipper.getServer() + "lumennote/noteCreate.app?body="+selection,
+        url : Clipper.getServer() + "lumennote/noteCreate.app?text="+selection,
         width : 640,
         height: 480
     });
