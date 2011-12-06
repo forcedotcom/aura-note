@@ -18,8 +18,11 @@ public class TestNoteListModel {
 
     public TestNoteListModel() throws Exception {
         createNote("created first", key);
+        Thread.sleep(100);
         createNote("created second", key);
+        Thread.sleep(100);
         createNote("created third", key);
+        Thread.sleep(100);
         createNote("created absolutely last", key);
     }
 

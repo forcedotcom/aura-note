@@ -13,7 +13,6 @@
             // save some refs
             var test = this;
             var list = cmp.find("sidebar").find("list");
-            var originalListLength = list.get("v.body")[0].find("row").length;
 
             // new note values
             var title = "title: " + new Date().getTime();
@@ -52,12 +51,11 @@
                         }
                     );
 
-                    // check list updated; wait for list length to grow
+                    // check list updated; wait for first list item title to match
                     $F.test.runAfterIf(
-                        function(){ return (list.get("v.body")[0].find("row").length == (originalListLength + 1)); },
+                        function(){ return list.get("v.body")[0].find("row")[0].getElement().getElementsByClassName("subject")[0].childNodes[0].textContent === title; },
                         function(){
                             var row = list.get("v.body")[0].find("row")[0].getElement();
-                            $F.test.assertEquals(title, row.getElementsByClassName("subject")[0].childNodes[0].textContent, "wrong title in list");
                             $F.test.assertEquals(body, row.getElementsByClassName("lumennoteNoteBody")[0].innerText, "wrong body in list");
                         }
                     );
