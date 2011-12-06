@@ -1,20 +1,24 @@
 .lumennoteSidebar{
-    width: 320px;
-    border-right: 1px solid #ccc;
-    -webkit-box-sizing: border-box;
+    width: 300px;
+	color: #fff;
+	margin-left:10px;
 }
-header.lumennoteSidebar{
-    border-bottom: 1px solid #ccc;
+.lumennoteSidebar .header{
     padding: 8px;
+    font-weight: bold;
 }
-header.lumennoteSidebar .listHeader > .bRight{
+.lumennoteSidebar .header > .bRight{
 	margin-left: 10px;
 }
-header.lumennoteSidebar input[type="search"]{
-	font-size: 16px;
-	width: 100%;
-    border:1px solid #a0a8ab;
+.lumennoteSidebar .scrollWrapper{
+    border-radius: 5px;
+	-webkit-box-shadow: inset 0px 1px 5px rgba(0, 0, 0, .7);
+	background-color: rgba(0,0,0,.2);
 }
-.lumennoteSidebar ul{
-	background-color: #f6f6f6;
+.lumennoteSidebar .scrollWrapper header{
+	margin: 10px;
+}
+.lumennoteSidebar .scrollWrapper header input[type="search"]{
+	font-size: 18px;
+	width: 100%;
 }

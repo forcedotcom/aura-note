@@ -2,7 +2,7 @@
 	<lumen:set attribute="class" value="edit"/>
     <lumen:set attribute="buttons">
     	<ui:button label="Cancel" press="{!c.cancel}"/>
-    	<ui:button label="Save" press="{!c.save}"/>
+    	<ui:button label="Save" press="{!c.save}" class="preferred"/>
 	</lumen:set>
 	<lumen:set attribute="title">
 		<ui:inputText value="{!v.note.title}" lumen:id="title" placeholder="Note Title"/>

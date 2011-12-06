@@ -1,19 +1,29 @@
+@font-face {
+  font-family: 'MyriadPro';
+  src: url("/css/MyriadPro-Regular.otf") format('opentype');
+}
+@font-face {
+  font-family: 'MyriadProBold';
+  src: url("/css/MyriadPro-Bold.otf") format('opentype');
+}
+
 body, html, .lumennoteNotes .wrapper > * {height: 100%;}
 body{
 	background: #666 url(/img/bg.png);
 	text-rendering: optimizeLegibility;
 	font-size: 15px;
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	overflow: hidden;
 	color: #5C676B;
 }
 .lumennoteNotes > header{
-	padding: 10px 30px;
+	padding: 10px 20px;
 }
 .lumennoteNotes > header h1{
-	font-size: 30px;
+	font-size: 35px;
 	text-shadow: rgba(0,0,0,0.3) -1px 0, rgba(0,0,0,0.2) 0 -1px, rgba(255,255,255,0.2) 0 1px, rgba(0,0,0,0.2) -1px -2px;
-    color: #bbb;
+    color: #FFAD00;
+    font-family: 'MyriadPro', Arial, Helvetica, sans-serif;
 }
 .lumennoteNotes .wrapper{
 	position: absolute;
@@ -22,10 +32,7 @@ body{
 	left: 0;
 	right: 0;
 	bottom: 0;
-	margin: 50px 20px 20px;
-	background-color: #fff;
-	border-radius: 10px;
-	-webkit-box-shadow: -2px 0 12px rgba(0,0,0,.8);
+	margin: 50px 0 0;
 }
 
 /* common stuff */
