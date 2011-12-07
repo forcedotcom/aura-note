@@ -5,16 +5,17 @@
 	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.8);
 }
 .lumennoteNote > .header{
-	background-color: #eee;
-	border-bottom: 1px solid #ccc;
+	background-color: #028e9b;
 	padding: 5px;
 	font-weight: bold;	
 	font-size: 16px;
 	border-radius:  10px;
+	-webkit-box-shadow: 2px 0 5px rgba(0,0,0,.8);
 }
 .lumennoteNote .noteTitle{
 	margin: 8px;
 	padding-right:10px;
+	color: #fff;
 }
 .lumennoteNote > .header .bRight{
 	padding: 2px;
