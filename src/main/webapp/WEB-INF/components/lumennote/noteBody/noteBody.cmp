@@ -2,6 +2,6 @@
 	<lumen:attribute name="value" type="String"/>
 	<lumen:attribute name="maxHeight" type="String"/>
 	<div lumen:id="content">
-		<lumen:unescapedHtml value="{!v.value}"/>
+		<lumen:unescapedHtml value="{!v.value ? v.value : ''}"/>
 	</div>
 </lumen:component>
