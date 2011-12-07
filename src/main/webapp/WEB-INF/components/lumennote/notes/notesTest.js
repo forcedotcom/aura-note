@@ -29,7 +29,7 @@
                 function(){ return buttons[0].getElement() !== null; },
                 function(){
                     // check the right buttons are displayed
-                    $F.test.assertEquals(2, buttons.length, "expected 2 buttons");
+                    $F.test.assertEquals(2, buttons.length, "expected cancel and save");
                     $F.test.assertEquals("Cancel", buttons[0].find("div").getElement().innerText, "Cancel button not first");
                     $F.test.assertEquals("Save", buttons[1].find("div").getElement().innerText, "Save button not second");
 
@@ -44,8 +44,9 @@
                         function(){
                             var details = notesCmp.get("v.body")[0];
                             var buttons = details.getSuper().get("v.buttons");
-                            $F.test.assertEquals(1, buttons.length, "expected 1 button");
+                            $F.test.assertEquals(2, buttons.length, "expected edit and delete");
                             $F.test.assertEquals("Edit", buttons[0].find("div").getElement().innerText, "Edit button not displayed");
+                            $F.test.assertEquals("Delete", buttons[1].find("div").getElement().innerText, "Delete button not displayed");
                             $F.test.assertEquals(title, details.getSuper().get("v.title")[0].getElement().textContent, "wrong title in detail");
                             $F.test.assertEquals(body, details.getSuper().get("v.body")[0].find("content").getElement().innerText, "wrong body in detail");
                         }
@@ -53,10 +54,11 @@
 
                     // check list updated; wait for first list item title to match
                     $F.test.runAfterIf(
-                        function(){ return list.get("v.body")[0].find("row")[0].getElement().getElementsByClassName("subject")[0].childNodes[0].textContent === title; },
+                        function(){ var row = list.get("v.body")[0].find("row");  row = row[0] || row; return row && row.getElement().getElementsByClassName("subject")[0].childNodes[0].textContent === title; },
                         function(){
-                            var row = list.get("v.body")[0].find("row")[0].getElement();
-                            $F.test.assertEquals(body, row.getElementsByClassName("lumennoteNoteBody")[0].innerText, "wrong body in list");
+                            var row = list.get("v.body")[0].find("row");
+                            row = row[0] || row;
+                            $F.test.assertEquals(body, row.getElement().getElementsByClassName("lumennoteNoteBody")[0].innerText, "wrong body in list");
                         }
                     );
                 }
