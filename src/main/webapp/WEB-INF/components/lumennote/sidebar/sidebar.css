@@ -11,11 +11,6 @@
 .lumennoteSidebar .header > .bRight{
 	margin-left: 10px;
 }
-.lumennoteSidebar .scrollWrapper{
-    border-radius: 5px;
-	-webkit-box-shadow: inset 0px 1px 5px rgba(0, 0, 0, .7);
-	background-color: rgba(0,0,0,.2);
-}
 .lumennoteSidebar .scrollWrapper header{
 	margin: 10px;
 }

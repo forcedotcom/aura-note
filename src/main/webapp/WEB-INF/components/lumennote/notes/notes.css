@@ -34,35 +34,15 @@ body{
 	bottom: 0;
 	margin: 50px 0 0;
 }
+.lumennoteNotes .lumennoteSidebar .scrollWrapper{
+    border-radius: 5px;
+	-webkit-box-shadow: inset 0px 1px 5px rgba(0, 0, 0, .7);
+	background-color: rgba(0,0,0,.2);
+}
 
 /* common stuff */
 .lumennoteNotes .truncate{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-}
-/* ui:button.css */
-.lumennoteNotes .uiButton{
-	font-weight: bold;
-	font-size: 13px;
-    margin: 2px;
-    padding: 4px 6px;
-    text-decoration:none;
-    text-align:center;
-    border-radius:4px;
-    border:0;
-    border-top:1px solid rgba(255,255,255,.45);     
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F9), to(#DDDFE1));
-	text-shadow: white 0px 1px 1px;	
-	-webkit-box-shadow: rgba(0, 0, 0, 0.699219) 0px 1px 3px;
-}
-.lumennoteNotes .uiButton:hover{
-	background: #757D8A -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7F8792), to(#535B68));
-    border:0;
-    border-top:1px solid rgba(255,255,255,.45);     
-	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
-	color: #fff;
-}
-.lumennoteNotes .uiButton > img{
-	display: none;
 }

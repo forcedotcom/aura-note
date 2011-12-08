@@ -1,4 +1,4 @@
-<lumen:component extends="lumen:template">
+<lumen:component extends="lumen:template" theme="templateCss://lumennote.template">
 	<lumen:set attribute="title" value="Lumen Notes"/>
 
 	<lumen:set attribute="extraMetaTags">

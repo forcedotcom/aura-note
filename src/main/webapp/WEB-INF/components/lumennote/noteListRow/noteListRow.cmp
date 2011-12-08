@@ -5,6 +5,6 @@
 		<lumen:unescapedHtml value="{!v.note.body}"/>
     </lumen:set>
     <lumen:set attribute="onclick" value="{!c.openNote}"/>
-    <lumen:set attribute="right"><ui:outputDateTime value="{!v.note.createdOnAsCalendar}" format="HH:mm a"/></lumen:set>
+    <lumen:set attribute="right"><ui:outputDateTime value="{!v.note.createdOnAsCalendar}" format="h:mm a"/></lumen:set>
     {!v.note.title}
 </lumen:component>
