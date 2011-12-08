@@ -21,17 +21,7 @@
 	padding: 2px;
 }
 .lumennoteNote .tags{
-	border-bottom: 1px solid #eee;
-	padding: 3px 10px;
-	font-size: 12px;
-}
-.lumennoteNote .tags .tag{
-	display: inline-block;
-	padding: 2px;
-	margin: 2px;
-	border: 1px solid #ddd;
-	background-color: #eee;
-	border-radius: 3px;
+	padding: 10px;
 }
 .lumennoteNote .locationButton{
 	position: relative;
