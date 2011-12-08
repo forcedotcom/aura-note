@@ -21,7 +21,6 @@
 								selected="{!v.createdOn.desc == 'titleOn.desc'}">Z First</option>
 						</optgroup>
 					</select>
-		            <lumen:set attribute="right"><ui:button lumen:id="newNote" label="New Note" press="{!c.createNote}" /></lumen:set>
 		        </ui:block>
 			</lumen:set>
 			<header>
