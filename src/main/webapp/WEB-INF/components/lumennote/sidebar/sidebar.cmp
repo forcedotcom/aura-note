@@ -24,14 +24,12 @@
 		            <lumen:set attribute="right"><ui:button lumen:id="newNote" label="New Note" press="{!c.createNote}" /></lumen:set>
 		        </ui:block>
 			</lumen:set>
-			<ui:scroller>
-				<header>
-					<ui:inputSearch placeholder="Search Notes..." class="searchbox" submitSearch="{!c.search}" autoSubmit="true"/>
-				</header>
-			    <ul lumen:id="list">
-			        <lumennote:noteList sort="{!v.sort}"/>
-			    </ul>
-		    </ui:scroller>
+			<header>
+				<ui:inputSearch placeholder="Search Notes..." class="searchbox" submitSearch="{!c.search}" autoSubmit="true"/>
+			</header>
+		    <ul lumen:id="list">
+		        <lumennote:noteList sort="{!v.sort}"/>
+		    </ul>
 		</ui:borderLayout>
     </div>
 </lumen:component>

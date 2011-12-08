@@ -31,18 +31,10 @@
 						</ui:button>
 					</lumen:if>
 					{!v.tags}
-
-					<!--
-			    	Tags: 
-			    	<li class="tag">green</li>
-			    	<li class="tag">periwinkle</li>
-			    	<li class="tag">burnt sienna</li>
-			    	-->
 				</ul>
 			</lumen:set>
-			<ui:scroller>
-				<div class="{!v.masked ? 'mask' : ''}">&nbsp;</div><p class="noteBody">{!v.body}</p>
-			</ui:scroller>
+			<div class="{!v.masked ? 'mask' : ''}">&nbsp;</div>
+			<p class="noteBody">{!v.body}</p>
 		</ui:borderLayout>
 	</article>
 </lumen:component>

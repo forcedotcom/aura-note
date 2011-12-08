@@ -8,6 +8,6 @@
         {!v.note.title}
     </lumen:set>
     <lumen:set attribute="body">
-    	<lumen:unescapedHtml value="{!v.note.body}"/>
+    	<lumen:unescapedHtml value="{!v.note.body ? v.note.body : ''}"/>
     </lumen:set>
 </lumen:component>
