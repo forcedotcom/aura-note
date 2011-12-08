@@ -3,4 +3,3 @@
     <lumen:attribute name="query" type="String" default=""/>
     <lumennote:noteList lumen:id="list" sort="{!v.sort}" query="{!v.query == '' ? m.key : v.query}"/>
 </lumen:component>
-

@@ -45,8 +45,7 @@
 	
 	setLocation : function(component){
 		var note = component.getValue("v.note");
-		
-		
+			
 		var success = function(results){
 			note.add("latitude",results.coords.latitude);
 			note.add("longitude",results.coords.longitude);

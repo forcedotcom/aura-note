@@ -6,7 +6,6 @@
 
 	<lumen:attribute name="buttons" type="Lumen.Component[]" />
 	<lumen:attribute name="title" type="Lumen.Component[]" />
-	<lumen:attribute name="tags" type="Lumen.Component[]" />
 	<lumen:attribute name="masked" type="boolean" />
 
 	<article class="content">
@@ -30,7 +29,6 @@
 							</a>
 						</ui:button>
 					</lumen:if>
-					{!v.tags}
 				</ul>
 			</lumen:set>
 			<div class="{!v.masked ? 'mask' : ''}">&nbsp;</div>
