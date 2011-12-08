@@ -5,6 +5,10 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
 	</lumen:set>
 	
+	<lumen:set attribute="extraScriptTags">
+		<script type="text/javascript" src="/lumen/ckeditor/ckeditor.js"></script>
+	</lumen:set>
+	
 	<lumen:set attribute="lumenInitBlock">
 		<script>
 			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);

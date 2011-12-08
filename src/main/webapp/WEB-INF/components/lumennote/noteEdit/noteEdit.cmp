@@ -13,6 +13,6 @@
 	    </lumen:if>
 	</lumen:set>
 	<lumen:set attribute="body">
-		<ui:inputTextArea value="{!v.note.body}"/>	
+		<lumennote:inputRichText value="{!v.note.body}"/>	
 	</lumen:set>
 </lumen:component>
