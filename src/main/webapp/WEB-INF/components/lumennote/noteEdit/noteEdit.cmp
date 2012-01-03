@@ -8,9 +8,9 @@
 		<ui:inputText value="{!v.note.title}" lumen:id="title" placeholder="Note Title"/>
 	</lumen:set>
 	<lumen:set attribute="tags">
-	    <lumen:if isTrue="{!v.note.latitude == null}">
+	    <lumen:renderIf isTrue="{!v.note.latitude == null}">
 			<ui:button label="Set Location" press="{!c.setLocation}" class="locationButton" iconClass="icon"/>
-	    </lumen:if>
+	    </lumen:renderIf>
 	</lumen:set>
 	<lumen:set attribute="body">
 		<lumennote:inputRichText value="{!v.note.body}"/>	

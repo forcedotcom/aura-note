@@ -2,7 +2,7 @@
     <lumen:attribute name="sort" type="String" default="createdOn.desc"/>
     <lumen:handler event="lumennote:noteAdded" action="{!c.noteAdded}" />
     <div>
-		<ui:borderLayout>
+		<ui:vbox>
 			<lumen:set attribute="north">
 		        <ui:block class="header">
 					Sort: <select onchange="{!c.sort}" lumen:id="sort">
@@ -32,6 +32,6 @@
 			        <lumennote:noteList sort="{!v.sort}"/>
 			    </ul>
 		    </ui:scroller>
-		</ui:borderLayout>
+		</ui:vbox>
     </div>
 </lumen:component>

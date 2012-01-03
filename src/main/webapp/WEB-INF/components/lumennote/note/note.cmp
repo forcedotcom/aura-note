@@ -10,14 +10,14 @@
 	<lumen:attribute name="masked" type="boolean" />
 
 	<article class="content">
-		<ui:borderLayout>
+		<ui:vbox>
 			<lumen:set attribute="north">
 				<ui:block class="header">
 					<h2 class="noteTitle">{!v.title}</h2>
 					<lumen:set attribute="right">{!v.buttons}</lumen:set>
 				</ui:block>
 				<ul class="tags">
-					<lumen:if isTrue="{!v.note.latitude != null}">
+					<lumen:renderIf isTrue="{!v.note.latitude != null}">
 						<ui:button class="locationButton" iconClass="icon"
 							press="{!c.togggleLocationImages}">
 					    	Location set: {!v.note.longitude+', '+v.note.latitude}
@@ -29,7 +29,7 @@
 								src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}" />
 							</a>
 						</ui:button>
-					</lumen:if>
+					</lumen:renderIf>
 					{!v.tags}
 
 					<!--
@@ -43,6 +43,6 @@
 			<ui:scroller>
 				<div class="{!v.masked ? 'mask' : ''}">&nbsp;</div><p class="noteBody">{!v.body}</p>
 			</ui:scroller>
-		</ui:borderLayout>
+		</ui:vbox>
 	</article>
 </lumen:component>
