@@ -45,27 +45,27 @@
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-util</artifactId>
-			<version>0.0.154</version>
+			<version>0.0.163</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen</artifactId>
-			<version>0.0.154</version>
+			<version>0.0.163</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-impl</artifactId>
-			<version>0.0.154</version>
+			<version>0.0.163</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-impl-expression</artifactId>
-			<version>0.0.154</version>
+			<version>0.0.163</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-resources</artifactId>
-			<version>0.0.154</version>
+			<version>0.0.163</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.pjl-comp-filter</groupId>
