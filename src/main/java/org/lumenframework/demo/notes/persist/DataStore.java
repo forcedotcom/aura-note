@@ -1,9 +1,10 @@
-package org.lumenframework.demo.notes;
+package org.lumenframework.demo.notes.persist;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.h2.fulltext.FullText;
+import org.lumenframework.demo.notes.Note;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;

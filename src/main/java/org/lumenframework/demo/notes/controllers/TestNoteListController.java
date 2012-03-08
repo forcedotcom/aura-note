@@ -7,8 +7,8 @@ import lumen.system.Annotations.Key;
 import lumen.system.Annotations.LumenEnabled;
 import lumen.util.TextUtil;
 
-import org.lumenframework.demo.notes.DataStore;
 import org.lumenframework.demo.notes.Note;
+import org.lumenframework.demo.notes.persist.DataStore;
 
 import com.google.common.collect.Lists;
 import com.j256.ormlite.dao.*;

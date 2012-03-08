@@ -5,8 +5,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import lumen.system.Annotations.LumenEnabled;
 import lumen.system.Annotations.Model;
 
-import org.lumenframework.demo.notes.DataStore;
 import org.lumenframework.demo.notes.Note;
+import org.lumenframework.demo.notes.persist.DataStore;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
