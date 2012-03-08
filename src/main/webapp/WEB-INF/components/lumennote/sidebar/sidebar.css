@@ -1,20 +1,20 @@
-.lumennoteSidebar{
+.THIS{
     width: 300px;
 	color: #fff;
 	margin-left:10px;
 	height: 100%;
 }
-.lumennoteSidebar .header{
+.THIS .header{
     padding: 8px;
     font-weight: bold;
 }
-.lumennoteSidebar .header > .bRight{
+.THIS .header > .bRight{
 	margin-left: 10px;
 }
-.lumennoteSidebar .scrollWrapper header{
+.THIS .scrollWrapper header{
 	margin: 10px;
 }
-.lumennoteSidebar .scrollWrapper header input[type="search"]{
+.THIS .scrollWrapper header input[type="search"]{
 	font-size: 18px;
 	width: 100%;
 }

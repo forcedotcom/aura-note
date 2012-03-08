@@ -1,31 +1,13 @@
-@font-face {
-  font-family: 'MyriadPro';
-  src: url("/css/MyriadPro-Regular.otf") format('opentype');
-}
-@font-face {
-  font-family: 'MyriadProBold';
-  src: url("/css/MyriadPro-Bold.otf") format('opentype');
-}
-
-body, html, .lumennoteNotes .wrapper > * {height: 100%;}
-body{
-	background: #666 url(/img/bg.png);
-	text-rendering: optimizeLegibility;
-	font-size: 15px;
-	font-family: Arial, Helvetica, sans-serif;
-	overflow: hidden;
-	color: #5C676B;
-}
-.lumennoteNotes > header{
+.THIS > header{
 	padding: 10px 20px;
 }
-.lumennoteNotes > header h1{
+.THIS > header h1{
 	font-size: 35px;
 	text-shadow: rgba(0,0,0,0.3) -1px 0, rgba(0,0,0,0.2) 0 -1px, rgba(255,255,255,0.2) 0 1px, rgba(0,0,0,0.2) -1px -2px;
     color: #FFAD00;
-    font-family: 'MyriadPro', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.lumennoteNotes .wrapper{
+.THIS .wrapper{
 	position: absolute;
 	overflow: hidden;
 	top: 0;
@@ -34,14 +16,14 @@ body{
 	bottom: 0;
 	margin: 50px 0 0;
 }
-.lumennoteNotes .lumennoteSidebar .scrollWrapper{
+.THIS .lumennoteSidebar .scrollWrapper{
     border-radius: 5px;
-	-webkit-box-shadow: inset 0px 1px 5px rgba(0, 0, 0, .7);
+	box-shadow: inset 0px 1px 5px rgba(0, 0, 0, .7);
 	background-color: rgba(0,0,0,.2);
 }
 
 /* common stuff */
-.lumennoteNotes .truncate{
+.THIS .truncate{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;

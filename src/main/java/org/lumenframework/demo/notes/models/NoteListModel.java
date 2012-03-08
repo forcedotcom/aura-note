@@ -52,7 +52,7 @@ public class NoteListModel {
 			GenericRawResults<String[]> searchResults = noteDao.queryRaw("SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
 			try {
 				for (String[] row : searchResults) {
-					ids.add(Long.parseLong(TextUtil.replaceAllRegex(row[0], "[()]", "")));
+					//ids.add(Long.parseLong(TextUtil.replaceAllRegex(row[0], "[()]", "")));
 				}
 			} finally {
 				searchResults.close();

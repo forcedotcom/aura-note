@@ -1,8 +1,8 @@
-.lumennoteNoteListRow .desc{
+.THIS .desc{
 	position:relative;
 }
 
-.lumennoteNoteListRow .mask{
+.THIS .mask{
 	background-color:transparent;
 	position:absolute;
 	width:100%;

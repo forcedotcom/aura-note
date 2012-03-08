@@ -1,21 +1,21 @@
-.lumennoteListRow{
+.THIS{
 	display: block;
 	padding: 10px 15px;
     font-size: 14px;
     cursor:pointer;
     min-height: 40px;
 	border-top: 1px solid rgba(0, 0, 0, .4);
-	-webkit-box-shadow: inset 0 1px 0 rgba(150,150,150,.5);
+	box-shadow: inset 0 1px 0 rgba(150,150,150,.5);
 }
-.lumennoteListRow:hover{
-	background-color; rgba(0,0,0,.3)
+.THIS:hover{
+	background-color: rgba(0,0,0,.3);
 }
-.lumennoteListRow .subject{
+.THIS .subject{
 	font-weight: bold;
 	margin-bottom: 10px;
 }
-.lumennoteListRow .desc,
-.lumennoteListRow .bRight{
+.THIS .desc,
+.THIS .bRight{
 	font-size: 13px;
 	color: #999;
 }

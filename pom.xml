@@ -45,27 +45,27 @@
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-util</artifactId>
-			<version>0.0.163</version>
+			<version>0.0.275-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen</artifactId>
-			<version>0.0.163</version>
+			<version>0.0.275-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-impl</artifactId>
-			<version>0.0.163</version>
+			<version>0.0.275-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-impl-expression</artifactId>
-			<version>0.0.163</version>
+			<version>0.0.275-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lumenframework.lumen</groupId>
 			<artifactId>lumen-resources</artifactId>
-			<version>0.0.163</version>
+			<version>0.0.275-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.pjl-comp-filter</groupId>
@@ -75,12 +75,12 @@
 		<dependency>
 			<groupId>com.j256.ormlite</groupId>
 			<artifactId>ormlite-core</artifactId>
-			<version>4.31</version>
+			<version>4.35</version>
 		</dependency>
 		<dependency>
 			<groupId>com.j256.ormlite</groupId>
 			<artifactId>ormlite-jdbc</artifactId>
-			<version>4.31</version>
+			<version>4.35</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
