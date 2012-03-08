@@ -26,7 +26,7 @@
 			</lumen:set>
 			<ui:scroller>
 				<header>
-					<ui:inputSearch placeholder="Search Notes..." class="searchbox" submitSearch="{!c.search}" autoSubmit="true"/>
+					<ui:inputSearch placeholder="Search Notes..." class="searchbox"/>
 				</header>
 			    <ul lumen:id="list">
 			        <lumennote:noteList sort="{!v.sort}"/>
