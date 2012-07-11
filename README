@@ -1,18 +1,20 @@
 To use the latest version of lumen (and everything else) run this:
 
-mvn versions:use-latest-versions -DallowSnapshots=true -DgenerateBackupPoms=false
+	mvn versions:use-latest-versions -DallowSnapshots=true -DgenerateBackupPoms=false
+
+If you want a prepopulated sample not database just copy the file lumennote.db.h2.db (in the same folder as this README) to your home folder
 
 To start jetty on port 8080 run this:
 
-mvn jetty:run
+	mvn jetty:run
 
 To see the app go to:
 
-http://localhost:8080/lumennote/notes.app
+	http://localhost:8080/lumennote/notes.app
 
 To edit the app open:
 
-lumen-notes/src/main/webapp/WEB-INF/components/lumennote/notes/notes.app
+	lumen-notes/src/main/webapp/WEB-INF/components/lumennote/notes/notes.app
 
 
 
