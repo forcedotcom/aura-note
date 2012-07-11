@@ -1,4 +1,4 @@
-<lumen:application preload="lumennote" template="lumennote:template">
+<lumen:application preload="lumennote" template="lumennote:template" useAppCache="true">
 	<div>
 		<header>
 			<h1>lumen:note</h1>
