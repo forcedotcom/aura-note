@@ -36,12 +36,13 @@
 	search : function(component, event){
 		var sort = component.find("sort").getElement();
 		var action = $L.get("c.lumen://ComponentController.getComponent");
+		var query = component.find("searchbox").getElement();
 		
 		action.setParams({
 			name : "lumennote:noteList",
 		    attributes : {
 		    	sort : sort.value,
-		    	query : event.getParam("value")
+		    	query : query.value
 		    }
 		});
 		

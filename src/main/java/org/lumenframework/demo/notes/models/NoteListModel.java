@@ -1,6 +1,8 @@
 package org.lumenframework.demo.notes.models;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import lumen.Lumen;
 import lumen.instance.BaseComponent;
@@ -24,12 +26,21 @@ enum SortDir {
 	asc, desc
 }
 
+
 @Model
 public class NoteListModel {
 
 	private static DataStore dataStore = DataStore.getInstance();
 	private List<Note> notes;
 
+	private static String replaceAllRegex(String source, String pattern, String replacement) {
+	    if (source == null)
+	          return null;
+	    Pattern regex = Pattern.compile(pattern);
+	    Matcher matcher = regex.matcher(source);
+	    return matcher.replaceAll(replacement);
+	}
+	
 	public NoteListModel() throws Exception {
 		Dao<Note, Long> noteDao = dataStore.getNoteDao();
 
@@ -52,7 +63,7 @@ public class NoteListModel {
 			GenericRawResults<String[]> searchResults = noteDao.queryRaw("SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
 			try {
 				for (String[] row : searchResults) {
-					//ids.add(Long.parseLong(TextUtil.replaceAllRegex(row[0], "[()]", "")));
+					ids.add(Long.parseLong(replaceAllRegex(row[0], "[()]", "")));
 				}
 			} finally {
 				searchResults.close();
@@ -70,6 +81,8 @@ public class NoteListModel {
 			notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Lumen</h1> loves you!"));
 		}
 	}
+	
+	
 
 	@LumenEnabled
 	public List<Note> getNotes() {

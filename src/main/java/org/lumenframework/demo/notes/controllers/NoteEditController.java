@@ -29,6 +29,10 @@ public class NoteEditController {
     								 @Key("longitude")BigDecimal longitude) throws Exception {
 		Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
 
+		if (body == null) { 
+			body = ""; 
+			}
+		
 		Note note;
 		if(id != null){
 			note = noteDao.queryForId(id);
