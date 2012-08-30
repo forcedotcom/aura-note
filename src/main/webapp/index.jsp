@@ -1,3 +1,3 @@
 <script>
-	window.location = "/lumennote/notes.app";
+	window.location = "/plumenote/notes.app";
 </script>

@@ -1,0 +1,5 @@
+<plume:interface>
+	<plume:attribute name="url" type="String"/>
+	<plume:attribute name="image" type="String"/>
+	<plume:attribute name="text" type="String"/>
+</plume:interface>

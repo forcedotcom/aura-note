@@ -1,0 +1,18 @@
+<plume:component extends="plumenote:note" controller="java://org.plumeframework.demo.notes.controllers.NoteEditController" >
+	<plume:set attribute="class" value="edit"/>
+    <plume:set attribute="buttons">
+    	<ui:button label="Cancel" press="{!c.cancel}"/>
+    	<ui:button label="Save" press="{!c.save}" class="preferred"/>
+	</plume:set>
+	<plume:set attribute="title">
+		<ui:inputText value="{!v.note.title}" plume:id="title" placeholder="Note Title"/>
+	</plume:set>
+	<plume:set attribute="tags">
+	    <plume:renderIf isTrue="{!v.note.latitude == null}">
+			<ui:button label="Set Location" press="{!c.setLocation}" class="locationButton" iconClass="icon"/>
+	    </plume:renderIf>
+	</plume:set>
+	<plume:set attribute="body">
+		<plumenote:inputRichText value="{!v.note.body}"/>	
+	</plume:set>
+</plume:component>

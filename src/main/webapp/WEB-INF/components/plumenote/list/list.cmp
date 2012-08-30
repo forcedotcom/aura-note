@@ -1,0 +1,3 @@
+<plume:component extensible="true">
+	<ul>{!v.body}</ul>
+</plume:component>

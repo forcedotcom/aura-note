@@ -1,3 +1,0 @@
-<lumen:component extensible="true">
-	<ul>{!v.body}</ul>
-</lumen:component>

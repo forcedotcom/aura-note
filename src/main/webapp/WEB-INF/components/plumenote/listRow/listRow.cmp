@@ -1,0 +1,16 @@
+<plume:component extensible="true">
+    <plume:attribute name="desc" type="Plume.Component[]"/>
+    <plume:attribute name="onclick" type="Plume.Action"/>
+    <plume:attribute name="left" type="Plume.Component[]"/>
+    <plume:attribute name="right" type="Plume.Component[]"/>
+    <li onclick="{!v.onclick}">
+    	<ui:block>
+	    	<plume:set attribute="left">{!v.left}</plume:set>
+	    	<plume:set attribute="right">{!v.right}</plume:set>
+		    <h2 class="subject truncate">{!v.body}</h2>
+		</ui:block>
+	    <plume:renderif isTrue="{!v.desc != null}">
+	        <p class="desc truncate">{!v.desc}</p>
+	    </plume:renderif>
+	</li>
+</plume:component>

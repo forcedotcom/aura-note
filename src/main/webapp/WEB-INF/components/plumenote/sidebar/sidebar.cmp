@@ -1,0 +1,37 @@
+<plume:component>
+    <plume:attribute name="sort" type="String" default="createdOn.desc"/>
+    <plume:handler event="plumenote:noteAdded" action="{!c.noteAdded}" />
+    <div>
+		<ui:vbox>
+			<plume:set attribute="north">
+		        <ui:block class="header">
+					Sort: <select onchange="{!c.sort}" plume:id="sort">
+						<optgroup label="Create Date">
+							<option value="createdOn.desc"
+								selected="{!v.createdOn.desc == 'createdOn.desc'}">Newest
+								First</option>
+							<option value="createdOn.asc"
+								selected="{!v.createdOn.asc == 'createdOn.asc'}">Oldest
+								First</option>
+						</optgroup>
+						<optgroup label="Alphabetical">
+							<option value="title.asc"
+								selected="{!v.createdOn.desc == 'titleOn.asc'}">A First</option>
+							<option value="title.desc"
+								selected="{!v.createdOn.desc == 'titleOn.desc'}">Z First</option>
+						</optgroup>
+					</select>
+		            <plume:set attribute="right"><ui:button plume:id="newNote" label="New Note" press="{!c.createNote}" /></plume:set>
+		        </ui:block>
+			</plume:set>
+			<ui:scroller>
+		        <ui:block class="header">
+					<ui:inputSearch plume:id="searchbox" placeholder="Search Notes..." class="searchbox" /><plume:set attribute="right"><ui:button plume:id="doSearch" label="Search" press="{!c.search}" /></plume:set>
+		        </ui:block>
+			    <ul plume:id="list">
+			        <plumenote:noteList sort="{!v.sort}"/>
+			    </ul>
+		    </ui:scroller>
+		</ui:vbox>
+    </div>
+</plume:component>

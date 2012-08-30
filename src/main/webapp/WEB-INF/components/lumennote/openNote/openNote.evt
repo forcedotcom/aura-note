@@ -1,5 +1,0 @@
-<lumen:event type="APPLICATION">
-    <lumen:attribute name="note" type="java://org.lumenframework.demo.notes.Note"/>
-    <lumen:attribute name="mode" type="String"/>
-    <lumen:attribute name="sort" type="String"/>
-</lumen:event>

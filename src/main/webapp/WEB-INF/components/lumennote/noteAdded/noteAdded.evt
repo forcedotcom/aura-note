@@ -1,3 +1,0 @@
-<lumen:event type="APPLICATION">
-    <lumen:attribute name="noteList" type="Lumen.Component[]"/>
-</lumen:event>

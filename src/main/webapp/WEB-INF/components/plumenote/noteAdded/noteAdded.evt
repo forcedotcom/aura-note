@@ -1,0 +1,3 @@
+<plume:event type="APPLICATION">
+    <plume:attribute name="noteList" type="Plume.Component[]"/>
+</plume:event>

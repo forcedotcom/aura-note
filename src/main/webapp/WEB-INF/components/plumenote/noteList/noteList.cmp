@@ -1,0 +1,9 @@
+<plume:component model="java://org.plumeframework.demo.notes.models.NoteListModel">
+    <plume:attribute name="sort" type="String" default="createdOn.desc"/>
+    <plume:attribute name="query" type="String"/>
+
+    <plume:foreach items="{!m.notes}" var="note">
+           <plumenote:noteListRow plume:id="row" note="{!note}"/>
+    </plume:foreach>
+</plume:component>
+

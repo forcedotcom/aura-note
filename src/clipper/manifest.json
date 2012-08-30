@@ -1,7 +1,7 @@
 {
-  "name": "Lumennote Web Clipper",
+  "name": "Plumenote Web Clipper",
   "version": "1.0",
-  "description": "Save elements of web pages to Lumen Note.",
+  "description": "Save elements of web pages to Plume Note.",
   "permissions": ["contextMenus","tabs","http://*/*", 
       "https://*/*"],
   "background_page": "background.html",

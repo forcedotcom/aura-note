@@ -1,9 +1,0 @@
-<lumen:component model="java://org.lumenframework.demo.notes.models.NoteListModel">
-    <lumen:attribute name="sort" type="String" default="createdOn.desc"/>
-    <lumen:attribute name="query" type="String"/>
-
-    <lumen:foreach items="{!m.notes}" var="note">
-           <lumennote:noteListRow lumen:id="row" note="{!note}"/>
-    </lumen:foreach>
-</lumen:component>
-

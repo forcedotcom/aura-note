@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Lumen Framework</name>
+	<name>Plume Framework</name>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.lumenframework.demo</groupId>
-	<artifactId>lumen-note</artifactId>
+	<groupId>org.plumeframework.demo</groupId>
+	<artifactId>plume-note</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,13 +16,13 @@
         </snapshots>
         <id>central</id>
         <name>libs-release</name>
-        <url>http://maven.lumenframework.org/libs-release</url>
+        <url>http://maven.plumeframework.org/libs-release</url>
       </repository>
       <repository>
         <snapshots />
         <id>snapshots</id>
         <name>libs-snapshot</name>
-        <url>http://maven.lumenframework.org/libs-snapshot</url>
+        <url>http://maven.plumeframework.org/libs-snapshot</url>
       </repository>
     </repositories>
     <pluginRepositories>
@@ -32,40 +32,40 @@
         </snapshots>
         <id>central</id>
         <name>plugins-release</name>
-        <url>http://maven.lumenframework.org/plugins-release</url>
+        <url>http://maven.plumeframework.org/plugins-release</url>
       </pluginRepository>
       <pluginRepository>
         <snapshots />
         <id>snapshots</id>
         <name>plugins-snapshot</name>
-        <url>http://maven.lumenframework.org/plugins-snapshot</url>
+        <url>http://maven.plumeframework.org/plugins-snapshot</url>
       </pluginRepository>
     </pluginRepositories>
 	<dependencies>
 		<dependency>
-			<groupId>org.lumenframework.lumen</groupId>
-			<artifactId>lumen-util</artifactId>
-			<version>0.0.275-SNAPSHOT</version>
+			<groupId>org.plumeframework</groupId>
+			<artifactId>plume-util</artifactId>
+			<version>0.0.313</version>
 		</dependency>
 		<dependency>
-			<groupId>org.lumenframework.lumen</groupId>
-			<artifactId>lumen</artifactId>
-			<version>0.0.275-SNAPSHOT</version>
+			<groupId>org.plumeframework</groupId>
+			<artifactId>plume</artifactId>
+			<version>0.0.313</version>
 		</dependency>
 		<dependency>
-			<groupId>org.lumenframework.lumen</groupId>
-			<artifactId>lumen-impl</artifactId>
-			<version>0.0.275-SNAPSHOT</version>
+			<groupId>org.plumeframework</groupId>
+			<artifactId>plume-impl</artifactId>
+			<version>0.0.313</version>
 		</dependency>
 		<dependency>
-			<groupId>org.lumenframework.lumen</groupId>
-			<artifactId>lumen-impl-expression</artifactId>
-			<version>0.0.275-SNAPSHOT</version>
+			<groupId>org.plumeframework</groupId>
+			<artifactId>plume-impl-expression</artifactId>
+			<version>0.0.313</version>
 		</dependency>
 		<dependency>
-			<groupId>org.lumenframework.lumen</groupId>
-			<artifactId>lumen-resources</artifactId>
-			<version>0.0.275-SNAPSHOT</version>
+			<groupId>org.plumeframework</groupId>
+			<artifactId>plume-resources</artifactId>
+			<version>0.0.313</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.pjl-comp-filter</groupId>
@@ -75,17 +75,17 @@
 		<dependency>
 			<groupId>com.j256.ormlite</groupId>
 			<artifactId>ormlite-core</artifactId>
-			<version>4.35</version>
+			<version>4.41</version>
 		</dependency>
 		<dependency>
 			<groupId>com.j256.ormlite</groupId>
 			<artifactId>ormlite-jdbc</artifactId>
-			<version>4.35</version>
+			<version>4.41</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.3.163</version>
+			<version>1.3.168</version>
 		</dependency>
 	</dependencies>
 	<build>
