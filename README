@@ -6,7 +6,7 @@ If you want a prepopulated sample not database just copy the file plumenote.db.h
 
 To start jetty on port 8080 run this:
 
-	mvn jetty:run
+	mvn jetty:run -Pdev
 
 To see the app go to:
 

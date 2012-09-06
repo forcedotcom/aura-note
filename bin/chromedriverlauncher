@@ -1,0 +1,3 @@
+binary=`dirname $0`/chromedriver
+chmod 775 $binary
+$binary $@ 1> chromedriver.log 2>&1

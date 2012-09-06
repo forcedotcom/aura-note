@@ -15,7 +15,7 @@ import com.j256.ormlite.table.TableUtils;
 public class DataStore {
 	
 	private static final DataStore INSTANCE = new DataStore();
-	private static final String DB_URL = "jdbc:h2:file:~/plumenote.db;IGNORECASE=TRUE";
+	private static final String DB_URL = "jdbc:h2:~/plumenote.db;AUTO_SERVER=TRUE;IGNORECASE=TRUE";
 	
 	private ConnectionSource connectionSource;
 	

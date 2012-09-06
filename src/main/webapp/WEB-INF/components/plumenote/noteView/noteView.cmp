@@ -1,8 +1,8 @@
 <plume:component extends="plumenote:note" controller="java://org.plumeframework.demo.notes.controllers.NoteViewController">
     <plume:set attribute="masked" value="true"/>
     <plume:set attribute="buttons">
-        <ui:button label="Edit" press="{!c.edit}"/>
-        <ui:button label="Delete" press="{!c.delete}"/>
+        <ui:button label="Edit" press="{!c.edit}" class="edit_t"/>
+        <ui:button label="Delete" press="{!c.delete}" class="delete_t"/>
     </plume:set>
     <plume:set attribute="title">
         {!v.note.title}

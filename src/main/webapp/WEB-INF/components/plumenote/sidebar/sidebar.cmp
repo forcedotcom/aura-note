@@ -5,30 +5,30 @@
 		<ui:vbox>
 			<plume:set attribute="north">
 		        <ui:block class="header">
-					Sort: <select onchange="{!c.sort}" plume:id="sort">
+					Sort: <select onchange="{!c.sort}" plume:id="sort" class="sort_t">
 						<optgroup label="Create Date">
 							<option value="createdOn.desc"
-								selected="{!v.createdOn.desc == 'createdOn.desc'}">Newest
+								selected="{!v.createdOn.desc == 'createdOn.desc'}" class="newestFirst_t">Newest
 								First</option>
 							<option value="createdOn.asc"
-								selected="{!v.createdOn.asc == 'createdOn.asc'}">Oldest
+								selected="{!v.createdOn.asc == 'createdOn.asc'}" class="oldestFirst_t">Oldest
 								First</option>
 						</optgroup>
 						<optgroup label="Alphabetical">
 							<option value="title.asc"
-								selected="{!v.createdOn.desc == 'titleOn.asc'}">A First</option>
+								selected="{!v.createdOn.desc == 'titleOn.asc'}" class="aFirst_t">A First</option>
 							<option value="title.desc"
-								selected="{!v.createdOn.desc == 'titleOn.desc'}">Z First</option>
+								selected="{!v.createdOn.desc == 'titleOn.desc'}" class="zFirst_t">Z First</option>
 						</optgroup>
 					</select>
-		            <plume:set attribute="right"><ui:button plume:id="newNote" label="New Note" press="{!c.createNote}" /></plume:set>
+		            <plume:set attribute="right"><ui:button plume:id="newNote" label="New Note" press="{!c.createNote}" class="newNote_t"/></plume:set>
 		        </ui:block>
 			</plume:set>
 			<ui:scroller>
 		        <ui:block class="header">
-					<ui:inputSearch plume:id="searchbox" placeholder="Search Notes..." class="searchbox" /><plume:set attribute="right"><ui:button plume:id="doSearch" label="Search" press="{!c.search}" /></plume:set>
+					<ui:inputSearch plume:id="searchbox" placeholder="Search Notes..." class="searchbox" /><plume:set attribute="right"><ui:button plume:id="doSearch" label="Search" press="{!c.search}" class="search_t"/></plume:set>
 		        </ui:block>
-			    <ul plume:id="list">
+			    <ul plume:id="list" class="noteList_t">
 			        <plumenote:noteList sort="{!v.sort}"/>
 			    </ul>
 		    </ui:scroller>
