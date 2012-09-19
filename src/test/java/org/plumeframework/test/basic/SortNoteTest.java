@@ -1,9 +1,24 @@
+/*
+ * Copyright (C) 2012 salesforce.com, inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.plumeframework.test.basic;
 
 import java.util.HashMap;
 import java.util.List;
 
-
+import org.junit.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.plumeframework.test.NoteTestUtil;
@@ -105,7 +120,8 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		assertEquals("Note not added to beginning of list", "aaaaa", sidebar.get(0).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
 	}
 	
-	public void testDeleteNoteWhileSorted() throws Exception {
+	@Ignore("W-1381027")
+	public void _testDeleteNoteWhileSorted() throws Exception {
 		open("/plumenote/notes.app");
 		addInitialNotes();
 		
@@ -124,7 +140,8 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		assertEquals("5th note not properly sorted", "Elephant", sidebar.get(3).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
 	}
 	
-	public void testEditNoteWhileSorted() throws Exception {
+	@Ignore("W-1381027")
+	public void _testEditNoteWhileSorted() throws Exception {
 		open("/plumenote/notes.app");
 		addInitialNotes();
 		
@@ -149,7 +166,8 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		assertEquals("5th note not properly sorted", "Elephant", sidebar.get(4).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
 	}
 	
-	public void testChangeSortingWhileAddingNote() throws Exception {
+	@Ignore("W-1381036")
+	public void _testChangeSortingWhileAddingNote() throws Exception {
 		open("/plumenote/notes.app");
 		addInitialNotes();
 		

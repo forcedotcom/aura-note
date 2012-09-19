@@ -20,9 +20,6 @@
         <xdisplay.size>960x640</xdisplay.size>
 		<jetty.idleWait>60000</jetty.idleWait>
         <jetty.scanInterval>0</jetty.scanInterval>
-		<testPhase>disabled</testPhase> 
-        <testSetupPhase>disabled</testSetupPhase>
-        <testTeardownPhase>disabled</testTeardownPhase>
 	</properties>
 	
 	<repositories>
@@ -184,52 +181,8 @@
       		<plugin>
 		        <artifactId>maven-surefire-plugin</artifactId>
 		        <version>2.10</version>
-		        <executions>
-		          <execution>
-		            <id>default-test</id>
-		            <phase>test</phase>
-		            <goals>
-		              <goal>test</goal>
-		            </goals>
-		            <configuration>
-		              <failIfNoTests>false</failIfNoTests>
-		              <skipTests>true</skipTests>
-		              <includes>
-		                <include>**/*UnitTestSuite.java</include>
-		              </includes>
-		              <forkMode>once</forkMode>
-		              <parallel>classes</parallel>
-		              <threadCount>2</threadCount>
-		              <perCoreThreadCount>true</perCoreThreadCount>
-		              <runOrder>random</runOrder>
-		              <argLine>-Djava.io.tmpdir=/home/tbliss/plume/plume-note/target/tmp</argLine>
-		              <systemPropertyVariables>
-		                <config>/home/tbliss/plume/plume-note/config</config>
-		                <plume.home>/home/tbliss/plume/plume-note/..</plume.home>
-		                <user.timezone>GMT</user.timezone>
-		                <java.io.tmpdir>/home/tbliss/plume/plume-note/target/tmp</java.io.tmpdir>
-		              </systemPropertyVariables>
-		            </configuration>
-		          </execution>
-		        </executions>
 		        <configuration>
-		          <failIfNoTests>false</failIfNoTests>
 		          <skipTests>true</skipTests>
-		          <includes>
-		            <include>**/*UnitTestSuite.java</include>
-		          </includes>
-		          <forkMode>once</forkMode>
-		          <parallel>classes</parallel>
-		          <threadCount>2</threadCount>
-		          <perCoreThreadCount>true</perCoreThreadCount>
-		          <runOrder>random</runOrder>
-		          <argLine>-Djava.io.tmpdir=/home/tbliss/plume/plume-note/target/tmp</argLine>
-		          <systemPropertyVariables>
-		            <config>/home/tbliss/plume/plume-note/config</config>
-		            <plume.home>/home/tbliss/plume/plume-note</plume.home>
-		            <user.timezone>GMT</user.timezone>
-		            <java.io.tmpdir>/home/tbliss/plume/plume-note/target/tmp</java.io.tmpdir>
-		          </systemPropertyVariables>
 		        </configuration>
       		</plugin>
 		</plugins>
@@ -248,7 +201,7 @@
                     <executions>
                         <execution>
                             <id>integration-test</id>
-                            <phase>${testPhase}</phase>
+                            <phase>integration-test</phase>
                             <goals>
                                 <goal>integration-test</goal>
                             </goals>
@@ -346,7 +299,7 @@
                     <executions>
                         <execution>
                             <id>start-jetty</id>
-                            <phase>${testSetupPhase}</phase>
+                            <phase>pre-integration-test</phase>
                             <goals>
                                 <goal>run</goal>
                             </goals>
@@ -356,7 +309,7 @@
                         </execution>
                         <execution>
                             <id>stop-jetty</id>
-                            <phase>${testTeardownPhase}</phase>
+                            <phase>post-integration-test</phase>
                             <goals>
                                 <goal>stop</goal>
                             </goals>
@@ -373,7 +326,7 @@
                             <goals>
                                 <goal>reserve-network-port</goal>
                             </goals>
-                            <phase>${testSetupPhase}</phase>
+                            <phase>pre-integration-test</phase>
                             <configuration>
                                 <portNames>
                                     <portName>jetty.port</portName>
@@ -449,7 +402,7 @@
         			<executions>
 		          		<execution>
          		    		<id>x-start</id>
-            				<phase>${testSetupPhase}</phase>
+            				<phase>pre-integration-test</phase>
             				<goals>
               					<goal>exec</goal>
             				</goals>
@@ -463,13 +416,13 @@
 	          			</execution>
 	          	  		<execution>
 	            			<id>x-stop</id>
-	            			<phase>${testTeardownPhase}</phase>
+	            			<phase>post-integration-test</phase>
 	            			<goals>
 	              				<goal>exec</goal>
 	            			</goals>
 	            			<configuration>
 	              				<skip>${xdisplay.skip}</skip>
-	              				<executable>/home/tbliss/plume/plume-note/bin/pskill</executable>
+	              				<executable>${plume.home}/bin/pskill</executable>
 	              				<arguments>
 	                				<argument>${xdisplay.exec}* :${jetty.port} ${xdisplay.options}</argument>
 	              				</arguments>
@@ -584,7 +537,7 @@
                             <executions>
                                 <execution>
                                     <id>reserve-ports</id>
-                                    <phase>disabled</phase> <!-- generate-sources -->
+                                    <phase>disabled</phase>
                                 </execution>
                             </executions>
                         </plugin>
@@ -676,17 +629,5 @@
                 <webdriver.chrome.driver>${basedir}/bin/chromedriver.exe</webdriver.chrome.driver>
             </properties>
         </profile>
-        <!--  <profile>
-            <id>xephyr</id>
-            <activation>
-                <property>
-                    <name>xephyr</name>
-                </property>
-            </activation>
-            <properties>
-                <xdisplay.exec>Xephyr</xdisplay.exec>
-                <xdisplay.options>-ac -screen ${xdisplay.size}</xdisplay.options>
-            </properties>
-        </profile> -->
     </profiles>
 </project>
