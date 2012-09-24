@@ -38,12 +38,7 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		clickElement(NoteTestUtil.SORT_A_FIRST);
 		waitFor(4);
 		
-		List<WebElement> sidebar = getSidebar();
-		assertEquals("1st note not properly sorted", "Apple", sidebar.get(0).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("2nd note not properly sorted", "Banana", sidebar.get(1).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("3rd note not properly sorted", "Cat", sidebar.get(2).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("4th note not properly sorted", "Dog", sidebar.get(3).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("5th note not properly sorted", "Elephant", sidebar.get(4).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());	
+		checkSidebarOrder(new String[]{"Apple", "Banana", "Cat", "Dog", "Elephant"});
 	}
 	
 	public void testSortZFirst() throws Exception {
@@ -53,12 +48,7 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		clickElement(NoteTestUtil.SORT_Z_FIRST);
 		waitFor(4);
 		
-		List<WebElement> sidebar = getSidebar();
-		assertEquals("1st note not properly sorted", "Elephant", sidebar.get(0).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("2nd note not properly sorted", "Dog", sidebar.get(1).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("3rd note not properly sorted", "Cat", sidebar.get(2).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("4th note not properly sorted", "Banana", sidebar.get(3).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("5th note not properly sorted", "Apple", sidebar.get(4).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());	
+		checkSidebarOrder(new String[]{"Elephant", "Dog", "Cat", "Banana", "Apple"});	
 	}
 	
 	public void testSortOldestFirst() throws Exception {
@@ -74,12 +64,7 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		clickElement(NoteTestUtil.SORT_OLDEST_FIRST);
 		waitFor(4);
 		
-		List<WebElement> sidebar = getSidebar();
-		assertEquals("1st note not properly sorted", "Banana", sidebar.get(0).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("2nd note not properly sorted", "Cat", sidebar.get(1).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("3rd note not properly sorted", "Apple", sidebar.get(2).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("4th note not properly sorted", "Dog", sidebar.get(3).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("5th note not properly sorted", "Elephant", sidebar.get(4).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());	
+		checkSidebarOrder(new String[]{"Banana", "Cat", "Apple", "Dog", "Elephant"});	
 	}
 	
 	public void testSortNewestFirst() throws Exception {
@@ -95,12 +80,7 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		clickElement(NoteTestUtil.SORT_NEWEST_FIRST);
 		waitFor(4);
 		
-		List<WebElement> sidebar = getSidebar();
-		assertEquals("1st note not properly sorted", "Elephant", sidebar.get(0).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("2nd note not properly sorted", "Dog", sidebar.get(1).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("3rd note not properly sorted", "Apple", sidebar.get(2).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("4th note not properly sorted", "Cat", sidebar.get(3).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("5th note not properly sorted", "Banana", sidebar.get(4).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());	
+		checkSidebarOrder(new String[]{"Elephant", "Dog", "Apple", "Cat", "Banana"});
 	}
 	
 	public void testAddNoteWhileSortedAFirst() throws Exception {
@@ -145,7 +125,6 @@ public class SortNoteTest extends PlumeNoteTestCase {
 		open("/plumenote/notes.app");
 		addInitialNotes();
 		
-		//clickElement(NoteTestUtil.SORT_MENU);
 		clickElement(NoteTestUtil.SORT_A_FIRST);
 		waitFor(4);
 		
@@ -157,13 +136,8 @@ public class SortNoteTest extends PlumeNoteTestCase {
 	    sendText("ddd", NoteTestUtil.BODY_INPUT);
 	    clickElement(NoteTestUtil.SAVE_BUTTON);
     	waitForSidebarUpdate("Note never deleted from sidebar", "Dragonfly", "ddd", true);
-		
-		List<WebElement> sidebar = getSidebar();
-		assertEquals("1st note not properly sorted", "Apple", sidebar.get(0).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("2nd note not properly sorted", "Banana", sidebar.get(1).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("3rd note not properly sorted", "Dog", sidebar.get(2).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("4th note not properly sorted", "Dragonfly", sidebar.get(3).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
-		assertEquals("5th note not properly sorted", "Elephant", sidebar.get(4).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
+    	
+    	checkSidebarOrder(new String[]{"Apple", "Banana", "Dog", "Dragonfly", "Elephant"});
 	}
 	
 	@Ignore("W-1381036")
@@ -209,6 +183,14 @@ public class SortNoteTest extends PlumeNoteTestCase {
     	newNotes.put("Banana", "ccc");
     	newNotes.put("Elephant", "eee");
     	createNewNotes(newNotes);
+	}
+	
+	private void checkSidebarOrder(String[] titles) {
+	    List<WebElement> sidebar = getSidebar();
+	    for (int i = 0; i < titles.length; i++) {
+	        assertEquals("Note in position " + i + " of sidebar is not properly sorted", 
+	                titles[i], sidebar.get(i).findElement(By.cssSelector(NoteTestUtil.SIDEBAR_TITLE)).getText());
+	    }
 	}
 
 }

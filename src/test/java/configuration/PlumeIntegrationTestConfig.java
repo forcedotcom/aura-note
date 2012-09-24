@@ -37,14 +37,10 @@ public class PlumeIntegrationTestConfig {
     @Impl
     public static WebDriverProvider plumeWebDriverProvider() throws Exception {
         URL serverUrl;
-        boolean runningOnSauceLabs = SauceUtil.areTestsRunningOnSauce();
         try {
             String hubUrlString = System.getProperty(WebDriverProvider.WEBDRIVER_SERVER_PROPERTY);
             if ((hubUrlString != null) && !hubUrlString.equals("")) {
-                if (runningOnSauceLabs)
-                    serverUrl = SauceUtil.getSauceServerUrl();
-                else
-                    serverUrl = new URL(hubUrlString);
+                serverUrl = new URL(hubUrlString);
             } else {
                 int serverPort = Integer.parseInt(System.getProperty("selenium.server.port", "4444"));
 
@@ -61,7 +57,7 @@ public class PlumeIntegrationTestConfig {
             e.printStackTrace();
             throw new Error(e);
         }
-        if (!runningOnSauceLabs && Boolean.parseBoolean(System.getProperty(WebDriverProvider.REUSE_BROWSER_PROPERTY))) {
+        if (Boolean.parseBoolean(System.getProperty(WebDriverProvider.REUSE_BROWSER_PROPERTY))) {
             return new PooledRemoteWebDriverFactory(serverUrl);
         } else {
             return new RemoteWebDriverFactory(serverUrl);

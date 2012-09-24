@@ -254,7 +254,6 @@
                         <webAppSourceDirectory>${plume.home}/src/main/webapp</webAppSourceDirectory>
                         <webAppConfig>
                             <contextPath>/</contextPath>
-                            <descriptor>${plume.home}/plume/dist/config/web.xml</descriptor>
                         </webAppConfig>
                         <useTestClasspath>true</useTestClasspath>
                         <systemProperties>
