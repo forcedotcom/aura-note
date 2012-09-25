@@ -60,50 +60,50 @@
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-util</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-impl</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-impl-expression</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-resources</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 			<type>test-jar</type>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-impl</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 			<type>test-jar</type>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-impl-expression</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 			<type>test-jar</type>
 		</dependency>
 		<dependency>
 			<groupId>org.plumeframework</groupId>
 			<artifactId>plume-util</artifactId>
-			<version>0.0.313</version>
+			<version>0.0.320</version>
 			<type>test-jar</type>
 		</dependency>
 		<dependency>
