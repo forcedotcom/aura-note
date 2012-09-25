@@ -4,7 +4,7 @@
 		note.getValue("title").rollback();
 		note.getValue("body").rollback();
 		
-		var event = $L.get("e.plumenote:openNote")
+		var event = $P.get("e.plumenote:openNote")
 		event.setParams({
 			mode : "view",
 			note : note
@@ -28,14 +28,14 @@
 		});
 		
 		action.setCallback(this, function(a){
-			var event = $L.get("e.plumenote:openNote")
+			var event = $P.get("e.plumenote:openNote")
 			event.setParams({
 				mode : "view",
 				note : note
 			});
 			event.fire();
 			
-			var event = $L.get("e.plumenote:noteAdded");
+			var event = $P.get("e.plumenote:noteAdded");
 			event.setParams({noteList : a.getReturnValue()});
 			event.fire();
 		});

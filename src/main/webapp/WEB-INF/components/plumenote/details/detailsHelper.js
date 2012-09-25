@@ -12,10 +12,10 @@
 				text = '<a href="'+url+'">'+url+'</a>';
 			}
 			
-			note = $L.expressionService.create(null, {title : "", body : text, latitude : null, longitude: null})
+			note = $P.expressionService.create(null, {title : "", body : text, latitude : null, longitude: null})
 		}
 
-		var noteView = $L.services.component.newLocalComponent({
+		var noteView = $P.services.component.newLocalComponent({
         	componentDef: {
         		descriptor: "markup://plumenote:note"
         	},
@@ -36,7 +36,7 @@
 		
 		setTimeout(function() {
 			// Let the world know that we need resize calcs
-			$L.get("e.ui:updateSize").fire();
+			$P.get("e.ui:updateSize").fire();
 		}, 400);
 	}
 })

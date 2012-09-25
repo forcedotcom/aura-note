@@ -1,6 +1,6 @@
 ({
 	createNote: function(component) {
-		var event = $L.get("e.plumenote:openNote")
+		var event = $P.get("e.plumenote:openNote")
 		event.setParams({mode : "new", sort : component.get("v.sort")});
 		event.fire();
 	},
@@ -8,7 +8,7 @@
 	sort : function(component) {
 		var sort = component.find("sort").getElement();
 		component.getValue("v.sort").setValue(sort.value);
-		var action = $L.get("c.plume://ComponentController.getComponent");
+		var action = $P.get("c.plume://ComponentController.getComponent");
 		
 		action.setParams({
 			name : "plumenote:noteList",
@@ -18,7 +18,7 @@
 		});
 		
 		action.setCallback(this, function(a){
-			var event = $L.get("e.plumenote:noteAdded");
+			var event = $P.get("e.plumenote:noteAdded");
 			event.setParams({noteList : a.getReturnValue()});
 			event.fire();
 		});
@@ -28,14 +28,14 @@
 	
 	noteAdded : function(cmp, event){
 		var list = cmp.find("list").getValue("v.body");
-		var noteList = $L.componentService.newComponent(event.getParam("noteList"));
+		var noteList = $P.componentService.newComponent(event.getParam("noteList"));
 		list.destroy();
 		list.setValue([noteList]);
 	},
 	
 	search : function(component, event){
 		var sort = component.find("sort").getElement();
-		var action = $L.get("c.plume://ComponentController.getComponent");
+		var action = $P.get("c.plume://ComponentController.getComponent");
 		var query = component.find("searchbox").getElement();
 		
 		action.setParams({
@@ -47,7 +47,7 @@
 		});
 		
 		action.setCallback(this, function(a){
-			var event = $L.get("e.plumenote:noteAdded");
+			var event = $P.get("e.plumenote:noteAdded");
 			event.setParams({noteList : a.getReturnValue()});
 			event.fire();
 		});
