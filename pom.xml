@@ -1,196 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Plume Framework</name>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.plumeframework.demo</groupId>
-	<artifactId>plume-note</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<plume.home>${basedir}</plume.home>
-		<skipUnitTests>true</skipUnitTests>
-		<webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
-		<chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
-		<chromedriver.version>21.0.1180.4</chromedriver.version>
-		<webdriver.reusebrowser>true</webdriver.reusebrowser>
-		<xdisplay.exec>Xvfb</xdisplay.exec>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <name>Plume Framework</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.plumeframework.demo</groupId>
+    <artifactId>plume-note</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipUnitTests>true</skipUnitTests>
+        <webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
+        <chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
+        <chromedriver.version>21.0.1180.4</chromedriver.version>
+        <webdriver.reusebrowser>true</webdriver.reusebrowser>
+        <xdisplay.exec>Xvfb</xdisplay.exec>
         <xdisplay.options>-ac</xdisplay.options>
         <xdisplay.size>960x640</xdisplay.size>
-		<jetty.idleWait>60000</jetty.idleWait>
+        <jetty.idleWait>60000</jetty.idleWait>
         <jetty.scanInterval>0</jetty.scanInterval>
-	</properties>
-	
-	<repositories>
-      <repository>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>libs-release</name>
-        <url>http://maven.plumeframework.org/libs-release</url>
-      </repository>
-      <repository>
-        <snapshots />
-        <id>snapshots</id>
-        <name>libs-snapshot</name>
-        <url>http://maven.plumeframework.org/libs-snapshot</url>
-      </repository>
+    </properties>
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>libs-release</name>
+            <url>http://maven.plumeframework.org/libs-release</url>
+        </repository>
+        <repository>
+            <snapshots />
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>http://maven.plumeframework.org/libs-snapshot</url>
+        </repository>
     </repositories>
-    
+
     <pluginRepositories>
-      <pluginRepository>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>plugins-release</name>
-        <url>http://maven.plumeframework.org/plugins-release</url>
-      </pluginRepository>
-      <pluginRepository>
-        <snapshots />
-        <id>snapshots</id>
-        <name>plugins-snapshot</name>
-        <url>http://maven.plumeframework.org/plugins-snapshot</url>
-      </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>plugins-release</name>
+            <url>http://maven.plumeframework.org/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots />
+            <id>snapshots</id>
+            <name>plugins-snapshot</name>
+            <url>http://maven.plumeframework.org/plugins-snapshot</url>
+        </pluginRepository>
     </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-util</artifactId>
+            <version>0.0.320</version>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume</artifactId>
+            <version>0.0.320</version>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-impl</artifactId>
+            <version>0.0.320</version>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-impl-expression</artifactId>
+            <version>0.0.320</version>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-resources</artifactId>
+            <version>0.0.320</version>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume</artifactId>
+            <version>0.0.320</version>
+            <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-impl</artifactId>
+            <version>0.0.320</version>
+            <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-impl-expression</artifactId>
+            <version>0.0.320</version>
+            <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.plumeframework</groupId>
+            <artifactId>plume-util</artifactId>
+            <version>0.0.320</version>
+            <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.pjl-comp-filter</groupId>
+            <artifactId>pjl-comp-filter</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-core</artifactId>
+            <version>4.41</version>
+        </dependency>
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-jdbc</artifactId>
+            <version>4.41</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.168</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+    </dependencies>
     
-	<dependencies>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-util</artifactId>
-			<version>0.0.320</version>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume</artifactId>
-			<version>0.0.320</version>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-impl</artifactId>
-			<version>0.0.320</version>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-impl-expression</artifactId>
-			<version>0.0.320</version>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-resources</artifactId>
-			<version>0.0.320</version>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume</artifactId>
-			<version>0.0.320</version>
-			<type>test-jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-impl</artifactId>
-			<version>0.0.320</version>
-			<type>test-jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-impl-expression</artifactId>
-			<version>0.0.320</version>
-			<type>test-jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.plumeframework</groupId>
-			<artifactId>plume-util</artifactId>
-			<version>0.0.320</version>
-			<type>test-jar</type>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.pjl-comp-filter</groupId>
-			<artifactId>pjl-comp-filter</artifactId>
-			<version>1.7</version>
-		</dependency>
-		<dependency>
-			<groupId>com.j256.ormlite</groupId>
-			<artifactId>ormlite-core</artifactId>
-			<version>4.41</version>
-		</dependency>
-		<dependency>
-			<groupId>com.j256.ormlite</groupId>
-			<artifactId>ormlite-jdbc</artifactId>
-			<version>4.41</version>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.3.168</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-support</artifactId>
-			<version>2.24.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server</artifactId>
-			<version>2.24.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-api</artifactId>
-			<version>2.24.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-chrome-driver</artifactId>
-			<version>2.24.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-remote-driver</artifactId>
-			<version>2.24.1</version>
-		</dependency>
-	</dependencies>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-war-plugin</artifactId>
-		        <version>2.1.1</version>
-		        <configuration>
-		          <webResources>
-		            <resource>
-		              <!-- this is relative to the pom.xml directory -->
-		              <directory>resource2</directory>
-		            </resource>
-		          </webResources>
-		        </configuration>
-		      </plugin>
-      		<plugin>
-		        <artifactId>maven-surefire-plugin</artifactId>
-		        <version>2.10</version>
-		        <configuration>
-		          <skipTests>true</skipTests>
-		        </configuration>
-      		</plugin>
-		</plugins>
-		
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                  <webResources>
+                    <resource>
+                      <!-- this is relative to the pom.xml directory -->
+                      <directory>resource2</directory>
+                    </resource>
+                  </webResources>
+                </configuration>
+              </plugin>
+              <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <failIfNoTests>false</failIfNoTests>
+                    <skipTests>false</skipTests>
+                    <includes>
+                      <include>**/*UnitTest.java</include>
+                    </includes>
+                    <forkMode>once</forkMode>
+                    <parallel>classes</parallel>
+                    <threadCount>2</threadCount>
+                    <perCoreThreadCount>true</perCoreThreadCount>
+                    <runOrder>random</runOrder>
+                    <systemPropertyVariables>
+                      <plume.componentDir>${basedir}/src/main/webapp/WEB-INF/components</plume.componentDir>
+                    </systemPropertyVariables>
+                </configuration>
+              </plugin>
+        </plugins>
+        
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>2.10</version>
                     <configuration>
@@ -207,7 +218,8 @@
                             </goals>
                             <configuration>
                                 <includes>
-                                    <include>**/*Test.java</include> 
+                                    <include>**/*UITest.java</include>
+                                    <include>**/*JSTests.java</include>
                                 </includes>
                                 <failIfNoTests>false</failIfNoTests>
                                 <runOrder>random</runOrder>
@@ -215,7 +227,6 @@
                                 <argLine>-Djava.io.tmpdir=${java.io.tmpdir}</argLine>
                                 <systemPropertyVariables>
                                     <config>${config}</config>
-                                    <plume.home>${plume.home}</plume.home>
                                     <plume.build.id>${plume.build.id}</plume.build.id>
                                     <jetty.port>${jetty.port}</jetty.port>
                                     <selenium.server.port>${selenium.server.port}</selenium.server.port>
@@ -226,6 +237,7 @@
                                     <screenshots.directory>${screenshots.directory}</screenshots.directory>
                                     <screenshots.baseurl>${screenshots.baseurl}</screenshots.baseurl>
                                     <testNameContains>${testNameContains}</testNameContains>
+                                    <plume.componentDir>${basedir}/src/main/webapp/WEB-INF/components</plume.componentDir>
                                 </systemPropertyVariables>
                             </configuration>
                         </execution>
@@ -236,8 +248,8 @@
                             </goals>
                         </execution>
                     </executions>
-				</plugin>
-				<plugin>
+                </plugin>
+                <plugin>
                     <groupId>org.mortbay.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>8.0.4.v20111024</version>
@@ -251,16 +263,12 @@
                         <scanIntervalSeconds>${scanInterval}</scanIntervalSeconds>
                         <stopKey>foo</stopKey>
                         <stopPort>${jetty.port.stop}</stopPort>
-                        <webAppSourceDirectory>${plume.home}/src/main/webapp</webAppSourceDirectory>
+                        <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
                         <webAppConfig>
                             <contextPath>/</contextPath>
                         </webAppConfig>
                         <useTestClasspath>true</useTestClasspath>
                         <systemProperties>
-                            <systemProperty>
-                                <name>plume.home</name>
-                                <value>${plume.home}</value>
-                            </systemProperty>
                             <systemProperty>
                                 <name>config</name>
                                 <value>${config}</value>
@@ -395,41 +403,41 @@
                     </executions>
                 </plugin>
                 <plugin>
-       			<groupId>org.codehaus.mojo</groupId>
-        		<artifactId>exec-maven-plugin</artifactId>
-        		<version>1.2.1</version>
-        			<executions>
-		          		<execution>
-         		    		<id>x-start</id>
-            				<phase>pre-integration-test</phase>
-            				<goals>
-              					<goal>exec</goal>
-            				</goals>
-            	    		<configuration>
-              					<skip>${xdisplay.skip}</skip>
-              					<executable>${plume.home}/bin/daemonize</executable>
-              					<arguments>
-                					<argument>${xdisplay.exec} :${jetty.port} ${xdisplay.options}</argument>
-              					</arguments>
-            				</configuration>
-	          			</execution>
-	          	  		<execution>
-	            			<id>x-stop</id>
-	            			<phase>post-integration-test</phase>
-	            			<goals>
-	              				<goal>exec</goal>
-	            			</goals>
-	            			<configuration>
-	              				<skip>${xdisplay.skip}</skip>
-	              				<executable>${plume.home}/bin/pskill</executable>
-	              				<arguments>
-	                				<argument>${xdisplay.exec}* :${jetty.port} ${xdisplay.options}</argument>
-	              				</arguments>
-	            			</configuration>
-	          			</execution>
-	        		</executions>
-      			</plugin>
-      			<plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                    <executions>
+                          <execution>
+                             <id>x-start</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                  <goal>exec</goal>
+                            </goals>
+                            <configuration>
+                                  <skip>${xdisplay.skip}</skip>
+                                  <executable>${basedir}/bin/daemonize</executable>
+                                  <arguments>
+                                    <argument>${xdisplay.exec} :${jetty.port} ${xdisplay.options}</argument>
+                                  </arguments>
+                            </configuration>
+                          </execution>
+                            <execution>
+                            <id>x-stop</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                  <goal>exec</goal>
+                            </goals>
+                            <configuration>
+                                  <skip>${xdisplay.skip}</skip>
+                                  <executable>${basedir}/bin/pskill</executable>
+                                  <arguments>
+                                    <argument>${xdisplay.exec}* :${jetty.port} ${xdisplay.options}</argument>
+                                  </arguments>
+                            </configuration>
+                          </execution>
+                    </executions>
+                  </plugin>
+                  <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
                     <version>1.0.0</version>
@@ -481,11 +489,11 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-	
-	<profiles>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
         <profile>
             <id>runIntTests</id>
             <activation>
