@@ -40,7 +40,7 @@ public class PlumeNoteUnitTestCase extends TestCase {
 
     @Override
     public void tearDown() throws Exception {
-        if (!Plume.getContextService().isEstablished()) {
+        if (Plume.getContextService().isEstablished()) {
             Plume.getContextService().endContext();
         }
         PlumeNoteTestUtil.clearNotesDb();
