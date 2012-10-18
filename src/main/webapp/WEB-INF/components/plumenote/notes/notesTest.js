@@ -8,8 +8,7 @@
     /**
      * Create a new note and check that list and detail view is updated.
      */
-    // W-1381014 - delete button pressed immediately after creation of new note does not actually delete note. test passes otherwise.
-    _testNewNote:{
+    testNewNote:{
         test : function(cmp){
             // delete note after test
             var deleter = new (function() {
@@ -69,7 +68,11 @@
                             var row = list.get("v.body")[0].find("row");
                             row = row[0] || row;
                             $P.test.assertEquals(body, row.getElement().getElementsByClassName("desc")[0].innerText.trim(), "wrong body in list");
-                            deleter.deleteNote();
+
+                            // must click item in sidebar before deleting due to bug:
+                            // W-1381014
+                            test.click(row.getElement());
+                            deleter.deleteNote(row.getElement());
                         }
                     );
                 }
