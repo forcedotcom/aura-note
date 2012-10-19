@@ -33,8 +33,8 @@ public class PlumeNoteUnitTestCase extends TestCase {
         if (!Plume.getContextService().isEstablished()) {
             Plume.getContextService().startContext(Mode.UTEST, Format.JSON, Access.AUTHENTICATED);
         }
-        PlumeNoteTestUtil.saveNotes();
-        PlumeNoteTestUtil.clearNotesDb();
+
+        PlumeNoteTestUtil.saveDbState();
         super.setUp();
     }
 
@@ -43,9 +43,8 @@ public class PlumeNoteUnitTestCase extends TestCase {
         if (Plume.getContextService().isEstablished()) {
             Plume.getContextService().endContext();
         }
-        PlumeNoteTestUtil.clearNotesDb();
-        PlumeNoteTestUtil.restoreSavedNotes();
-        PlumeNoteTestUtil.clearCurrNotes();
+
+        PlumeNoteTestUtil.restoreDbState();
         super.tearDown();
     }
 }

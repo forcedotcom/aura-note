@@ -40,18 +40,13 @@ public class PlumeNoteUITestCase extends WebDriverTestCase {
 
     @Override
     public void setUp() throws Exception {
-        PlumeNoteTestUtil.saveNotes();
-        PlumeNoteTestUtil.clearNotesDb();
-
+        PlumeNoteTestUtil.saveDbState();
         super.setUp();
     }
 
     @Override
-    public void tearDown() throws Exception {    
-        PlumeNoteTestUtil.clearNotesDb();
-        PlumeNoteTestUtil.restoreSavedNotes();
-        PlumeNoteTestUtil.clearCurrNotes();
-        
+    public void tearDown() throws Exception {
+        PlumeNoteTestUtil.restoreDbState();
         super.tearDown();
     }
 

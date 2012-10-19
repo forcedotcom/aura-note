@@ -60,6 +60,23 @@ public class PlumeNoteTestUtil {
 
     // Save existing notes to this list while running tests, restore after tests complete
     private static List<Note> notes = new ArrayList<Note>();
+    
+    /**
+     * Saves current notes in database to local list and clears for tests.
+     */
+    protected static void saveDbState() throws SQLException {
+        notes.clear();
+        saveNotes();
+        clearNotesDb();
+    }
+
+    /**
+     * Delete notes created by tests and restore original notes.
+     */
+    protected static void restoreDbState() throws SQLException {
+        clearNotesDb();
+        restoreSavedNotes();
+    }
 
     protected static void saveNotes() throws SQLException {
         Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
@@ -86,7 +103,30 @@ public class PlumeNoteTestUtil {
         }
     }
 
-    protected static void clearCurrNotes() {
-        notes.clear();
+    /**
+     * Searches database for a note with matching title and body strings. If multiple exist, first instance
+     * will be returned.
+     * @param title Note title.
+     * @param body Note body.
+     * @return First found instance of Note object with matching title and body.
+     */
+    public static Note getNoteByTitleBody(String title, String body) throws SQLException {
+        // Controller converts null title/body to empty string, mimic behavior
+        title = (title == null) ? "" : title;
+        body = (body == null) ? "" : body;
+        
+        Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
+        CloseableIterator<Note> iter = noteDao.iterator();
+        while (iter.hasNext()) {
+            Note curr = iter.next();
+            if (curr.getTitle().equals(title) && curr.getBody().equals(body)) {
+                return curr;
+            }
+        }
+        return null;
+    }
+
+    public static boolean isNoteInDb(String title, String body) throws SQLException {
+        return (getNoteByTitleBody(title, body) == null) ? false : true;
     }
 }
