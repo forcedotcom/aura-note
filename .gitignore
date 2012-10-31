@@ -4,3 +4,4 @@ target
 .classpath
 *.class
 .DS_Store
+chromedriver.log
