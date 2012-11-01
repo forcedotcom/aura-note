@@ -38,8 +38,8 @@
                 function(){
                     // check the right buttons are displayed
                     $P.test.assertEquals(2, buttons.length, "expected cancel and save");
-                    $P.test.assertEquals("Cancel", buttons[0].find("span").getElement().innerText, "Cancel button not first");
-                    $P.test.assertEquals("Save", buttons[1].find("span").getElement().innerText, "Save button not second");
+                    $P.test.assertEquals("Cancel", buttons[0].find("span").getElement().textContent, "Cancel button not first");
+                    $P.test.assertEquals("Save", buttons[1].find("span").getElement().textContent, "Save button not second");
 
                     // fill in the values and save
                     editCmp.getSuper().get("v.title")[0].getValue("v.value").setValue(title);
@@ -54,8 +54,8 @@
                             var buttons = details.getSuper().get("v.buttons");
                             $P.test.assertEquals(2, buttons.length, "expected edit and delete");
 
-                            $P.test.assertEquals("Edit", buttons[0].find("span").getElement().innerText, "Edit button not displayed");
-                            $P.test.assertEquals("Delete", buttons[1].find("span").getElement().innerText, "Delete button not displayed");
+                            $P.test.assertEquals("Edit", buttons[0].find("span").getElement().textContent, "Edit button not displayed");
+                            $P.test.assertEquals("Delete", buttons[1].find("span").getElement().textContent, "Delete button not displayed");
                             $P.test.assertEquals(title, details.getSuper().get("v.title")[0].getElement().textContent, "wrong title in detail");
                             $P.test.assertEquals(body, details.getSuper().get("v.body")[0].getElement().textContent, "wrong body in detail");
                         }
@@ -67,7 +67,7 @@
                         function(){
                             var row = list.get("v.body")[0].find("row");
                             row = row[0] || row;
-                            $P.test.assertEquals(body, row.getElement().getElementsByClassName("desc")[0].innerText.trim(), "wrong body in list");
+                            $P.test.assertEquals(body, row.getElement().getElementsByClassName("desc")[0].textContent.trim(), "wrong body in list");
 
                             // must click item in sidebar before deleting due to bug:
                             // W-1381014
