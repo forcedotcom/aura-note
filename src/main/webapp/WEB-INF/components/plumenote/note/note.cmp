@@ -18,7 +18,7 @@
 				</ui:block>
 				<ul class="tags">
 					<plume:renderIf isTrue="{!v.note.latitude != null}">
-						<ui:button class="locationButton" iconClass="icon"
+						<ui:button label="Location" class="locationButton" iconClass="icon"
 							press="{!c.togggleLocationImages}">
 					    	Location set: {!v.note.longitude+', '+v.note.latitude}
 					    	<a

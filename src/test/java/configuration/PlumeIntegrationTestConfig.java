@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.openqa.selenium.net.PortProber;
 import org.plumeframework.test.*;
 import org.plumeframework.test.configuration.JettyTestServletConfig;
 import org.plumeframework.test.configuration.TestServletConfig;
@@ -37,13 +38,18 @@ public class PlumeIntegrationTestConfig {
     @Impl
     public static WebDriverProvider plumeWebDriverProvider() throws Exception {
         URL serverUrl;
+        boolean runningOnSauceLabs = SauceUtil.areTestsRunningOnSauce();
         try {
             String hubUrlString = System.getProperty(WebDriverProvider.WEBDRIVER_SERVER_PROPERTY);
             if ((hubUrlString != null) && !hubUrlString.equals("")) {
-                serverUrl = new URL(hubUrlString);
+                if (runningOnSauceLabs)
+                    serverUrl = SauceUtil.getSauceServerUrl();
+                else
+                    serverUrl = new URL(hubUrlString);
             } else {
-                int serverPort = Integer.parseInt(System.getProperty("selenium.server.port", "4444"));
-
+                //int serverPort = Integer.parseInt(System.getProperty("selenium.server.port", "4444"));
+                int serverPort = PortProber.findFreePort();
+                
                 // quiet the verbose grid logging
                 Logger selLog = Logger.getLogger("org.openqa");
                 selLog.setLevel(Level.SEVERE);
@@ -57,7 +63,7 @@ public class PlumeIntegrationTestConfig {
             e.printStackTrace();
             throw new Error(e);
         }
-        if (Boolean.parseBoolean(System.getProperty(WebDriverProvider.REUSE_BROWSER_PROPERTY))) {
+        if (!runningOnSauceLabs && Boolean.parseBoolean(System.getProperty(WebDriverProvider.REUSE_BROWSER_PROPERTY))) {
             return new PooledRemoteWebDriverFactory(serverUrl);
         } else {
             return new RemoteWebDriverFactory(serverUrl);

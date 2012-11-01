@@ -5,13 +5,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.plumeframework.Plume;
-import org.plumeframework.instance.BaseComponent;
-import org.plumeframework.system.Annotations.PlumeEnabled;
-import org.plumeframework.system.Annotations.Model;
-import org.plumeframework.util.TextUtil;
-
 import org.plumeframework.demo.notes.DataStore;
 import org.plumeframework.demo.notes.Note;
+import org.plumeframework.instance.BaseComponent;
+import org.plumeframework.system.Annotations.Model;
+import org.plumeframework.system.Annotations.PlumeEnabled;
+import org.plumeframework.util.PlumeTextUtil;
 
 import com.google.common.collect.Lists;
 import com.j256.ormlite.dao.Dao;
@@ -46,7 +45,7 @@ public class NoteListModel {
 
 		BaseComponent<?, ?> cmp = Plume.getContextService().getCurrentContext().getCurrentComponent();
 
-		List<String> sortSplit = TextUtil.splitSimple(".", (String) cmp.getAttributes().getValue("sort"));
+		List<String> sortSplit = PlumeTextUtil.splitSimple(".", (String) cmp.getAttributes().getValue("sort"));
 
 		SortCol sortCol = SortCol.createdOn;
 		SortDir sortDir = SortDir.desc;
@@ -58,7 +57,7 @@ public class NoteListModel {
 
 		String query = (String) cmp.getAttributes().getValue("query");
 		QueryBuilder<Note, Long> qb = noteDao.queryBuilder();
-		if (!TextUtil.isNullEmptyOrWhitespace(query)) {
+		if (!PlumeTextUtil.isNullEmptyOrWhitespace(query)) {
 			List<Long> ids = Lists.newArrayList();
 			GenericRawResults<String[]> searchResults = noteDao.queryRaw("SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
 			try {
