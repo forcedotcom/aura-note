@@ -84,6 +84,7 @@ public class SortNoteUITest extends PlumeNoteUITestCase {
     /**
      * Verifies created note gets added to list in correctly sorted order.
      */
+    // W-1420533
     public void testAddNoteWhileSortedAFirst() throws Exception {
         open("/plumenote/notes.app");
         addInitialNotes();

@@ -120,7 +120,8 @@ public class SearchNoteUITest extends PlumeNoteUITestCase {
     /**
      * Verifies searching for a recently edited note does not show any results.
      */
-    public void testSearchEditedNote() throws Exception {
+    // W-1420533
+    public void _testSearchEditedNote() throws Exception {
         open("/plumenote/notes.app");
         addInitialNotes();
 

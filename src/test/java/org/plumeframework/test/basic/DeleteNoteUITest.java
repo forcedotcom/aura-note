@@ -45,8 +45,8 @@ public class DeleteNoteUITest extends PlumeNoteUITestCase {
         assertTrue("Wrong note deleted from sidebar", isInSidebar("New Note 3", "ccc"));
 
         // Check details view, should be New Note screen
-        assertEquals("Note title still displayed in details view", "", getText(PlumeNoteTestUtil.TITLE_INPUT));    
-        assertEquals("Note body still displayed in details view", "", getText(PlumeNoteTestUtil.BODY_INPUT));    
+        assertEquals("Note title still displayed in details view", "", getText(PlumeNoteTestUtil.TITLE_INPUT));
+        assertEquals("Note body still displayed in details view", "", getText(PlumeNoteTestUtil.BODY_INPUT));
     }
 
     public void testDeleteAllNotes() throws Exception {
@@ -63,7 +63,7 @@ public class DeleteNoteUITest extends PlumeNoteUITestCase {
             getSidebar().get(0).click();
             waitForElementAppear(PlumeNoteTestUtil.DELETE_BUTTON);
             clickElement(PlumeNoteTestUtil.DELETE_BUTTON);
-            waitForElementAppear(PlumeNoteTestUtil.SAVE_BUTTON);                
+            waitForElementAppear(PlumeNoteTestUtil.SAVE_BUTTON);
         }
 
         // At this point only the Sample Note should be in sidebar
@@ -80,7 +80,7 @@ public class DeleteNoteUITest extends PlumeNoteUITestCase {
     /**
      * Create a note and then delete it without changing focus away from newly created note.
      */
-    //"W-1381014"
+    // W-1381014
     public void _testCreateThenDeleteNote() throws Exception {
         open("/plumenote/notes.app");
 
@@ -88,8 +88,8 @@ public class DeleteNoteUITest extends PlumeNoteUITestCase {
         waitForElementAppear(PlumeNoteTestUtil.TITLE_INPUT);
         sendText("Create Delete", PlumeNoteTestUtil.TITLE_INPUT);
         sendText("aaa", PlumeNoteTestUtil.BODY_INPUT);
-        clickElement(PlumeNoteTestUtil.SAVE_BUTTON);        
-        waitForElementAppear(PlumeNoteTestUtil.DELETE_BUTTON);        
+        clickElement(PlumeNoteTestUtil.SAVE_BUTTON);
+        waitForElementAppear(PlumeNoteTestUtil.DELETE_BUTTON);
         clickElement(PlumeNoteTestUtil.DELETE_BUTTON);
         waitForElementAppear(PlumeNoteTestUtil.TITLE_INPUT);
 
