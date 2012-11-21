@@ -4,90 +4,90 @@
 	metadata-complete="true"
 	version="2.5">
 
-	<display-name>Plume</display-name>
+	<display-name>Aura</display-name>
 
 	<filter>
-		<filter-name>PlumeContextFilter</filter-name>
-		<filter-class>org.plumeframework.http.PlumeContextFilter</filter-class>
+		<filter-name>AuraContextFilter</filter-name>
+		<filter-class>org.auraframework.http.AuraContextFilter</filter-class>
 		<init-param>
 			<param-name>componentDir</param-name>
 			<param-value>/WEB-INF/components</param-value>
 		</init-param>
 	</filter>
 
-	<!-- Begin Plume Servlet -->
+	<!-- Begin Aura Servlet -->
 
 	<filter>
-		<filter-name>PlumeRewriteFilter</filter-name>
-		<filter-class>org.plumeframework.http.PlumeRewriteFilter</filter-class>
+		<filter-name>AuraRewriteFilter</filter-name>
+		<filter-class>org.auraframework.http.AuraRewriteFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
 		<url-pattern>*.cmp</url-pattern>
-		<filter-name>PlumeRewriteFilter</filter-name>
+		<filter-name>AuraRewriteFilter</filter-name>
 	</filter-mapping>
 
 	<filter-mapping>
 		<url-pattern>*.app</url-pattern>
-		<filter-name>PlumeRewriteFilter</filter-name>
+		<filter-name>AuraRewriteFilter</filter-name>
 	</filter-mapping>
 
 
 	<servlet>
-		<servlet-name>PlumeServlet</servlet-name>
-		<servlet-class>org.plumeframework.http.PlumeServlet</servlet-class>
+		<servlet-name>AuraServlet</servlet-name>
+		<servlet-class>org.auraframework.http.AuraServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
 
 	<filter-mapping>
-		<filter-name>PlumeContextFilter</filter-name>
-		<url-pattern>/plume</url-pattern>
+		<filter-name>AuraContextFilter</filter-name>
+		<url-pattern>/aura</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
 	</filter-mapping>
 
 	<servlet-mapping>
-		<servlet-name>PlumeServlet</servlet-name>
-		<url-pattern>/plume</url-pattern>
+		<servlet-name>AuraServlet</servlet-name>
+		<url-pattern>/aura</url-pattern>
 	</servlet-mapping>
 
 
-	<!-- Begin Plume ResourceServlet -->
+	<!-- Begin Aura ResourceServlet -->
 
 	<filter>
-		<filter-name>PlumeResourceRewriteFilter</filter-name>
-		<filter-class>org.plumeframework.http.PlumeResourceRewriteFilter</filter-class>
+		<filter-name>AuraResourceRewriteFilter</filter-name>
+		<filter-class>org.auraframework.http.AuraResourceRewriteFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
 		<url-pattern>/l/*</url-pattern>
-		<filter-name>PlumeResourceRewriteFilter</filter-name>
+		<filter-name>AuraResourceRewriteFilter</filter-name>
 	</filter-mapping>
 
 	<servlet>
-		<servlet-name>PlumeResourceServlet</servlet-name>
-		<servlet-class>org.plumeframework.http.PlumeResourceServlet</servlet-class>
+		<servlet-name>AuraResourceServlet</servlet-name>
+		<servlet-class>org.auraframework.http.AuraResourceServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
 
 	<filter-mapping>
-		<filter-name>PlumeContextFilter</filter-name>
-		<url-pattern>/plumeResource</url-pattern>
+		<filter-name>AuraContextFilter</filter-name>
+		<url-pattern>/auraResource</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
 	</filter-mapping>
 
 	<servlet-mapping>
-		<servlet-name>PlumeResourceServlet</servlet-name>
-		<url-pattern>/plumeResource</url-pattern>
+		<servlet-name>AuraResourceServlet</servlet-name>
+		<url-pattern>/auraResource</url-pattern>
 	</servlet-mapping>
 
-	<!-- Begin Plume Framework Servlet -->
+	<!-- Begin Aura Framework Servlet -->
 	<servlet>
-		<servlet-name>PlumeFrameworkServlet</servlet-name>
-		<servlet-class>org.plumeframework.http.PlumeFrameworkServlet</servlet-class>
+		<servlet-name>AuraFrameworkServlet</servlet-name>
+		<servlet-class>org.auraframework.http.AuraFrameworkServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
 	<filter>
@@ -100,8 +100,8 @@
 	</filter-mapping>
 
 	<servlet-mapping>
-		<servlet-name>PlumeFrameworkServlet</servlet-name>
-		<url-pattern>/plumeFW/*</url-pattern>
+		<servlet-name>AuraFrameworkServlet</servlet-name>
+		<url-pattern>/auraFW/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>

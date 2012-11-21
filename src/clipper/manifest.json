@@ -1,7 +1,7 @@
 {
-  "name": "Plumenote Web Clipper",
+  "name": "Auranote Web Clipper",
   "version": "1.0",
-  "description": "Save elements of web pages to Plume Note.",
+  "description": "Save elements of web pages to Aura Note.",
   "permissions": ["contextMenus","tabs","http://*/*", 
       "https://*/*"],
   "background_page": "background.html",

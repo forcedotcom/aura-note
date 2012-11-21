@@ -1,0 +1,35 @@
+body, html, .auranoteNotes .wrapper > * {height: 100%;}
+body{
+	background: #666 url(/img/bg.png);
+	text-rendering: optimizeLegibility;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+	color: #5C676B;
+}
+
+/* this style is here as a temporary workaround to a theming bug*/
+.uiButton{
+	font-weight: bold;
+	font-size: 13px;
+    margin: 2px;
+    padding: 4px 6px;
+    text-decoration:none;
+    text-align:center;
+    border-radius:4px;
+    border:0;
+    border-top:1px solid rgba(255,255,255,.45);     
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F9), to(#DDDFE1));
+	text-shadow: white 0px 1px 1px;	
+	box-shadow: rgba(0, 0, 0, 0.699219) 0px 1px 3px;
+}
+.uiButton:hover{
+	background: #757D8A -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7F8792), to(#535B68));
+    border:0;
+    border-top:1px solid rgba(255,255,255,.45);     
+	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
+	color: #fff;
+}
+.uiButton > img{
+	display: none;
+}

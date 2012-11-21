@@ -1,0 +1,48 @@
+<aura:component abstract="true" provider="js://auranote.note">
+	<aura:attribute name="mode" type="String" default="view" />
+	<aura:attribute name="note"
+		type="java://org.auraframework.demo.notes.Note" />
+	<aura:attribute name="sort" type="String" />
+
+	<aura:attribute name="buttons" type="Aura.Component[]" />
+	<aura:attribute name="title" type="Aura.Component[]" />
+	<aura:attribute name="tags" type="Aura.Component[]" />
+	<aura:attribute name="masked" type="boolean" />
+
+	<article class="content">
+		<ui:vbox>
+			<aura:set attribute="north">
+				<ui:block class="header">
+					<h2 class="noteTitle">{!v.title}</h2>
+					<aura:set attribute="right">{!v.buttons}</aura:set>
+				</ui:block>
+				<ul class="tags">
+					<aura:renderIf isTrue="{!v.note.latitude != null}">
+						<ui:button label="Location" class="locationButton" iconClass="icon"
+							press="{!c.togggleLocationImages}">
+					    	Location set: {!v.note.longitude+', '+v.note.latitude}
+					    	<a
+								href="{!'http://maps.google.com/?q='+v.note.latitude+','+v.note.longitude}"
+								target="_new" class="locationImages" aura:id="locImages"> <img
+								src="{!'http://maps.googleapis.com/maps/api/staticmap?center='+v.note.latitude+','+v.note.longitude+'&amp;zoom=11&amp;size=100x100&amp;sensor=false'}" />
+								<img
+								src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}" />
+							</a>
+						</ui:button>
+					</aura:renderIf>
+					{!v.tags}
+
+					<!--
+			    	Tags: 
+			    	<li class="tag">green</li>
+			    	<li class="tag">periwinkle</li>
+			    	<li class="tag">burnt sienna</li>
+			    	-->
+				</ul>
+			</aura:set>
+			<ui:scroller>
+				<div class="{!v.masked ? 'mask' : ''}">&nbsp;</div><p class="noteBody">{!v.body}</p>
+			</ui:scroller>
+		</ui:vbox>
+	</article>
+</aura:component>

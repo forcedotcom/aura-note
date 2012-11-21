@@ -1,0 +1,6 @@
+<aura:component model="java://org.auraframework.demo.notes.models.TestNoteListModel" controller="java://org.auraframework.demo.notes.controllers.TestNoteListController">
+    <aura:attribute name="sort" type="String" default="createdOn.desc"/>
+    <aura:attribute name="query" type="String" default=""/>
+    <auranote:noteList aura:id="list" sort="{!v.sort}" query="{!v.query == '' ? m.key : v.query}"/>
+</aura:component>
+

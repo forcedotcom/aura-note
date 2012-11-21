@@ -1,5 +1,0 @@
-<plume:event type="APPLICATION">
-    <plume:attribute name="note" type="java://org.plumeframework.demo.notes.Note"/>
-    <plume:attribute name="mode" type="String"/>
-    <plume:attribute name="sort" type="String"/>
-</plume:event>

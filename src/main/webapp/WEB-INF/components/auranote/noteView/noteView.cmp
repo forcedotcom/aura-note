@@ -1,0 +1,13 @@
+<aura:component extends="auranote:note" controller="java://org.auraframework.demo.notes.controllers.NoteViewController">
+    <aura:set attribute="masked" value="true"/>
+    <aura:set attribute="buttons">
+        <ui:button label="Edit" press="{!c.edit}" class="edit_t"/>
+        <ui:button label="Delete" press="{!c.delete}" class="delete_t"/>
+    </aura:set>
+    <aura:set attribute="title">
+        {!v.note.title}
+    </aura:set>
+    <aura:set attribute="body">
+    	<aura:unescapedHtml value="{!v.note.body}"/>
+    </aura:set>
+</aura:component>

@@ -1,0 +1,6 @@
+<aura:component implements="auranote:noteData">
+	<aura:handler event="auranote:openNote" action="{!c.openNote}" />
+	<aura:attribute name="note" type="java://org.auraframework.demo.notes.Note"/>
+    <aura:attribute name="mode" type="String"/>
+	<div aura:id="notes"/>
+</aura:component>

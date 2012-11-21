@@ -1,6 +1,0 @@
-<plume:component implements="plumenote:noteData">
-	<plume:handler event="plumenote:openNote" action="{!c.openNote}" />
-	<plume:attribute name="note" type="java://org.plumeframework.demo.notes.Note"/>
-    <plume:attribute name="mode" type="String"/>
-	<div plume:id="notes"/>
-</plume:component>
