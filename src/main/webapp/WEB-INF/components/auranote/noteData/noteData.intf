@@ -1,0 +1,5 @@
+<aura:interface>
+	<aura:attribute name="url" type="String"/>
+	<aura:attribute name="image" type="String"/>
+	<aura:attribute name="text" type="String"/>
+</aura:interface>

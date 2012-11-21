@@ -1,8 +1,8 @@
-To use the latest version of plume (and everything else) run this:
+To use the latest version of aura (and everything else) run this:
 
 	mvn versions:use-latest-versions -DallowSnapshots=true -DgenerateBackupPoms=false
 
-If you want a prepopulated sample not database just copy the file plumenote.db.h2.db (in the same folder as this README) to your home folder
+If you want a prepopulated sample not database just copy the file auranote.db.h2.db (in the same folder as this README) to your home folder
 
 To start jetty on port 8080 run this:
 
@@ -10,11 +10,11 @@ To start jetty on port 8080 run this:
 
 To see the app go to:
 
-	http://localhost:8080/plumenote/notes.app
+	http://localhost:8080/auranote/notes.app
 
 To edit the app open:
 
-	plume-notes/src/main/webapp/WEB-INF/components/plumenote/notes/notes.app
+	aura-notes/src/main/webapp/WEB-INF/components/auranote/notes/notes.app
 
 
 

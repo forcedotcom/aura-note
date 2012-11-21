@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <name>Plume Framework</name>
+    <name>Aura Framework</name>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.plumeframework.demo</groupId>
-    <artifactId>plume-note</artifactId>
+    <groupId>org.auraframework.demo</groupId>
+    <artifactId>aura-note</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -16,7 +16,7 @@
         <webdriver.reusebrowser>true</webdriver.reusebrowser>
         <webdriver.remote.server /> <!-- http://localhost:4444/wd/hub/ -->
         <webdriver.reusebrowser>true</webdriver.reusebrowser>
-        <webdriver.browser.type>GOOGLECHROME</webdriver.browser.type> <!-- refer to org.plumeframework.test.WebDriverUtil.BrowserType enums for valid values -->
+        <webdriver.browser.type>GOOGLECHROME</webdriver.browser.type> <!-- refer to org.auraframework.test.WebDriverUtil.BrowserType enums for valid values -->
         <sauce.record.video>false</sauce.record.video>
         <sauce.record.screenshots>false</sauce.record.screenshots>
         <sauce.username>lumen</sauce.username>
@@ -40,7 +40,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <url>file://${plume.home}/repo</url>
+            <url>file://${aura.home}/repo</url>
         </repository>
         <repository>
             <snapshots>
@@ -48,13 +48,13 @@
             </snapshots>
             <id>central</id>
             <name>libs-release</name>
-            <url>http://maven.plumeframework.org/libs-release</url>
+            <url>http://maven.auraframework.org/libs-release</url>
         </repository>
         <repository>
             <snapshots />
             <id>snapshots</id>
             <name>libs-snapshot</name>
-            <url>http://maven.plumeframework.org/libs-snapshot</url>
+            <url>http://maven.auraframework.org/libs-snapshot</url>
         </repository>
     </repositories>
 
@@ -65,64 +65,64 @@
             </snapshots>
             <id>central</id>
             <name>plugins-release</name>
-            <url>http://maven.plumeframework.org/plugins-release</url>
+            <url>http://maven.auraframework.org/plugins-release</url>
         </pluginRepository>
         <pluginRepository>
             <snapshots />
             <id>snapshots</id>
             <name>plugins-snapshot</name>
-            <url>http://maven.plumeframework.org/plugins-snapshot</url>
+            <url>http://maven.auraframework.org/plugins-snapshot</url>
         </pluginRepository>
     </pluginRepositories>
 
     <dependencies>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-util</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-util</artifactId>
+            <version>0.0.374</version>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura</artifactId>
+            <version>0.0.374</version>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-impl</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-impl</artifactId>
+            <version>0.0.374</version>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-impl-expression</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-impl-expression</artifactId>
+            <version>0.0.374</version>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-resources</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-resources</artifactId>
+            <version>0.0.374</version>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura</artifactId>
+            <version>0.0.374</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-impl</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-impl</artifactId>
+            <version>0.0.374</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-impl-expression</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-impl-expression</artifactId>
+            <version>0.0.374</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
-            <groupId>org.plumeframework</groupId>
-            <artifactId>plume-util</artifactId>
-            <version>0.0.358</version>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-util</artifactId>
+            <version>0.0.374</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
@@ -212,7 +212,7 @@
                     <perCoreThreadCount>true</perCoreThreadCount>
                     <runOrder>random</runOrder>
                     <systemPropertyVariables>
-                      <plume.componentDir>${basedir}/src/main/webapp/WEB-INF/components</plume.componentDir>
+                      <aura.componentDir>${basedir}/src/main/webapp/WEB-INF/components</aura.componentDir>
                     </systemPropertyVariables>
                 </configuration>
               </plugin>
@@ -247,7 +247,7 @@
                                 <argLine>-Djava.io.tmpdir=${java.io.tmpdir}</argLine>
                                 <systemPropertyVariables>
                                     <config>${config}</config>
-                                    <plume.build.id>${plume.build.id}</plume.build.id>
+                                    <aura.build.id>${aura.build.id}</aura.build.id>
                                     <jetty.port>${jetty.port}</jetty.port>
                                     <selenium.server.port>${selenium.server.port}</selenium.server.port>
                                     <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
@@ -258,7 +258,7 @@
                                     <screenshots.directory>${screenshots.directory}</screenshots.directory>
                                     <screenshots.baseurl>${screenshots.baseurl}</screenshots.baseurl>
                                     <testNameContains>${testNameContains}</testNameContains>
-                                    <plume.componentDir>${basedir}/src/main/webapp/WEB-INF/components</plume.componentDir>
+                                    <aura.componentDir>${basedir}/src/main/webapp/WEB-INF/components</aura.componentDir>
                                 </systemPropertyVariables>
                             </configuration>
                         </execution>
@@ -299,8 +299,8 @@
                                 <value>${config}</value>
                             </systemProperty>
                             <systemProperty>
-                                <name>plume.build.id</name>
-                                <value>${plume.build.id}</value>
+                                <name>aura.build.id</name>
+                                <value>${aura.build.id}</value>
                             </systemProperty>
                             <systemProperty>
                                 <name>selenium.server.port</name>

@@ -1,3 +1,0 @@
-<plume:component extends="ui:input">
-	<textarea>{!v.value}</textarea> 
-</plume:component>

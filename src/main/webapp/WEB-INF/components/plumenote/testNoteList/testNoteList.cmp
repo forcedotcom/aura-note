@@ -1,6 +1,0 @@
-<plume:component model="java://org.plumeframework.demo.notes.models.TestNoteListModel" controller="java://org.plumeframework.demo.notes.controllers.TestNoteListController">
-    <plume:attribute name="sort" type="String" default="createdOn.desc"/>
-    <plume:attribute name="query" type="String" default=""/>
-    <plumenote:noteList plume:id="list" sort="{!v.sort}" query="{!v.query == '' ? m.key : v.query}"/>
-</plume:component>
-

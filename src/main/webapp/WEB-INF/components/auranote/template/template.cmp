@@ -1,0 +1,17 @@
+<aura:component extends="aura:template" theme="templateCss://auranote.template">
+	<aura:set attribute="title" value="Aura Notes"/>
+
+	<aura:set attribute="extraMetaTags">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+	</aura:set>
+	
+	<aura:set attribute="extraScriptTags">
+		<script type="text/javascript" src="/aura/ckeditor/ckeditor.js"></script>
+	</aura:set>
+	
+	<aura:set attribute="auraInitBlock">
+		<script>
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		</script>
+	</aura:set>	
+</aura:component>

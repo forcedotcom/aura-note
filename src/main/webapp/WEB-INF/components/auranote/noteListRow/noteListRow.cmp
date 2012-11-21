@@ -1,0 +1,10 @@
+<aura:component extends="auranote:listRow">
+    <aura:attribute name="note" type="java://org.auraframework.demo.notes.Note"/>
+    <aura:set attribute="desc">
+		<div class="mask">&nbsp;</div>
+		<aura:unescapedHtml value="{!v.note.body}"/>
+    </aura:set>
+    <aura:set attribute="onclick" value="{!c.openNote}"/>
+    <aura:set attribute="right"><ui:outputDateTime value="{!v.note.createdOnAsCalendar}" format="h:mm a"/></aura:set>
+    {!v.note.title}
+</aura:component>

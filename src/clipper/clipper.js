@@ -14,7 +14,7 @@ Clipper.getServer = function(){
 
 Clipper.createMenu = function(){
     var parent = chrome.contextMenus.create({
-                                    "title": "Plumenote Web Clipper",
+                                    "title": "Auranote Web Clipper",
                                     "contexts":["all"]
                                 });
     chrome.contextMenus.create({
@@ -53,7 +53,7 @@ Clipper.createMenu = function(){
 
 Clipper.newNote = function(){
     chrome.windows.create({
-        url : Clipper.getServer() + "plumenote/noteCreate.app",
+        url : Clipper.getServer() + "auranote/noteCreate.app",
         width : 640,
         height: 480
     });
@@ -62,7 +62,7 @@ Clipper.newNote = function(){
 Clipper.clipURL = function(data){
     var url = data.linkUrl || data.srcUrl || data.frameUrl || data.pageUrl;    
     chrome.windows.create({
-        url : Clipper.getServer() + "plumenote/noteCreate.app?url="+url,
+        url : Clipper.getServer() + "auranote/noteCreate.app?url="+url,
         width : 640,
         height: 480
     });
@@ -71,7 +71,7 @@ Clipper.clipURL = function(data){
 Clipper.clipSelection = function(data){
     var selection = data.selectionText;
     chrome.windows.create({
-        url : Clipper.getServer() + "plumenote/noteCreate.app?text="+selection,
+        url : Clipper.getServer() + "auranote/noteCreate.app?text="+selection,
         width : 640,
         height: 480
     });
@@ -82,7 +82,7 @@ Clipper.clipImage = function(data){
     var url = data.srcUrl;
     Clipper.getBase64Image(url, function(image){
         chrome.windows.create({
-            url : Clipper.getServer() + "plumenote/noteCreate.app?image="+image,
+            url : Clipper.getServer() + "auranote/noteCreate.app?image="+image,
             width : 640,
             height: 480
         });

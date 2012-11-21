@@ -6,3 +6,4 @@ target
 .DS_Store
 chromedriver.log
 plume-note Sauce.launch
+aura-note Sauce.launch
