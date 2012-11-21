@@ -40,7 +40,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <url>file://${aura.home}/repo</url>
+            <url>file://${basedir}/repo</url>
         </repository>
         <repository>
             <snapshots>
