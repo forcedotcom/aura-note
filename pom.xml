@@ -30,32 +30,19 @@
     </properties>
 
     <repositories>
-        <!-- This repo is for the closure-stylesheets. It is not from a public maven repository
-             so the source has been moved to a local file -->
-        <repository>
-            <id>repo</id>
-            <releases>
-                <enabled>true</enabled>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>file://${basedir}/repo</url>
-        </repository>
         <repository>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
             <id>central</id>
             <name>libs-release</name>
-            <url>http://maven.plumeframework.org/libs-release</url>
+            <url>http://maven.auraframework.org/libs-release</url>
         </repository>
         <repository>
             <snapshots />
             <id>snapshots</id>
             <name>libs-snapshot</name>
-            <url>http://maven.plumeframework.org/libs-snapshot</url>
+            <url>http://maven.auraframework.org/libs-snapshot</url>
         </repository>
     </repositories>
 
@@ -66,13 +53,13 @@
             </snapshots>
             <id>central</id>
             <name>plugins-release</name>
-            <url>http://maven.plumeframework.org/plugins-release</url>
+            <url>http://maven.auraframework.org/plugins-release</url>
         </pluginRepository>
         <pluginRepository>
             <snapshots />
             <id>snapshots</id>
             <name>plugins-snapshot</name>
-            <url>http://maven.plumeframework.org/plugins-snapshot</url>
+            <url>http://maven.auraframework.org/plugins-snapshot</url>
         </pluginRepository>
     </pluginRepositories>
 
@@ -80,50 +67,50 @@
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-resources</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.374</version>
+            <version>0.0.380</version>
             <type>test-jar</type>
         </dependency>
         <dependency>

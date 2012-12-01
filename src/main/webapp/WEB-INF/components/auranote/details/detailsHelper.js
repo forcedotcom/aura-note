@@ -15,7 +15,7 @@
 			note = $A.expressionService.create(null, {title : "", body : text, latitude : null, longitude: null})
 		}
 
-		var noteView = $A.services.component.newLocalComponent({
+		var noteView = $A.services.component.newComponent({
         	componentDef: {
         		descriptor: "markup://auranote:note"
         	},
