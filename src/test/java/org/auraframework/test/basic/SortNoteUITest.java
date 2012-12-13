@@ -18,10 +18,10 @@ package org.auraframework.test.basic;
 import java.util.HashMap;
 import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.auraframework.test.AuraNoteTestUtil;
 import org.auraframework.test.AuraNoteUITestCase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class SortNoteUITest extends AuraNoteUITestCase {
 
@@ -84,7 +84,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
     /**
      * Verifies created note gets added to list in correctly sorted order.
      */
-    // W-1420533
+    // TODO(W-1420533): fails in safari
     public void _testAddNoteWhileSortedAFirst() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
@@ -106,7 +106,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
     /**
      * Verifies deleting note from list does not mess up sorted order.
      */
-    //"W-1381027"
+    // TODO(W-1381027): deleting note from sorted list changes order
     public void _testDeleteNoteWhileSorted() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
@@ -133,7 +133,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
     /**
      * Verifies editing a note does not mess up sorted order.
      */
-    //"W-1381027"
+ // TODO(W-1381027): editing note from sorted list changes order
     public void _testEditNoteWhileSorted() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
@@ -157,7 +157,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
      * Verifies changing sorting between clicking New Note button and clicking Save still saves new note in correctly
      * sorted order.
      */
-    //"W-1381036"
+    // TODO(W-1381036): note added to wrong place in sorted list
     public void _testChangeSortingWhileAddingNote() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();

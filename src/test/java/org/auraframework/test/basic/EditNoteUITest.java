@@ -32,7 +32,7 @@ public class EditNoteUITest extends AuraNoteUITestCase {
      */
     public void testFiller() {}
 
-    // W-1420533 - failing in Safari
+    // TODO(W-1420533): failing in Safari
     public void _testEditNote() throws Exception {
         open("/auranote/notes.app");
 
@@ -63,7 +63,7 @@ public class EditNoteUITest extends AuraNoteUITestCase {
     /**
      * Verify pressing cancel on edited note does not modify note contents.
      */
-    // W-1381022
+    // TODO(W-1381022): canceling edit will still display modified text
     public void _testCancelEditNote() throws Exception {
         open("/auranote/notes.app");
 

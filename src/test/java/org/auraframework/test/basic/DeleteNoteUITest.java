@@ -80,7 +80,7 @@ public class DeleteNoteUITest extends AuraNoteUITestCase {
     /**
      * Create a note and then delete it without changing focus away from newly created note.
      */
-    // W-1381014
+    // TODO(W-1381014): delete immediately after create fails
     public void _testCreateThenDeleteNote() throws Exception {
         open("/auranote/notes.app");
 

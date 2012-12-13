@@ -28,7 +28,7 @@ public class CreateNewNoteUITest extends AuraNoteUITestCase {
      * Verifies notes are properly created and added to sidebar. Also checks details view of first note after second
      * note is added.
      */
-    // W-1420533 - failing in Safari
+    // TODO(W-1420533): failing in Safari
     public void _testCreateNewNote() throws Exception {
         open("/auranote/notes.app");
 

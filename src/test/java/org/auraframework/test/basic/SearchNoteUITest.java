@@ -120,7 +120,7 @@ public class SearchNoteUITest extends AuraNoteUITestCase {
     /**
      * Verifies searching for a recently edited note does not show any results.
      */
-    // W-1420533
+    // TODO(W-1420533): fails in safari
     public void _testSearchEditedNote() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
