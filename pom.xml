@@ -7,9 +7,9 @@
     <artifactId>aura-note</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <!-- these properties can be set by passing in -D<property_name>=<property_value> -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <skipUnitTests>true</skipUnitTests>
         <webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
         <chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
         <chromedriver.version>21.0.1180.4</chromedriver.version>
@@ -64,53 +64,54 @@
     </pluginRepositories>
 
     <dependencies>
+        <!-- Update auraframework versions here to use more up-to-date versions -->
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-resources</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.383</version>
+            <version>0.0.407</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
@@ -186,12 +187,14 @@
                 </configuration>
               </plugin>
               <plugin>
+                <!-- surefire is used to collect and run unit tests -->
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
                     <failIfNoTests>false</failIfNoTests>
                     <skipTests>false</skipTests>
                     <includes>
+                        <!-- specifies what file pattern to use to look for unit tests -->
                       <include>**/*UnitTest.java</include>
                     </includes>
                     <forkMode>once</forkMode>
@@ -209,6 +212,7 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                <!-- failsafe is used to collect and run integration tests -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>2.10</version>
@@ -225,6 +229,7 @@
                                 <goal>integration-test</goal>
                             </goals>
                             <configuration>
+                                <!-- specifies what file pattern to use to look for int tests -->
                                 <includes>
                                     <include>**/*UITest.java</include>
                                     <include>**/*JSTests.java</include>
@@ -502,8 +507,10 @@
         </pluginManagement>
     </build>
 
+    <!-- profiles can be turned on by passing in -P<profile_name> -->
     <profiles>
         <profile>
+            <!-- run integration tests (webdriver/javascript) tests -->
             <id>runIntTests</id>
             <activation>
                 <property>
@@ -562,6 +569,7 @@
             </build>
         </profile>
         <profile>
+            <!-- will open up the browser to run integration tests -->
             <id>desktop</id>
             <activation>
                 <property>
