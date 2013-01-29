@@ -22,7 +22,9 @@ import java.util.List;
 import org.auraframework.demo.notes.DataStore;
 import org.auraframework.demo.notes.Note;
 
-import com.j256.ormlite.dao.*;
+import com.j256.ormlite.dao.CloseableIterator;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 
 /**
  * Utility class for Aura Note Webdriver and Unit tests.

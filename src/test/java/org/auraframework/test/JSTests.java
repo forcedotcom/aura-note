@@ -19,6 +19,10 @@ import junit.framework.TestSuite;
 
 import org.auraframework.test.ComponentJSTestSuiteTest.NamespaceTestSuite;
 
+/**
+ * Specify what namespace to look under for all javascript tests.
+ * Tests should follow naming convention: <componentName>Test.js
+ */
 public class JSTests {
     public static TestSuite suite() throws Exception {
         TestSuite suite = new NamespaceTestSuite("auranote");

@@ -15,7 +15,11 @@
  */
 package org.auraframework.test.configuration;
 
-import java.net.*;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.UnknownHostException;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.auraframework.Aura;

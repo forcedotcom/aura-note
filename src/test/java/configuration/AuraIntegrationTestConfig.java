@@ -19,22 +19,31 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.openqa.selenium.net.PortProber;
-import org.auraframework.test.*;
+import org.auraframework.test.PooledRemoteWebDriverFactory;
+import org.auraframework.test.RemoteWebDriverFactory;
+import org.auraframework.test.SauceUtil;
+import org.auraframework.test.SeleniumServerLauncher;
+import org.auraframework.test.WebDriverProvider;
 import org.auraframework.test.configuration.JettyTestServletConfig;
 import org.auraframework.test.configuration.TestServletConfig;
-import org.auraframework.util.ServiceLoaderImpl.Impl;
 import org.auraframework.util.ServiceLoaderImpl.AuraConfiguration;
-
-
+import org.auraframework.util.ServiceLoaderImpl.Impl;
+import org.openqa.selenium.net.PortProber;
 
 @AuraConfiguration
 public class AuraIntegrationTestConfig {
-	@Impl
+    @Impl
     public static TestServletConfig auraJettyServletTestInfo() throws Exception {
         return new JettyTestServletConfig();
     }
-	
+
+    /**
+     * Returns a factory to build the appropriate WebDriver that connects to a given URL.
+     * This URL can be one of the following:
+     *      1. Passed in as a property by the user
+     *      2. A Saucelabs address containing a specified Sauce username/access key
+     *      3. The localhost with a generated open port number
+     */
     @Impl
     public static WebDriverProvider auraWebDriverProvider() throws Exception {
         URL serverUrl;
@@ -47,9 +56,8 @@ public class AuraIntegrationTestConfig {
                 else
                     serverUrl = new URL(hubUrlString);
             } else {
-                //int serverPort = Integer.parseInt(System.getProperty("selenium.server.port", "4444"));
                 int serverPort = PortProber.findFreePort();
-                
+
                 // quiet the verbose grid logging
                 Logger selLog = Logger.getLogger("org.openqa");
                 selLog.setLevel(Level.SEVERE);
@@ -63,6 +71,9 @@ public class AuraIntegrationTestConfig {
             e.printStackTrace();
             throw new Error(e);
         }
+
+        // Check if we should reuse the same browser during tests.
+        // This property can be set by sending in -Dwebdriver.reusebrowser
         if (!runningOnSauceLabs && Boolean.parseBoolean(System.getProperty(WebDriverProvider.REUSE_BROWSER_PROPERTY))) {
             return new PooledRemoteWebDriverFactory(serverUrl);
         } else {

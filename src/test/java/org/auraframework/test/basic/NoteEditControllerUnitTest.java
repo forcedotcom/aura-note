@@ -30,18 +30,17 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
         String body = bodyAsTime();
         try {
             NoteEditController.saveNote(null, title, body, "createdOn.asc", null, null);
-            assertTrue("Note not saved to database.", AuraNoteTestUtil.isNoteInDb(title, body));
+            assertTrue("Note not saved to database", AuraNoteTestUtil.isNoteInDb(title, body));
         } catch (Exception e) {
-            e.printStackTrace();
-            fail("Note creation failed with null id.");
+            fail("Note creation failed using null id with error: " + e);
         }
     }
 
     public void testNonexistantId() {
         try {
             NoteEditController.saveNote((long)12344321, "title", "body", "createdOn.asc", null, null);
-            fail("Note creation should fail with nonexistant id.");
-        } catch (Exception e) {}
+            fail("Note creation should fail using nonexistant id");
+        } catch (Exception expected) {}
     }
 
     public void testNullTitle() {
@@ -50,8 +49,7 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
             NoteEditController.saveNote(null, null, body, "createdOn.asc", null, null);
             assertTrue("Note not saved to database.", AuraNoteTestUtil.isNoteInDb(null, body));
         } catch (Exception e) {
-            e.printStackTrace();
-            fail("Note creation failed with null body.");
+            fail("Note creation failed using null title with error: " + e);
         }
     }
 
@@ -61,8 +59,7 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
             NoteEditController.saveNote(null, title, null, "createdOn.asc", null, null);
             assertTrue("Note not saved to database.", AuraNoteTestUtil.isNoteInDb(title, null));
         } catch (Exception e) {
-            e.printStackTrace();
-            fail("Note creation failed with null body.");
+            fail("Note creation failed using null body with error: " + e);
         }
     }
 
@@ -78,8 +75,7 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
             assertEquals("Latitude of created note is incorrect.", lat.doubleValue(), note.getLatitude());
             assertEquals("Longitude of created note is incorrect.", lon.doubleValue(), note.getLongitude());
         } catch (Exception e) {
-            e.printStackTrace();
-            fail("Note creation failed with GPS coordinates.");
+            fail("Note creation failed using valid GPS coordinates with error: " + e);
         }
     }
 
@@ -89,17 +85,17 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
         try {
             NoteEditController.saveNote(null, title, body, "createdOn.foo", null, null);
             fail("Invalid sort type should not create note");
-        } catch (Exception e) {}
+        } catch (Exception expected) {}
         
         try {
             NoteEditController.saveNote(null, title, body, "foo.asc", null, null);
             fail("Invalid sort type should not create note");
-        } catch (Exception e) {}
+        } catch (Exception expected) {}
         
         try {
             NoteEditController.saveNote(null, title, body, "", null, null);
             fail("Empty sort type should not create note");
-        } catch (Exception e) {}
+        } catch (Exception expected) {}
     }
 
     public void testEditNote() {
@@ -109,10 +105,9 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
             NoteEditController.saveNote(null, title, body, "createdOn.asc", null, null);
             Note note = AuraNoteTestUtil.getNoteByTitleBody(title, body);
             NoteEditController.saveNote(note.getId(), "new"+title, "new"+body, "createdOn.asc", null, null);
-            assertTrue("Edited note not present in database.", AuraNoteTestUtil.isNoteInDb("new"+title, "new"+body));
+            assertTrue("Edited note not present in database", AuraNoteTestUtil.isNoteInDb("new"+title, "new"+body));
         } catch (Exception e) {
-            e.printStackTrace();
-            fail("Failed to edit note already in database.");
+            fail("Failed to edit note already in database with error: " + e);
         }
     }
 
