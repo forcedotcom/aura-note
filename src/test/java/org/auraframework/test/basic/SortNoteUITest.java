@@ -36,7 +36,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         clickElement(AuraNoteTestUtil.SORT_A_FIRST);
         waitFor(4);
 
-        checkSidebarOrder(new String[]{"Apple", "Banana", "Cat", "Dog", "Elephant"});
+        checkSidebarOrder(new String[] { "Apple", "Banana", "Cat", "Dog", "Elephant" });
     }
 
     public void testSortZFirst() throws Exception {
@@ -46,7 +46,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         clickElement(AuraNoteTestUtil.SORT_Z_FIRST);
         waitFor(4);
 
-        checkSidebarOrder(new String[]{"Elephant", "Dog", "Cat", "Banana", "Apple"});    
+        checkSidebarOrder(new String[] { "Elephant", "Dog", "Cat", "Banana", "Apple" });
     }
 
     public void testSortOldestFirst() throws Exception {
@@ -62,7 +62,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         clickElement(AuraNoteTestUtil.SORT_OLDEST_FIRST);
         waitFor(4);
 
-        checkSidebarOrder(new String[]{"Banana", "Cat", "Apple", "Dog", "Elephant"});    
+        checkSidebarOrder(new String[] { "Banana", "Cat", "Apple", "Dog", "Elephant" });
     }
 
     public void testSortNewestFirst() throws Exception {
@@ -78,14 +78,13 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         clickElement(AuraNoteTestUtil.SORT_NEWEST_FIRST);
         waitFor(4);
 
-        checkSidebarOrder(new String[]{"Elephant", "Dog", "Apple", "Cat", "Banana"});
+        checkSidebarOrder(new String[] { "Elephant", "Dog", "Apple", "Cat", "Banana" });
     }
 
     /**
      * Verifies created note gets added to list in correctly sorted order.
      */
-    // TODO(W-1420533): fails in safari
-    public void _testAddNoteWhileSortedAFirst() throws Exception {
+    public void testAddNoteWhileSortedAFirst() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
 
@@ -95,12 +94,12 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         clickElement(AuraNoteTestUtil.NEW_NOTE_BUTTON);
         sendText("aaaaa", AuraNoteTestUtil.TITLE_INPUT);
         sendText("aaaaa", AuraNoteTestUtil.BODY_INPUT);
-        clickElement(AuraNoteTestUtil.SAVE_BUTTON);        
+        clickElement(AuraNoteTestUtil.SAVE_BUTTON);
         waitForSidebarUpdate("First note not added to sidebar", "aaaaa", "aaaaa", true);
 
         List<WebElement> sidebar = getSidebar();
         assertEquals("Note not added to beginning of list", "aaaaa", sidebar.get(0)
-                       .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
     }
 
     /**
@@ -112,7 +111,7 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         addInitialNotes();
 
         clickElement(AuraNoteTestUtil.SORT_A_FIRST);
-        waitFor(4); 
+        waitFor(4);
 
         getElementInSidebar("Cat", "aaa").click();
         waitForElementAppear(AuraNoteTestUtil.DELETE_BUTTON);
@@ -121,26 +120,26 @@ public class SortNoteUITest extends AuraNoteUITestCase {
 
         List<WebElement> sidebar = getSidebar();
         assertEquals("1st note not properly sorted", "Apple", sidebar.get(0)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
         assertEquals("2nd note not properly sorted", "Banana", sidebar.get(1)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
         assertEquals("4th note not properly sorted", "Dog", sidebar.get(2)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
         assertEquals("5th note not properly sorted", "Elephant", sidebar.get(3)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
     }
 
     /**
      * Verifies editing a note does not mess up sorted order.
      */
- // TODO(W-1381027): editing note from sorted list changes order
+    // TODO(W-1381027): editing note from sorted list changes order
     public void _testEditNoteWhileSorted() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
-        
+
         clickElement(AuraNoteTestUtil.SORT_A_FIRST);
         waitFor(4);
-        
+
         getElementInSidebar("Cat", "aaa").click();
         waitForElementAppear(AuraNoteTestUtil.EDIT_BUTTON);
         clickElement(AuraNoteTestUtil.EDIT_BUTTON);
@@ -149,8 +148,8 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         sendText("ddd", AuraNoteTestUtil.BODY_INPUT);
         clickElement(AuraNoteTestUtil.SAVE_BUTTON);
         waitForSidebarUpdate("Note never deleted from sidebar", "Dragonfly", "ddd", true);
-        
-        checkSidebarOrder(new String[]{"Apple", "Banana", "Dog", "Dragonfly", "Elephant"});
+
+        checkSidebarOrder(new String[] { "Apple", "Banana", "Dog", "Dragonfly", "Elephant" });
     }
 
     /**
@@ -161,41 +160,41 @@ public class SortNoteUITest extends AuraNoteUITestCase {
     public void _testChangeSortingWhileAddingNote() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
-        
+
         clickElement(AuraNoteTestUtil.SORT_OLDEST_FIRST);
         waitFor(4);
-        
+
         clickElement(AuraNoteTestUtil.NEW_NOTE_BUTTON);
         sendText("aaaaa", AuraNoteTestUtil.TITLE_INPUT);
         sendText("aaaaa", AuraNoteTestUtil.BODY_INPUT);
         clickElement(AuraNoteTestUtil.SORT_NEWEST_FIRST);
         waitFor(4);
-        clickElement(AuraNoteTestUtil.SAVE_BUTTON);        
+        clickElement(AuraNoteTestUtil.SAVE_BUTTON);
         waitForSidebarUpdate("First note not added to sidebar", "aaaaa", "aaaaa", true);
-        
+
         List<WebElement> sidebar = getSidebar();
         assertEquals("Note not added to beginning of list", "aaaaa", sidebar.get(0)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
     }
-    
-    public void testSortSameTitleDiffBody() throws Exception {
+
+    public void _testSortSameTitleDiffBody() throws Exception {
         open("/auranote/notes.app");
         createNewNote("Same Title", "aaa");
         createNewNote("Same Title", "bbb");
         createNewNote("Same Title", "ccc");
-        
+
         clickElement(AuraNoteTestUtil.SORT_A_FIRST);
         waitFor(4);
-        
+
         List<WebElement> sidebar = getSidebar();
         assertEquals("1st note not properly sorted", "aaa", sidebar.get(0)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText().trim());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText().trim());
         assertEquals("2nd note not properly sorted", "bbb", sidebar.get(1)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText().trim());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText().trim());
         assertEquals("3rd note not properly sorted", "ccc", sidebar.get(2)
-                        .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText().trim());
+                .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText().trim());
     }
-    
+
     private void addInitialNotes() throws Exception {
         HashMap<String, String> newNotes = new HashMap<String, String>();
         newNotes.put("Cat", "aaa");
@@ -205,11 +204,11 @@ public class SortNoteUITest extends AuraNoteUITestCase {
         newNotes.put("Elephant", "eee");
         createNewNotes(newNotes);
     }
-    
+
     private void checkSidebarOrder(String[] titles) {
         List<WebElement> sidebar = getSidebar();
         for (int i = 0; i < titles.length; i++) {
-            assertEquals("Note in position " + i + " of sidebar is not properly sorted", 
+            assertEquals("Note in position " + i + " of sidebar is not properly sorted",
                     titles[i], sidebar.get(i).findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
         }
     }

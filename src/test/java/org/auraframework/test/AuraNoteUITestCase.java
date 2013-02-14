@@ -19,18 +19,22 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.auraframework.demo.notes.DataStore;
 import org.auraframework.demo.notes.Note;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 
-/** 
+/**
  * WebDriver test cases for Aura Note.
- *
+ * 
  */
 public class AuraNoteUITestCase extends WebDriverTestCase {
 
@@ -52,7 +56,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
 
     /**
      * Adds notes to database and refreshes the page.
-     *  
+     * 
      * @param notes Notes to be added to database.
      * @throws SQLException
      */
@@ -60,7 +64,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
         for (String title : notes.keySet()) {
             String body = notes.get(title);
             addNoteDb(title, body);
-        }      
+        }
         getDriver().navigate().refresh();
         waitForAuraInit();
     }
@@ -69,10 +73,10 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
      * Adds a single note to database and refreshes page.
      * 
      * @param title Title of note to be added.
-     * @param body Body text of note to be added. 
+     * @param body Body text of note to be added.
      * @throws SQLException
      */
-    protected void createNewNote(String title, String body) throws SQLException {    
+    protected void createNewNote(String title, String body) throws SQLException {
         addNoteDb(title, body);
         getDriver().navigate().refresh();
         waitForAuraInit();
@@ -87,21 +91,21 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Gets an element from the sidebar.
      * 
-     * @param  title Title of note to grab.
-     * @param  body Body text of note to grab.
-     * @return the WebElement in the sidebar with matching title and body, or null if no matching note is found. 
+     * @param title Title of note to grab.
+     * @param body Body text of note to grab.
+     * @return the WebElement in the sidebar with matching title and body, or null if no matching note is found.
      */
     protected WebElement getElementInSidebar(String title, String body) {
         List<WebElement> sidebar = getSidebar();
-        for (int i=0; i<sidebar.size(); i++) {
+        for (int i = 0; i < sidebar.size(); i++) {
             WebElement curr = sidebar.get(i);
             String sidebarTitle = curr.findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText();
             String sidebarBody = curr.findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText();
-        
+
             if (title.equals(sidebarTitle) && body.equals(sidebarBody.trim())) {
                 return curr;
             }
-        }    
+        }
         return null;
     }
 
@@ -112,7 +116,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
 
     protected boolean isInSidebar(String title, String body) {
         WebElement e = getElementInSidebar(title, body);
-        return (e != null); 
+        return (e != null);
     }
 
     protected WebElement getElement(String cssSelector) throws NoSuchElementException {
@@ -148,8 +152,8 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
      * @param msg Error message to display on timeout.
      * @param title Title of note.
      * @param body Body text of note.
-     * @param appear True if waiting for note of matching title and body to be added to sidebar. False if
-     *               if waiting for note to be removed.
+     * @param appear True if waiting for note of matching title and body to be added to sidebar. False if if waiting for
+     *            note to be removed.
      */
     protected void waitForSidebarUpdate(String msg, final String title, final String body, final boolean appear) {
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
@@ -179,7 +183,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
      * Waits for element with matching CSS selector to appear on screen.
      * 
      * @param msg Error message on timeout.
-     * @param cssSelector CSS selector of element waiting for. 
+     * @param cssSelector CSS selector of element waiting for.
      */
     protected void waitForElementAppear(String msg, final String cssSelector) {
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);

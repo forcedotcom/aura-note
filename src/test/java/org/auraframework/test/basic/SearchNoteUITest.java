@@ -41,8 +41,10 @@ public class SearchNoteUITest extends AuraNoteUITestCase {
         assertTrue("Search does not display note in sidebar", isInSidebar("Elephant", "eee banana"));
 
         getSidebar().get(0).click();
-        assertEquals("Details view title does not match Note searched for", "Elephant", getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Details view body does not match Note searched for", "eee banana", getText(AuraNoteTestUtil.DETAILS_BODY));
+        assertEquals("Details view title does not match Note searched for", "Elephant",
+                getText(AuraNoteTestUtil.DETAILS_TITLE));
+        assertEquals("Details view body does not match Note searched for", "eee banana",
+                getText(AuraNoteTestUtil.DETAILS_BODY));
     }
 
     /**
@@ -60,8 +62,10 @@ public class SearchNoteUITest extends AuraNoteUITestCase {
         assertTrue("Note searched for not in sidebar", isInSidebar("Elephant", "eee banana"));
 
         getSidebar().get(0).click();
-        assertEquals("Details view title does not match Note searched for", "Elephant", getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Details view body does not match Note searched for", "eee banana", getText(AuraNoteTestUtil.DETAILS_BODY));
+        assertEquals("Details view title does not match Note searched for", "Elephant",
+                getText(AuraNoteTestUtil.DETAILS_TITLE));
+        assertEquals("Details view body does not match Note searched for", "eee banana",
+                getText(AuraNoteTestUtil.DETAILS_BODY));
     }
 
     public void testSearchNoMatch() throws Exception {
@@ -75,10 +79,10 @@ public class SearchNoteUITest extends AuraNoteUITestCase {
         // Only sample note should be present
         assertEquals("Not all expected notes removed after search", 1, getSidebar().size());
         getSidebar().get(0).click();
-        assertEquals("Details view title does not match Note searched for", AuraNoteTestUtil.sampleNoteTitle, 
-                        getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Details view body does not match Note searched for", AuraNoteTestUtil.sampleNoteBody, 
-                        getText(AuraNoteTestUtil.DETAILS_BODY));
+        assertEquals("Details view title does not match Note searched for", AuraNoteTestUtil.sampleNoteTitle,
+                getText(AuraNoteTestUtil.DETAILS_TITLE));
+        assertEquals("Details view body does not match Note searched for", AuraNoteTestUtil.sampleNoteBody,
+                getText(AuraNoteTestUtil.DETAILS_BODY));
     }
 
     /**
@@ -120,8 +124,7 @@ public class SearchNoteUITest extends AuraNoteUITestCase {
     /**
      * Verifies searching for a recently edited note does not show any results.
      */
-    // TODO(W-1420533): fails in safari
-    public void _testSearchEditedNote() throws Exception {
+    public void testSearchEditedNote() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
 
