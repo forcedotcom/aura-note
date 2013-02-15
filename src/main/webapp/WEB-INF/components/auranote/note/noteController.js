@@ -12,6 +12,6 @@
 	
 	togggleLocationImages: function(component){
 		var locImages = component.find("locImages").getElement();
-		$F.util.toggleClass(locImages, "show");
+		$A.util.toggleClass(locImages, "show");
 	}
 })

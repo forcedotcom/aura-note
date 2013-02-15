@@ -4,13 +4,13 @@
     <aura:attribute name="left" type="Aura.Component[]"/>
     <aura:attribute name="right" type="Aura.Component[]"/>
     <li onclick="{!v.onclick}">
-    	<ui:block>
-	    	<aura:set attribute="left">{!v.left}</aura:set>
-	    	<aura:set attribute="right">{!v.right}</aura:set>
-		    <h2 class="subject truncate">{!v.body}</h2>
-		</ui:block>
-	    <aura:renderif isTrue="{!v.desc != null}">
-	        <p class="desc truncate">{!v.desc}</p>
-	    </aura:renderif>
-	</li>
+        <ui:block>
+           <aura:set attribute="left">{!v.left}</aura:set>
+            <aura:set attribute="right">{!v.right}</aura:set>
+            <h2 class="subject truncate">{!v.body}</h2>
+        </ui:block>
+        <aura:if isTrue="{!v.desc != null}">
+            <p class="desc truncate">{!v.desc}</p>
+        </aura:if>
+    </li>
 </aura:component>
