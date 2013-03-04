@@ -71,7 +71,6 @@
 		if(navigator.geolocation){
 			//Async call to try and get the location
 			navigator.geolocation.getCurrentPosition(success, failure);
-			cmpAttrb.setValue("disabled", true);
 			//Changing the label of the button
 			cmpAttrb.setValue("label", "Getting Location");
 			

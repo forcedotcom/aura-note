@@ -135,10 +135,6 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
         e.sendKeys(text);
     }
 
-    protected String getLocationText(String cssSelector) {
-        return getElement(cssSelector).getText();
-    }
-
     protected String getText(String cssSelector) {
         return getElement(cssSelector).getText();
     }
