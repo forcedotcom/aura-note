@@ -17,10 +17,9 @@
 					<aura:set attribute="right">{!v.buttons}</aura:set>
 				</ui:block>
 				<ul class="tags">
-					<aura:renderIf isTrue="{!v.note.latitude != null}">
-						<ui:button label="Location" class="locationButton" iconClass="icon"
+					<aura:if isTrue="{!v.note.latitude != null}">
+						<ui:button label="{!v.note.longitude+', '+v.note.latitude}" class="locationButton" iconClass="icon"
 							press="{!c.togggleLocationImages}">
-					    	Location set: {!v.note.longitude+', '+v.note.latitude}
 					    	<a
 								href="{!'http://maps.google.com/?q='+v.note.latitude+','+v.note.longitude}"
 								target="_new" class="locationImages" aura:id="locImages"> <img
@@ -29,7 +28,7 @@
 								src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}" />
 							</a>
 						</ui:button>
-					</aura:renderIf>
+					</aura:if>
 					{!v.tags}
 
 					<!--

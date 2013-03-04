@@ -49,8 +49,7 @@ public class CreateNewNoteUITest extends AuraNoteUITestCase {
 
         // Check details view of first Note
         getElementInSidebar("New Note 1", "aaa").click();
-        assertEquals("Details view title does not match new note", "New Note 1",
-                getText(AuraNoteTestUtil.DETAILS_TITLE));
+        assertEquals("Details view title does not match new note", "New Note 1",getText(AuraNoteTestUtil.DETAILS_TITLE));
         assertEquals("Details view body does not match new note", "aaa", getText(AuraNoteTestUtil.DETAILS_BODY));
     }
 

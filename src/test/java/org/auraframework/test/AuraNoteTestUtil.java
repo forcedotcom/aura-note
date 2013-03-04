@@ -43,7 +43,10 @@ public class AuraNoteTestUtil {
     public static final String EDIT_BUTTON = ".edit_t";
     public static final String CANCEL_BUTTON = ".cancel_t";
     public static final String SEARCH_BUTTON = ".search_t";
-
+    public static final String LOCATION_BUTTON = ".locationButton";
+    public static final String LOCATION_BUTTON1 = "label bBody truncate";
+    
+    
     public static final String SORT_MENU = ".sort_t";
     public static final String SORT_A_FIRST = ".aFirst_t";
     public static final String SORT_Z_FIRST = ".zFirst_t";
@@ -59,6 +62,7 @@ public class AuraNoteTestUtil {
     public static final String DETAILS_BODY = "p.noteBody";
     public static final String SIDEBAR_TITLE = "div.uiBlock > div.bBody > h2.subject.truncate";
     public static final String SIDEBAR_BODY = "p.desc.truncate";
+	
 
     // Save existing notes to this list while running tests, restore after tests complete
     private static List<Note> notes = new ArrayList<Note>();

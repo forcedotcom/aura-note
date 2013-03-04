@@ -25,6 +25,9 @@
 }
 .THIS .locationButton{
 	position: relative;
+	background-color: #dddddd;
+	
+	
 }
 .THIS .locationButton .icon{
 	display: inline-block;
@@ -32,9 +35,11 @@
 	width:9px;
 	height:13px;
 	margin-right:5px;
+	
 }
 .THIS .locationButton > div{
 	display: inline-block;
+	
 }
 .THIS .locationImages{
 	display: none;

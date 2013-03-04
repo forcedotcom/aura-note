@@ -34,7 +34,6 @@ import com.j256.ormlite.dao.DaoManager;
 
 /**
  * WebDriver test cases for Aura Note.
- * 
  */
 public class AuraNoteUITestCase extends WebDriverTestCase {
 
@@ -57,7 +56,8 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Adds notes to database and refreshes the page.
      * 
-     * @param notes Notes to be added to database.
+     * @param notes
+     *            Notes to be added to database.
      * @throws SQLException
      */
     protected void createNewNotes(HashMap<String, String> notes) throws SQLException {
@@ -72,8 +72,10 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Adds a single note to database and refreshes page.
      * 
-     * @param title Title of note to be added.
-     * @param body Body text of note to be added.
+     * @param title
+     *            Title of note to be added.
+     * @param body
+     *            Body text of note to be added.
      * @throws SQLException
      */
     protected void createNewNote(String title, String body) throws SQLException {
@@ -91,8 +93,10 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Gets an element from the sidebar.
      * 
-     * @param title Title of note to grab.
-     * @param body Body text of note to grab.
+     * @param title
+     *            Title of note to grab.
+     * @param body
+     *            Body text of note to grab.
      * @return the WebElement in the sidebar with matching title and body, or null if no matching note is found.
      */
     protected WebElement getElementInSidebar(String title, String body) {
@@ -102,9 +106,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
             String sidebarTitle = curr.findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText();
             String sidebarBody = curr.findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText();
 
-            if (title.equals(sidebarTitle) && body.equals(sidebarBody.trim())) {
-                return curr;
-            }
+            if (title.equals(sidebarTitle) && body.equals(sidebarBody.trim())) { return curr; }
         }
         return null;
     }
@@ -133,8 +135,22 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
         e.sendKeys(text);
     }
 
+    protected String getLocationText(String cssSelector) {
+        return getElement(cssSelector).getText();
+    }
+
     protected String getText(String cssSelector) {
         return getElement(cssSelector).getText();
+    }
+
+    protected boolean isLocationButtonEnabled() {
+        return getElement(AuraNoteTestUtil.LOCATION_BUTTON).isEnabled();
+
+    }
+
+    protected String getLocationFromNote(String title, String body) {
+        return getElement(AuraNoteTestUtil.LOCATION_BUTTON).getAttribute("name");
+
     }
 
     protected boolean isElementPresent(String cssSelector) {
@@ -149,10 +165,14 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Waits for sidebar to be updated with a note containing matching title and body text.
      * 
-     * @param msg Error message to display on timeout.
-     * @param title Title of note.
-     * @param body Body text of note.
-     * @param appear True if waiting for note of matching title and body to be added to sidebar. False if if waiting for
+     * @param msg
+     *            Error message to display on timeout.
+     * @param title
+     *            Title of note.
+     * @param body
+     *            Body text of note.
+     * @param appear
+     *            True if waiting for note of matching title and body to be added to sidebar. False if if waiting for
      *            note to be removed.
      */
     protected void waitForSidebarUpdate(String msg, final String title, final String body, final boolean appear) {
@@ -182,8 +202,10 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Waits for element with matching CSS selector to appear on screen.
      * 
-     * @param msg Error message on timeout.
-     * @param cssSelector CSS selector of element waiting for.
+     * @param msg
+     *            Error message on timeout.
+     * @param cssSelector
+     *            CSS selector of element waiting for.
      */
     protected void waitForElementAppear(String msg, final String cssSelector) {
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
