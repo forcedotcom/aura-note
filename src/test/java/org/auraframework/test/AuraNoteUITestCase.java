@@ -56,8 +56,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Adds notes to database and refreshes the page.
      * 
-     * @param notes
-     *            Notes to be added to database.
+     * @param notes Notes to be added to database.
      * @throws SQLException
      */
     protected void createNewNotes(HashMap<String, String> notes) throws SQLException {
@@ -72,10 +71,8 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Adds a single note to database and refreshes page.
      * 
-     * @param title
-     *            Title of note to be added.
-     * @param body
-     *            Body text of note to be added.
+     * @param title Title of note to be added.
+     * @param body Body text of note to be added.
      * @throws SQLException
      */
     protected void createNewNote(String title, String body) throws SQLException {
@@ -93,10 +90,8 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Gets an element from the sidebar.
      * 
-     * @param title
-     *            Title of note to grab.
-     * @param body
-     *            Body text of note to grab.
+     * @param title Title of note to grab.
+     * @param body Body text of note to grab.
      * @return the WebElement in the sidebar with matching title and body, or null if no matching note is found.
      */
     protected WebElement getElementInSidebar(String title, String body) {
@@ -106,7 +101,9 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
             String sidebarTitle = curr.findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText();
             String sidebarBody = curr.findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_BODY)).getText();
 
-            if (title.equals(sidebarTitle) && body.equals(sidebarBody.trim())) { return curr; }
+            if (title.equals(sidebarTitle) && body.equals(sidebarBody.trim())) {
+                return curr;
+            }
         }
         return null;
     }
@@ -161,31 +158,23 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     /**
      * Waits for sidebar to be updated with a note containing matching title and body text.
      * 
-     * @param msg
-     *            Error message to display on timeout.
-     * @param title
-     *            Title of note.
-     * @param body
-     *            Body text of note.
-     * @param appear
-     *            True if waiting for note of matching title and body to be added to sidebar. False if if waiting for
+     * @param msg Error message to display on timeout.
+     * @param title Title of note.
+     * @param body Body text of note.
+     * @param appear True if waiting for note of matching title and body to be added to sidebar. False if waiting for
      *            note to be removed.
      */
     protected void waitForSidebarUpdate(String msg, final String title, final String body, final boolean appear) {
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
         wait.withMessage(msg);
+        // StaleElementReferenceException gets thrown when sidebar is updated while we're checking, ignore the exception
+        // and look again until we timeout.
+        wait.ignoring(StaleElementReferenceException.class);
         wait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver d) {
-                boolean ret = false;
-                try {
-                    boolean found = isInSidebar(title, body);
-                    ret = appear ? found : !found;
-                } catch (StaleElementReferenceException e) {
-                    // Here if sidebar updated while still checking contents
-                    // Return false, will get new reference next check
-                }
-                return ret;
+                boolean found = isInSidebar(title, body);
+                return appear ? found : !found;
             }
         });
     }
@@ -196,12 +185,33 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     }
 
     /**
+     * Verify note in sidebar is located in index.
+     * 
+     * @param msg Error message to display to user if wait times out
+     * @param title Title of note to check for in sidebar
+     * @param index Index note should be sorted into in sidebar, 0 being the first note at the top of the sidebar.
+     */
+    protected void waitForSidebarSortByTitle(String msg, final String title, final int index) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
+        wait.withMessage(msg);
+        // StaleElementReferenceException gets thrown when sidebar is updated while we're checking, ignore the exception
+        // and look again until we timeout.
+        wait.ignoring(StaleElementReferenceException.class);
+        wait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver d) {
+                String t = getSidebar().get(index).findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE))
+                        .getText();
+                return t.equals(title);
+            }
+        });
+    }
+
+    /**
      * Waits for element with matching CSS selector to appear on screen.
      * 
-     * @param msg
-     *            Error message on timeout.
-     * @param cssSelector
-     *            CSS selector of element waiting for.
+     * @param msg Error message on timeout.
+     * @param cssSelector CSS selector of element waiting for.
      */
     protected void waitForElementAppear(String msg, final String cssSelector) {
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
