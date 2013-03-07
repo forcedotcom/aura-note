@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
         <chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
-        <chromedriver.version>21.0.1180.4</chromedriver.version>
+        <chromedriver.version>26.0.1383.0</chromedriver.version>
         <webdriver.reusebrowser>true</webdriver.reusebrowser>
         <webdriver.remote.server /> <!-- http://localhost:4444/wd/hub/ -->
         <webdriver.reusebrowser>true</webdriver.reusebrowser>
@@ -68,50 +68,50 @@
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-resources</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.407</version>
+            <version>0.0.426</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
@@ -137,27 +137,33 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
-            <version>2.26.0</version>
+            <version>2.29.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>2.26.0</version>
+            <version>2.29.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>2.26.0</version>
+            <version>2.29.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>2.26.0</version>
+            <version>2.29.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
-            <version>2.26.0</version>
+            <version>2.29.0</version>
+        </dependency>
+        <dependency>  
+            <!-- needed by selenium --> 
+            <groupId>org.apache.httpcomponents</groupId>  
+            <artifactId>httpcore</artifactId>   
+            <version>4.2.3</version>  
         </dependency>
     </dependencies>
     
@@ -215,7 +221,7 @@
                 <!-- failsafe is used to collect and run integration tests -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>2.10</version>
+                    <version>2.12.4</version>
                     <configuration>
                         <environmentVariables>
                             <DISPLAY>:${jetty.port}</DISPLAY>
