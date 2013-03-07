@@ -9,6 +9,8 @@
 
     <!-- these properties can be set by passing in -D<property_name>=<property_value> -->
     <properties>
+        <aura.framework.version>0.0.426</aura.framework.version>
+        <selenium.version>2.29.0</selenium.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
         <chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
@@ -68,50 +70,50 @@
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-resources</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-impl-expression</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
             <groupId>org.auraframework</groupId>
             <artifactId>aura-util</artifactId>
-            <version>0.0.426</version>
+            <version>${aura.framework.version}</version>
             <type>test-jar</type>
         </dependency>
         <dependency>
@@ -137,27 +139,27 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
-            <version>2.29.0</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>2.29.0</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>2.29.0</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>2.29.0</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
-            <version>2.29.0</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>  
             <!-- needed by selenium --> 
