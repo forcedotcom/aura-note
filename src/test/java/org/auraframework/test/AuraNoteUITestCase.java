@@ -65,7 +65,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
             addNoteDb(title, body);
         }
         getDriver().navigate().refresh();
-        waitForAuraInit();
+        auraUITestingUtil.waitForAuraInit();
     }
 
     /**
@@ -78,7 +78,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     protected void createNewNote(String title, String body) throws SQLException {
         addNoteDb(title, body);
         getDriver().navigate().refresh();
-        waitForAuraInit();
+        auraUITestingUtil.waitForAuraInit();
     }
 
     private void addNoteDb(String title, String body) throws SQLException {
