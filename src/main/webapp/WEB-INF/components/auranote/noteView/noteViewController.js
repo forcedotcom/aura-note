@@ -20,7 +20,7 @@
 
             var event = $A.get("e.auranote:openNote")
             event.setParams({
-                mode : "new",
+                mode : "new"
             });
             event.fire();
         });

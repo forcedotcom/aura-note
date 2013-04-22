@@ -3,7 +3,7 @@
 		var note = component.getValue("v.note");
 		note.getValue("title").rollback();
 		note.getValue("body").rollback();
-		
+
 		var event = $A.get("e.auranote:openNote")
 		event.setParams({
 			mode : "view",
@@ -11,38 +11,51 @@
 		});
 		event.fire();
 	},
-	
+
 	save : function(component){
 		var action = component.get("c.saveNote");
 		var note = component.getValue("v.note");
+        var sort = component.get("v.sort");
 		note.getValue("title").commit();
 		note.getValue("body").commit();
-		
+
 		action.setParams({
 			title : note.get("title"),
 			body : note.get("body"),
 			latitude : note.get("latitude"),
 			longitude : note.get("longitude"),
 			id : note.get("id"),
-			sort : component.get("v.sort")
+			sort : sort
 		});
-		
+
 		action.setCallback(this, function(a){
+            // View the newly created note
 			var event = $A.get("e.auranote:openNote")
 			event.setParams({
 				mode : "view",
-				note : note
+				note : a.getReturnValue()
 			});
 			event.fire();
-			
-			var event = $A.get("e.auranote:noteAdded");
-			event.setParams({noteList : a.getReturnValue()});
-			event.fire();
+
+            // Update sidebar list
+            var noteListAction = $A.get("c.aura://ComponentController.getComponent");
+            noteListAction.setParams({
+                name : "auranote:noteList",
+                attributes : {
+                    sort : sort
+                }
+            });
+            noteListAction.setCallback(this, function(a){
+                var event = $A.get("e.auranote:noteAdded");
+                event.setParams({noteList : a.getReturnValue()});
+                event.fire();
+            });
+            this.runAfter(noteListAction);
 		});
-		
+
 		this.runAfter(action);
 	},
-	
+
 	setLocation : function(component){
 		var note = component.getValue("v.note");
 		
@@ -53,21 +66,21 @@
 			note.getValue("latitude").setValue(results.coords.latitude);
 			note.getValue("longitude").setValue(results.coords.longitude);
 			cmpAttrb.setValue("label", note.getValue("longitude").getValue()+", "+note.getValue("latitude").getValue());
-			
+
 			//Changing the class value of the button class variable so that the button gets greyed out and it doesn't inherit the
 			// the buttons parents css.
 			document.getElementsByClassName('locationButton default uiBlock uiButton')[0].setAttribute("class", "locationButton");
-			
+
 			//Disabling the button
 			cmpAttrb.setValue("disabled", true);
 		};
-		
+
 		var failure = function(results){
 			force.log("failure");
 			cmpAttrb.setValue("label", "Failed to get location. Try Again...");
 			cmpAttrb.setValue("disabled", false);
 		};
-		
+
 		if(navigator.geolocation){
 			//Async call to try and get the location
 			navigator.geolocation.getCurrentPosition(success, failure);
