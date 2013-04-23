@@ -61,8 +61,7 @@ public class EditNoteUITest extends AuraNoteUITestCase {
     /**
      * Verify pressing cancel on edited note does not modify note contents.
      */
-    // TODO(W-1381022): canceling edit will still display modified text
-    public void _testCancelEditNote() throws Exception {
+    public void testCancelEditNote() throws Exception {
         open("/auranote/notes.app");
 
         createNewNote("New Note 1", "aaa");
@@ -85,9 +84,9 @@ public class EditNoteUITest extends AuraNoteUITestCase {
 
         getElementInSidebar("New Note 1", "aaa").click();
         waitForElementAppear(AuraNoteTestUtil.DETAILS_TITLE);
-        assertEquals("Original Note title not displayed in details view after selecting from sidebar", editedTitle,
+        assertEquals("Original Note title not displayed in details view after selecting from sidebar", "New Note 1",
                 getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Original Note body not displayed in details view after selecting from sidebar", editedBody,
+        assertEquals("Original Note body not displayed in details view after selecting from sidebar", "aaa",
                 getText(AuraNoteTestUtil.DETAILS_BODY));
     }
 
