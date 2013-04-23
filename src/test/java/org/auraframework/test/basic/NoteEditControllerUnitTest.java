@@ -81,34 +81,6 @@ public class NoteEditControllerUnitTest extends AuraNoteUnitTestCase {
     }
 
     /**
-     * Verify Exceptions are thrown for bad sorting types.
-     */
-    public void testBadSortingMethod() {
-        String title = titleAsTime();
-        String body = bodyAsTime();
-        try {
-            NoteEditController.saveNote(null, title, body, "createdOn.foo", null, null);
-            fail("Invalid sort type 'createdOn.foo' should not create note");
-        } catch (Exception expected) {
-            // Expected
-        }
-
-        try {
-            NoteEditController.saveNote(null, title, body, "foo.asc", null, null);
-            fail("Invalid sort type 'foo.asc' should not create note");
-        } catch (Exception expected) {
-            // Expected
-        }
-
-        try {
-            NoteEditController.saveNote(null, title, body, "", null, null);
-            fail("Empty sort type should not create note");
-        } catch (Exception expected) {
-            // Expected
-        }
-    }
-
-    /**
      * Calling saveNote() with a valid ID should edit the note already saved in the database.
      */
     public void testEditNote() throws Exception {

@@ -71,17 +71,17 @@ public class DeleteNoteUITest extends AuraNoteUITestCase {
         assertFalse("Deleted note still in sidebar", isInSidebar("New Note 2", "bbb"));
         assertFalse("Deleted note still in sidebar", isInSidebar("New Note 3", "ccc"));
         assertEquals("Not all notes deleted from sidebar", 1, getSidebar().size());
-        assertTrue("Sample Note not found in sidebar", isInSidebar(AuraNoteTestUtil.sampleNoteTitle, AuraNoteTestUtil.sampleNoteBody));
+        assertTrue("Sample Note not found in sidebar",
+                isInSidebar(AuraNoteTestUtil.sampleNoteTitle, AuraNoteTestUtil.sampleNoteBody));
 
-        assertEquals("Note title still displayed in details view", "", getText(AuraNoteTestUtil.TITLE_INPUT));    
+        assertEquals("Note title still displayed in details view", "", getText(AuraNoteTestUtil.TITLE_INPUT));
         assertEquals("Note body still displayed in details view", "", getText(AuraNoteTestUtil.BODY_INPUT));
     }
 
     /**
      * Create a note and then delete it without changing focus away from newly created note.
      */
-    // TODO(W-1381014): delete immediately after create fails
-    public void _testCreateThenDeleteNote() throws Exception {
+    public void testCreateThenDeleteNote() throws Exception {
         open("/auranote/notes.app");
 
         clickElement(AuraNoteTestUtil.NEW_NOTE_BUTTON);
@@ -93,8 +93,8 @@ public class DeleteNoteUITest extends AuraNoteUITestCase {
         clickElement(AuraNoteTestUtil.DELETE_BUTTON);
         waitForElementAppear(AuraNoteTestUtil.TITLE_INPUT);
 
-        assertEquals("Deleted Note title still displayed in details view", "", getText(AuraNoteTestUtil.TITLE_INPUT));    
-        assertEquals("Deleted Note body still displayed in details view", "", getText(AuraNoteTestUtil.BODY_INPUT));     
+        assertEquals("Deleted Note title still displayed in details view", "", getText(AuraNoteTestUtil.TITLE_INPUT));
+        assertEquals("Deleted Note body still displayed in details view", "", getText(AuraNoteTestUtil.BODY_INPUT));
         assertFalse("Deleted Note still in sidebar", isInSidebar("Create Delete", "aaa"));
     }
 }
