@@ -1,8 +1,10 @@
 ({
 	cancel: function(component) {
 		var note = component.getValue("v.note");
-		note.getValue("title").rollback();
-		note.getValue("body").rollback();
+
+        // Revert title/body text
+        note.put("title", component.getValue("m.origTitle").getValue());
+        note.put("body", component.getValue("m.origBody").getValue());
 
 		var event = $A.get("e.auranote:openNote")
 		event.setParams({
