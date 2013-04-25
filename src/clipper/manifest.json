@@ -1,10 +1,20 @@
 {
-  "name": "Auranote Web Clipper",
-  "version": "1.0",
-  "description": "Save elements of web pages to Aura Note.",
-  "permissions": ["contextMenus","tabs","http://*/*", 
-      "https://*/*"],
-  "background_page": "background.html",
-"options_page": "options.html"
+  "manifest_version": 2,
 
+  "name": "Auranote Web Clipper",
+  "description": "Save elements of web pages to Aura Note.",
+  "version": "1.0",
+
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+
+  "background": {
+    "scripts": ["clipper.js"]
+  },
+
+  "options_page": "options.html"
 }
