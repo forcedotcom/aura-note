@@ -1,39 +1,16 @@
 <html>
-<head><title>Auranote Web Clipper Options</title></head>
-<script type="text/javascript">
+    <head>
+        <title>Auranote Web Clipper Options</title>
+        <script src="options.js"></script>
+    </head>
 
-// Saves options to localStorage.
-function save() {
-  var server = document.getElementById("server");
-  localStorage["server"] = server.value;
+    <body>
+        <div id="status">&nbsp;</div>
 
-  // Update status to let user know options were saved.
-  var status = document.getElementById("status");
-  status.innerHTML = "Options Saved.";
-  setTimeout(function() {
-    status.innerHTML = "";
-  }, 750);
-}
+        Auranote Server URL:
+        <input id="server" style="width:300px"/>
 
-// Restores select box state to saved value from localStorage.
-function restore() {
-  var server = localStorage["server"];
-  if(!server){
-    server = "http://localhost:8080/";
-  }
-  document.getElementById("server").value = server;
-}
-
-</script>
-
-<body onload="restore()">
-
-<div id="status">&nbsp;</div>
-
-Auranote Server URL:
-<input id="server" style="width:300px"/>
-
-<br>
-<button onclick="save()">Save</button>
-</body>
-</html>  
+        <br>
+        <button>Save</button>
+    </body>
+</html>

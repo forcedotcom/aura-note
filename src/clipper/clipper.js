@@ -21,34 +21,26 @@ Clipper.createMenu = function(){
                                     "title": "New Note",
                                     "contexts":["all"],
                                     "onclick": Clipper.newNote,
-                                    "parentId" : parent,
-                                    
+                                    "parentId" : parent
                                 });
     chrome.contextMenus.create({
                                     "title": "Clip URL",
                                     "contexts":["all"],
                                     "onclick": Clipper.clipURL,
-                                    "parentId" : parent,
-                                    
+                                    "parentId" : parent
                                 });
-
     chrome.contextMenus.create({
                                     "title": "Clip Selection",
                                     "contexts":["selection"],
                                     "onclick": Clipper.clipSelection,
-                                    "parentId" : parent,
-                                    
+                                    "parentId" : parent
                                 });
-
     chrome.contextMenus.create({
                                     "title": "Clip Image",
                                     "contexts":["image"],
                                     "onclick": Clipper.clipImage,
-                                    "parentId" : parent,
-                                    
+                                    "parentId" : parent
                                 });
-
-
 };
 
 Clipper.newNote = function(){
@@ -93,7 +85,7 @@ Clipper.getBase64Image = function (url, callback) {
     var img = document.createElement("img");
     img.style.visiblity="hidden";
     img.src = url;
-    
+
     function process(){
         var canvas = document.createElement("canvas");
         document.body.appendChild(canvas);
@@ -110,8 +102,7 @@ Clipper.getBase64Image = function (url, callback) {
         document.body.removeChild(canvas);
         callback(dataURL);
     }
-    
-    
+
     img.onload = process;
     document.body.appendChild(img);
 }
