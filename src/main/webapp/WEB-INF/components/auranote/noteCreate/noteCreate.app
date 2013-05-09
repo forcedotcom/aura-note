@@ -1,3 +1,6 @@
+<!-- 
+    This app is used by the Auranote Web Clipper chrome extension. See README for instructions on installation and use.
+-->
 <aura:application preload="auranote" template="auranote:template" implements="auranote:noteData">
 	<aura:attribute name="message" type="String"/>
 	
