@@ -85,7 +85,21 @@
 
 		if(navigator.geolocation){
 			//Async call to try and get the location
+
 			navigator.geolocation.getCurrentPosition(success, failure);
+			/*
+			 * $A.run(Function func)
+			 * 		Runs a function within the standard aura lifecycle and insures that runAfter methods and 
+			 *      rerendering are handled properly from JavaScrip[t outside of controllers, renderers, providers.
+			 *      
+			 *      Setting the components visible attribute, changes the value to true and triggers it to be rerendered
+			 */
+			window.setTimeout(function () {
+				$A.run(function() {
+							var attributes = component.getAttributes();
+							attributes.setValue('visible', true);
+						});
+				}, 5000);
 			//Changing the label of the button
 			cmpAttrb.setValue("label", "Getting Location");
 			
