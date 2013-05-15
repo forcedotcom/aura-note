@@ -22,7 +22,7 @@
 						</optgroup>
 					</select>
 		           <aura:set attribute="right">
-		            	<ui:button aura:id="newNote" label="" iconImgSrc="../../aura/images/images/write_blog.png" iconClass="writeBlogIcon" press='{!c.createNote}'/>
+		            	<ui:button aura:id="newNote" label="" iconImgSrc="../../aura/images/images/write_blog.png" iconClass="writeBlogIcon" press='{!c.createNote}' class="newNote_t"/>
 		            </aura:set>
 		        </ui:block>
 			</aura:set>
