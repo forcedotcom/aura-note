@@ -1,14 +1,26 @@
 ({
-	cancel: function(component) {
+	cancel: function(component, evt, helper) {
 		var note = component.getValue("v.note");
-
+        var mode = "";
+        var title = component.getValue("m.origTitle").getValue();
+        var body = component.getValue("m.origBody").getValue();
+        
+        //Check if there was a previous note saved, if not open new note view up, otherwise, look at edit
+        if($A.util.isUndefinedOrNull(body)){
+            mode = "new"; 	
+        }
+        else{
+           mode = "view";
+        }
+        
+        
         // Revert title/body text
-        note.put("title", component.getValue("m.origTitle").getValue());
-        note.put("body", component.getValue("m.origBody").getValue());
+        note.put("title", title);
+        note.put("body", body);
 
 		var event = $A.get("e.auranote:openNote")
 		event.setParams({
-			mode : "view",
+			mode : mode,
 			note : note
 		});
 		event.fire();
