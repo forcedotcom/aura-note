@@ -15,7 +15,7 @@
 .THIS input{
 	margin: 3px 2px;
 	border-color: #fff;
-	background-color: inherit;
+	background-color: transparent;
 }
 .THIS textarea{
 	height:200px;
