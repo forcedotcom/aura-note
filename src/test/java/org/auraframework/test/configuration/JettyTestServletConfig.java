@@ -21,11 +21,17 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.UnknownHostException;
 
-import org.apache.commons.httpclient.HttpClient;
+import org.apache.http.client.CookieStore;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.BasicCookieStore;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.auraframework.Aura;
 
 public class JettyTestServletConfig implements TestServletConfig {
-    private URL baseUrl;
+    private final URL baseUrl;
 
     public JettyTestServletConfig() throws MalformedURLException, URISyntaxException {
         int port = Integer.parseInt(System.getProperty("jetty.port", "8080"));
@@ -47,12 +53,21 @@ public class JettyTestServletConfig implements TestServletConfig {
 
     @Override
     public HttpClient getHttpClient() {
-        // 10 minute timeout for making a connection and for waiting for data on the connection.
-        // This prevents tests from hanging in the http code, which in turn can prevent the server from exiting.
+        // 10 minute timeout for making a connection and for waiting for data on
+        // the connection.
+        // This prevents tests from hanging in the http code, which in turn can
+        // prevent the server from exiting.
         int timeout = 10 * 60 * 1000;
-        HttpClient http = new HttpClient();
-        http.getHttpConnectionManager().getParams().setConnectionTimeout(timeout);
-        http.getParams().setSoTimeout(timeout);
+
+        CookieStore cookieStore = new BasicCookieStore();
+
+        HttpParams params = new BasicHttpParams();
+        HttpConnectionParams.setConnectionTimeout(params, timeout);
+        HttpConnectionParams.setSoTimeout(params, timeout);
+
+        DefaultHttpClient http = new DefaultHttpClient(params);
+        http.setCookieStore(cookieStore);
+
         return http;
     }
 
