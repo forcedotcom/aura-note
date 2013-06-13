@@ -38,11 +38,9 @@ public class AuraIntegrationTestConfig {
     }
 
     /**
-     * Returns a factory to build the appropriate WebDriver that connects to a given URL.
-     * This URL can be one of the following:
-     *      1. Passed in as a property by the user
-     *      2. A Saucelabs address containing a specified Sauce username/access key
-     *      3. The localhost with a generated open port number
+     * Returns a factory to build the appropriate WebDriver that connects to a given URL. This URL can be one of the
+     * following: 1. Passed in as a property by the user 2. A Saucelabs address containing a specified Sauce
+     * username/access key 3. The localhost with a generated open port number
      */
     @Impl
     public static WebDriverProvider auraWebDriverProvider() throws Exception {

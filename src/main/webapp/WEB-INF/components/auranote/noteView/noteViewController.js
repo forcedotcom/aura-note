@@ -14,9 +14,24 @@
         var a = component.get("c.deleteNote");
         a.setParams({ id : component.get("v.note.id"), sort : component.get("v.sort") });
         a.setCallback(this, function(action){
-            var event = $A.get("e.auranote:noteAdded");
-            event.setParams({noteList : action.getReturnValue()});
-            event.fire();
+            $A.newCmpAsync(
+                this,
+                function(newCmp){
+                    var event = $A.get("e.auranote:noteAdded");
+                    event.setParams({noteList : newCmp});
+                    event.fire();
+                },
+                {
+                    componentDef : {
+                        descriptor: "auranote:noteList"
+                    },
+                    attributes : {
+                        values: {
+                            sort: component.get("v.sort")
+                        }
+                    }
+                }
+            );
 
             var event = $A.get("e.auranote:openNote")
             event.setParams({

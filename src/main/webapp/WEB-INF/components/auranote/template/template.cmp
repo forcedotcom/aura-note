@@ -1,4 +1,4 @@
-<aura:component isTemplate="true" extends="aura:template" theme="templateCss://auranote.template">
+<aura:component isTemplate="true" extends="aura:template" style="templateCss://auranote.template">
 	<aura:set attribute="title" value="Aura Notes"/>
 
 	<aura:set attribute="extraMetaTags">
