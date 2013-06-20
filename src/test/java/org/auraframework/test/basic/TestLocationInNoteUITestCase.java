@@ -30,10 +30,8 @@ public class TestLocationInNoteUITestCase extends AuraNoteUITestCase {
 
         // Check details view of first Note
         getElementInSidebar(note.getTitle(), note.getBody()).click();
-        assertEquals("Details view title does not match new note", note.getTitle(),
-                getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Details view body does not match new note", note.getBody(),
-                getText(AuraNoteTestUtil.DETAILS_BODY));
+        waitForTextChange("Details view title does not match new note", AuraNoteTestUtil.DETAILS_TITLE, note.getTitle());
+        waitForTextChange("Details view body does not match new note", AuraNoteTestUtil.DETAILS_BODY, note.getBody());
         assertEquals("Details view location does not match new note", getText(AuraNoteTestUtil.LOCATION_BUTTON), latlng);
     }
 }

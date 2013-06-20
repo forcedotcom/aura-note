@@ -52,10 +52,10 @@ public class EditNoteUITest extends AuraNoteUITestCase {
 
         getElementInSidebar(editedTitle, editedBody).click();
         waitForElementAppear(AuraNoteTestUtil.DETAILS_TITLE);
-        assertEquals("Edited note title not displayed in details view after selecting from sidebar", editedTitle,
-                getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Edited note body not displayed in details view after selecting from sidebar", editedBody,
-                getText(AuraNoteTestUtil.DETAILS_BODY));
+        waitForTextChange("Edited note title not displayed in details view after selecting from sidebar",
+                AuraNoteTestUtil.DETAILS_TITLE, editedTitle);
+        waitForTextChange("Edited note body not displayed in details view after selecting from sidebar",
+                AuraNoteTestUtil.DETAILS_BODY, editedBody);
     }
 
     /**
@@ -83,11 +83,9 @@ public class EditNoteUITest extends AuraNoteUITestCase {
         assertEquals("Originial Note body not displayed in details view", "aaa", getText(AuraNoteTestUtil.DETAILS_BODY));
 
         getElementInSidebar("New Note 1", "aaa").click();
-        waitForElementAppear(AuraNoteTestUtil.DETAILS_TITLE);
-        assertEquals("Original Note title not displayed in details view after selecting from sidebar", "New Note 1",
-                getText(AuraNoteTestUtil.DETAILS_TITLE));
-        assertEquals("Original Note body not displayed in details view after selecting from sidebar", "aaa",
-                getText(AuraNoteTestUtil.DETAILS_BODY));
+        waitForTextChange("Original Note title not displayed in details view after selecting from sidebar",
+                AuraNoteTestUtil.DETAILS_TITLE, "New Note 1");
+        waitForTextChange("Original Note body not displayed in details view after selecting from sidebar",
+                AuraNoteTestUtil.DETAILS_BODY, "aaa");
     }
-
 }
