@@ -228,4 +228,17 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
         String msg = "Element with CSS selector \'" + cssSelector + "\' never appeared";
         waitForElementAppear(msg, cssSelector);
     }
+
+    protected void waitForTextChange(String errorMsg, final String selector, final String newText) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
+        wait.withMessage(errorMsg);
+        wait.ignoring(NoSuchElementException.class);
+        wait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver d) {
+                String t = getElement(selector).getText();
+                return t.equals(newText);
+            }
+        });
+    }
 }
