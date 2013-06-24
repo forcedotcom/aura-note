@@ -4,9 +4,9 @@ import org.auraframework.demo.notes.Note;
 import org.auraframework.test.AuraNoteTestUtil;
 import org.auraframework.test.AuraNoteUITestCase;
 
-public class TestLocationInNoteUITestCase extends AuraNoteUITestCase {
+public class LocationInNoteUITest extends AuraNoteUITestCase {
 
-    public TestLocationInNoteUITestCase(String name) {
+    public LocationInNoteUITest(String name) {
         super(name);
     }
 
