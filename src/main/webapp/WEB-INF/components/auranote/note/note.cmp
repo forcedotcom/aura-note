@@ -22,10 +22,9 @@
 							press="{!c.togggleLocationImages}">
 					    	<a
 								href="{!'http://maps.google.com/?q='+v.note.latitude+','+v.note.longitude}"
-								target="_new" class="locationImages" aura:id="locImages"> <img
-								src="{!'http://maps.googleapis.com/maps/api/staticmap?center='+v.note.latitude+','+v.note.longitude+'&amp;zoom=11&amp;size=100x100&amp;sensor=false'}" />
-								<img
-								src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}" />
+								target="_new" class="locationImages" aura:id="locImages"> 
+									<ui:image src="{!'http://maps.googleapis.com/maps/api/staticmap?center='+v.note.latitude+','+v.note.longitude+'&amp;zoom=11&amp;size=100x100&amp;sensor=false'}" alt="map view of note location"/>
+								    <ui:image src="{!'http://maps.googleapis.com/maps/api/streetview?size=100x100&amp;location='+v.note.latitude+','+v.note.longitude+'&amp;sensor=false'}" alt="Street View of note location"/>
 							</a>
 						</ui:button>
 					</aura:if>
