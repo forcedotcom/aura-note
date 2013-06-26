@@ -2,8 +2,8 @@
     <aura:attribute name="sort" type="String" default="createdOn.desc"/>
     <aura:attribute name="query" type="String"/>
 
-    <aura:foreach items="{!m.notes}" var="note">
+    <aura:iteration items="{!m.notes}" var="note">
            <auranote:noteListRow aura:id="row" note="{!note}"/>
-    </aura:foreach>
+    </aura:iteration>
 </aura:component>
 

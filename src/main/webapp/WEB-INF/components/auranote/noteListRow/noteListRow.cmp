@@ -5,6 +5,6 @@
 		<aura:unescapedHtml value="{!v.note.body}"/>
     </aura:set>
     <aura:set attribute="onclick" value="{!c.openNote}"/>
-    <aura:set attribute="right"><ui:outputDateTime value="{!v.note.createdOnAsCalendar}" format="h:mm a"/></aura:set>
+    <aura:set attribute="right"><ui:outputDateTime value="{!v.note.createdOn}" format="h:mm a"/></aura:set>
     {!v.note.title}
 </aura:component>

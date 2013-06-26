@@ -6,9 +6,8 @@
     },
 
     sort : function(component) {
-        var sort = component.find("sort").getElement();
-        component.getValue("v.sort").setValue(sort.value);
-
+        var sortVal = component.find("sort").getValue('v.value');
+        component.getValue("v.sort").setValue(sortVal.getValue());
         $A.newCmpAsync(
             this,
             function(newCmp){
@@ -22,7 +21,7 @@
                 },
                 attributes : {
                     values: {
-                        sort: sort.value
+                        sort: sortVal.getValue()
                     }
                 }
             }
@@ -36,7 +35,7 @@
     },
 
     search : function(component, event){
-        var sort = component.find("sort").getElement();
+        var sort = component.find("sort").getValue('v.value');
         var action = $A.get("c.aura://ComponentController.getComponent");
         var query = component.find("searchbox").getElement();
 
@@ -53,7 +52,7 @@
                 },
                 attributes : {
                     values: {
-                        sort: sort.value,
+                        sort: sort.getValue(),
                         query: query.value
                     }
                 }

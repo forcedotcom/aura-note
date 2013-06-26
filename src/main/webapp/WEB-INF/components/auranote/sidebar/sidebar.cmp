@@ -1,11 +1,15 @@
-<aura:component>
-    <aura:attribute name="sort" type="String" default="createdOn.desc"/>
-    <aura:handler event="auranote:noteAdded" action="{!c.noteAdded}" />
-    <div>
-		<ui:vbox>
-			<aura:set attribute="north">
-		        <ui:block class="header">
-					Sort: <select onchange="{!c.sort}" aura:id="sort" class="sort_t">
+<!--
+		         <ui:inputSelect label="Sort" click="{!c.sort}" aura:id="sort" class="single">
+				        <ui:inputSelectOptionGroup  label="Create Date">
+				            <ui:inputSelectOption   text="createdOn.desc" label="Newest First" value="true"/>
+				            <ui:inputSelectOption   text="createdOn.asc"  label="Oldest First"/>
+				        </ui:inputSelectOptionGroup>
+				         <ui:inputSelectOptionGroup label="Alphabetical">
+				            <ui:inputSelectOption   text="title.asc" label="A First"/>
+				            <ui:inputSelectOption   text="title.desc" label="Z First"/>
+				        </ui:inputSelectOptionGroup> 
+				    </ui:inputSelect>
+				     Sort: <select onchange="{!c.sort}" aura:id="sort" class="sort_t">
 						<optgroup label="Create Date">
 							<option value="createdOn.desc"
 								selected="{!v.createdOn.desc == 'createdOn.desc'}" class="newestFirst_t">Newest
@@ -21,6 +25,27 @@
 								selected="{!v.createdOn.desc == 'titleOn.desc'}" class="zFirst_t">Z First</option>
 						</optgroup>
 					</select>
+				    
+				    
+				    -->
+
+<aura:component>
+    <aura:attribute name="sort" type="String" default="createdOn.desc"/>
+    <aura:handler event="auranote:noteAdded" action="{!c.noteAdded}" />
+    <div>
+		<ui:vbox>
+			<aura:set attribute="north">
+		        <ui:block class="header">
+					<ui:inputSelect label="Sort" click="{!c.sort}" aura:id="sort" class="single">
+				        <ui:inputSelectOptionGroup  label="Create Date">
+				            <ui:inputSelectOption   text="createdOn.desc" class="newestFirst_t" label="Newest First" value="true"/>
+				            <ui:inputSelectOption   text="createdOn.asc"  class="oldestFirst_t" label="Oldest First"/>
+				        </ui:inputSelectOptionGroup>
+				         <ui:inputSelectOptionGroup label="Alphabetical">
+				            <ui:inputSelectOption   text="title.asc"  class="aFirst_t" label="A First"/>
+				            <ui:inputSelectOption   text="title.desc" class="zFirst_t" label="Z First"/>
+				        </ui:inputSelectOptionGroup> 
+				    </ui:inputSelect>
 		           <aura:set attribute="right">
 		            	<ui:button aura:id="newNote" label="" iconImgSrc="../../aura/images/images/write_blog.png" iconClass="writeBlogIcon" press='{!c.createNote}' class="newNote_t"/>
 		            </aura:set>
