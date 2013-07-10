@@ -71,7 +71,7 @@
             );
         });
 
-        this.runAfter(action);
+        $A.enqueueAction(action);
     },
 
     setLocation : function(component){

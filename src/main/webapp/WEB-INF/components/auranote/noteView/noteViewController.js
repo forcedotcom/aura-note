@@ -39,6 +39,6 @@
             });
             event.fire();
         });
-        a.runAfter(a);
+        $A.enqueueAction(a);
     }
 })
