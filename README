@@ -18,7 +18,7 @@ To see the app go to:
 
 To edit the app open:
 
-    aura-notes/src/main/webapp/WEB-INF/components/auranote/notes/notes.app
+    src/main/webapp/WEB-INF/components/auranote/notes/notes.app
 
 Installing Auranote Web Clipper
 
