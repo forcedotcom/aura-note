@@ -1,21 +1,21 @@
 Clone the repo:
 
-	git clone https://github.com/forcedotcom/aura-note.git
+	`git clone https://github.com/forcedotcom/aura-note.git`
 	
 Change to the newly created aura-note folder:
 
-	cd aura-note
+	`cd aura-note`
 		
 If you want a pre-populated sample not database just copy the file auranote.db.h2.db (in the same folder as this README) to your home folder
 		
 To start jetty on port 8080 run this:
 
-    mvn jetty:run -Pdev
+    `mvn jetty:run -Pdev`
 
 To see the app go to:
 
-    http://localhost:8080/auranote/notes.app
+    `http://localhost:8080/auranote/notes.app`
 
 To edit the app open:
 
-    src/main/webapp/WEB-INF/components/auranote/notes/notes.app
+    `src/main/webapp/WEB-INF/components/auranote/notes/notes.app`
