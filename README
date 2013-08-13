@@ -19,18 +19,3 @@ To see the app go to:
 To edit the app open:
 
     src/main/webapp/WEB-INF/components/auranote/notes/notes.app
-
-Installing Auranote Web Clipper
-
-    1. Visit chrome://extensions in Google Chrome web browser
-    2. Check the Developer Mode checkbox in the upper-right hand corner
-    3. Click the Load unpacked extension... button
-    4. Browse to aura-note/src/clipper and press open
-
-Using Auranote Web Clipper
-
-    1. Visit chrome://extensions in Google Chrome web browser
-    2. Check the Enabled button for Auranote Web Clipper extenstion
-    3. Click Options for the extension and enter the URL for the Auranote server that is running
-    4. Right-click in Chrome and navigate to the Auranote Web Clipper menu to use
-    Note that clipping URLs and images is currently in development and may not be fully functional.
