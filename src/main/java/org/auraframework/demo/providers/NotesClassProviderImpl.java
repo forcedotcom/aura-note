@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 salesforce.com, inc.
+ * Copyright (C) 2013 salesforce.com, inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.auraframework.test;
+package org.auraframework.demo.providers;
 
-import junit.framework.TestSuite;
+import org.auraframework.provider.api.ClassProvider;
 
-import org.auraframework.test.ComponentJSTestSuiteTest.NamespaceTestSuite;
+import aQute.bnd.annotation.component.Component;
 
-/**
- * Specify what namespace to look under for all javascript tests.
- * Tests should follow naming convention: <componentName>Test.js
- */
-public class JSTests {
-    public static TestSuite suite() throws Exception {
-        TestSuite suite = new NamespaceTestSuite("auranote");
-        suite.setName("JS component tests");
-        return suite;
-    }
+@Component
+public class NotesClassProviderImpl implements ClassProvider {
+
+	@Override
+	public Class<?> getClazzForName(String className) throws ClassNotFoundException {
+		return Class.forName(className);
+	}
 }

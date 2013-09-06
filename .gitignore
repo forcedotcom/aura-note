@@ -5,6 +5,5 @@ target
 *.class
 .DS_Store
 chromedriver.log
-plume-note Sauce.launch
 aura-note Sauce.launch
 src/clipper/.tmp_options.html*
