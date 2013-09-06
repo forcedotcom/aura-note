@@ -1,3 +1,12 @@
+This fork is an OSGi-adapted version of Aura-not project. It should be used
+as a submodule of aurframework parent project from:
+
+https://github.com/igor-sfdc/aura
+
+cloned under the root aura folder. More detailed instructions are to be posted.
+
+
+
 ## What is Aura-Note?
 
 Aura-Note is a simple note taking sample application that demonstrates many of the features and patterns used when building an Aura based application.
