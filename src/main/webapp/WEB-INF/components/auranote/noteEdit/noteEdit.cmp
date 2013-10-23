@@ -10,7 +10,7 @@
     </aura:set>
     <aura:set attribute="tags">
         <aura:renderIf isTrue="{!v.note.latitude == null}">
-            <ui:button aura:id="ui_button_set_location" label="Set Location" press="{!c.setLocation}" class="locationButton" iconClass="icon" />
+            <ui:button aura:id="ui_button_set_location" label="Set Location"  disabled="false" press="{!c.setLocation}" class="locationButton" iconClass="icon" />
         </aura:renderIf>
     </aura:set>
     <aura:set attribute="body">

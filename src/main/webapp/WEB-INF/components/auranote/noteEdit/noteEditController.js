@@ -78,25 +78,22 @@
         var note = component.getValue("v.note");
 
         var cmpAttrb = component.find("ui_button_set_location").getAttributes();
+        //Changing the label of the button
+        cmpAttrb.setValue("label", "Getting Location");
         var success = function(results){
             note.add("latitude", results.coords.latitude);
             note.add("longitude", results.coords.longitude);
             note.getValue("latitude").setValue(results.coords.latitude);
             note.getValue("longitude").setValue(results.coords.longitude);
             cmpAttrb.setValue("label", note.getValue("longitude").getValue() + ", " + note.getValue("latitude").getValue());
-            
-            //Changing the class value of the button class variable so that the button gets greyed out and it doesn't inherit the
-            // the buttons parents css.
-            document.getElementsByClassName('locationButton default uiBlock uiButton')[0].setAttribute("class", "locationButton");
-            
             //Disabling the button
-            cmpAttrb.setValue("disabled", true);
+            cmpAttrb.setValue("disabled", "true");
         };
 
         var failure = function(results){
             $A.log("failure");
             cmpAttrb.setValue("label", "Failed to get location. Try Again...");
-            cmpAttrb.setValue("disabled", false);
+            cmpAttrb.setValue("disabled", "false");
         };
 
         if(navigator.geolocation){
@@ -111,8 +108,7 @@
                 });
             }, 5000);
 
-            //Changing the label of the button
-            cmpAttrb.setValue("label", "Getting Location");
+            
 
         } else {
             failure();
