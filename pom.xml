@@ -32,7 +32,7 @@
 
 	<!-- these properties can be set by passing in -D<property_name>=<property_value> -->
 	<properties>
-		<aura.framework.version>0.453</aura.framework.version>
+		<aura.framework.version>0.633</aura.framework.version>
 		<selenium.version>2.33.0</selenium.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
