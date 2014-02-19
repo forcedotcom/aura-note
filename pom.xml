@@ -7,6 +7,29 @@
 	<artifactId>aura-note</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+            <comments>
+                  Copyright (C) 2014 salesforce.com, inc.
+                 
+                  Licensed under the Apache License, Version 2.0 (the "License");
+                  you may not use this file except in compliance with the License.
+                  You may obtain a copy of the License at
+                 
+                         http://www.apache.org/licenses/LICENSE-2.0
+                 
+                  Unless required by applicable law or agreed to in writing, software
+                  distributed under the License is distributed on an "AS IS" BASIS,
+                  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+                  See the License for the specific language governing permissions and
+                  limitations under the License.
+            </comments>
+        </license>
+    </licenses>
+
 	<!-- these properties can be set by passing in -D<property_name>=<property_value> -->
 	<properties>
 		<aura.framework.version>0.453</aura.framework.version>
@@ -216,6 +239,72 @@
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
+            <plugin>
+                <inherited>false</inherited>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.9.0</version>
+                <configuration>
+                    <strictCheck>true</strictCheck>
+                    <mapping>
+                        <java>SLASHSTAR_STYLE</java>
+                        <groovy>JAVADOC_STYLE</groovy>
+                        <js>SLASHSTAR_STYLE</js>
+                        <css>SLASHSTAR_STYLE</css>
+                        <xml>XML_STYLE</xml>
+                        <dtd>XML_STYLE</dtd>
+                        <xsd>XML_STYLE</xsd>
+                        <html>XML_STYLE</html>
+                        <htm>XML_STYLE</htm>
+                        <xsl>XML_STYLE</xsl>
+                        <fml>XML_STYLE</fml>
+                        <cmp>XML_STYLE</cmp>
+                        <app>XML_STYLE</app>
+                        <intf>XML_STYLE</intf>
+                        <evt>XML_STYLE</evt>
+                        <apt>DOUBLETILDE_STYLE</apt>
+                        <properties>SCRIPT_STYLE</properties>
+                        <sh>SCRIPT_STYLE</sh>
+                        <txt>TEXT</txt>
+                        <bat>BATCH</bat>
+                        <cmd>BATCH</cmd>
+                        <sql>DOUBLEDASHES_STYLE</sql>
+                        <jsp>DYNASCRIPT_STYLE</jsp>
+                        <ftl>FTL</ftl>
+                        <xhtml>XML_STYLE</xhtml>
+                        <vm>SHARPSTAR_STYLE</vm>
+                        <jspx>XML_STYLE</jspx>
+                    </mapping>
+                    <header>${aura.home}/src/test/resources/header.txt</header>
+                    <failIfMissing>true</failIfMissing>
+                    <aggregate>true</aggregate>
+                    <properties>
+                        <owner>salesforce.com, inc.</owner>
+                        <year>2014</year>
+                    </properties>
+                    <includes>
+                        <include>**/src/main/java/**</include>
+                        <include>**/src/main/webapp/WEB-INF/components/**</include>
+                        <include>**/src/test/java/**</include>
+                    </includes>
+                    <excludes>
+                        <exclude>LICENSE.txt</exclude>
+                        <exclude>**/src/test/resources/**</exclude>
+                        <exclude>**/.gitignore</exclude>
+                        <exclude>**/.index</exclude>
+                        <exclude>**/target/**</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 
 		<pluginManagement>
