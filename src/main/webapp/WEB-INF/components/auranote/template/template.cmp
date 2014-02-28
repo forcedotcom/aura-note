@@ -16,7 +16,7 @@
 
 -->
 <aura:component isTemplate="true" extends="aura:template" style="templateCss://auranote.template">
-	<aura:set attribute="title" value="Aura Notes"/>
+	<aura:set attribute="title" value="Aura Note"/>
 
 	<aura:set attribute="extraMetaTags">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
