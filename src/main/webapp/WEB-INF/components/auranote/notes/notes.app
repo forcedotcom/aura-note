@@ -15,7 +15,7 @@
     limitations under the License.
 
 -->
-<aura:application preload="auranote" template="auranote:template" useAppCache="true">
+<aura:application template="auranote:template" useAppCache="true">
 	<div>
 		<header>
 			<h1>aura:note</h1>
