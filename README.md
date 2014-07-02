@@ -9,7 +9,7 @@ accessing the documentation on your localhost after you build the project.
 
 You need:
 
-* Java Development Kit (JDK) 1.6
+* JDK 1.7
 * Apache Maven 3
 
 ### Getting Started
