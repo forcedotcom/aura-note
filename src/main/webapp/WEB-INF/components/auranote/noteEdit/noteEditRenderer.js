@@ -19,8 +19,8 @@
     	if(cmp.get("v.note")){
 	        var origTitle = cmp.getValue("v.note").get("title");
 	        var origBody = cmp.getValue("v.note").get("body");
-	        cmp.getValue("m.origTitle").setValue(origTitle);
-	        cmp.getValue("m.origBody").setValue(origBody);
+	        cmp.getValue("v.origTitle").setValue(origTitle);
+	        cmp.getValue("v.origBody").setValue(origBody);
     	}
         cmp.find("title").getElement().focus();
         this.superAfterRender();

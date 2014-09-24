@@ -18,6 +18,11 @@
 <aura:component abstract="true" provider="js://auranote.note">
     <aura:dependency resource="auranote:noteEdit" />
     <aura:dependency resource="auranote:noteView" />  
+
+    <!-- Save original title/body here in case user cancels after modifying -->
+    <aura:attribute name="origTitle" type="String" default="" />
+    <aura:attribute name="origBody" type="String" default="" />
+
 	<aura:attribute name="mode" type="String" default="view" />
 	<aura:attribute name="note"
 		type="java://org.auraframework.demo.notes.Note" />

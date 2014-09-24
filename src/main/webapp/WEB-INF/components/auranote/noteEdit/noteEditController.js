@@ -17,11 +17,11 @@
     cancel: function(component, evt, helper) {
         var note = component.getValue("v.note");
         var mode = "";
-        var title = component.getValue("m.origTitle").getValue();
-        var body = component.getValue("m.origBody").getValue();
+        var origTitle = component.getValue("v.origTitle").getValue();
+        var origBody = component.getValue("v.origBody").getValue();
         
         //Check if there was a previous note saved, if not open new note view up, otherwise, look at edit
-        if($A.util.isUndefinedOrNull(body)){
+        if($A.util.isUndefinedOrNull(origBody)){
             mode = "new"; 	
         }
         else{
@@ -29,8 +29,8 @@
         }
 
         // Revert title/body text
-        note.put("title", title);
-        note.put("body", body);
+        note.put("title", origTitle);
+        note.put("body", origBody);
 
         var event = $A.get("e.auranote:openNote")
         event.setParams({
