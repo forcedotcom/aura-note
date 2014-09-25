@@ -15,7 +15,7 @@
  */
 ({
     edit: function(component) {
-        var note = component.getValue("v.note");
+        var note = component.get("v.note");
 
         var event = $A.get("e.auranote:openNote")
         event.setParams({

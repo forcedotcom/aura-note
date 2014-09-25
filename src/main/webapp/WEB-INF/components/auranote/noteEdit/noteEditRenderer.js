@@ -17,10 +17,10 @@
     afterRender : function(cmp){
         // Save title/body text before edit in case user cancels modifications
     	if(cmp.get("v.note")){
-	        var origTitle = cmp.getValue("v.note").get("title");
-	        var origBody = cmp.getValue("v.note").get("body");
-	        cmp.getValue("v.origTitle").setValue(origTitle);
-	        cmp.getValue("v.origBody").setValue(origBody);
+	        var origTitle = cmp.get("v.note.title");
+	        var origBody = cmp.get("v.note.body");
+	        cmp.set("v.origTitle", origTitle);
+	        cmp.set("v.origBody", origBody);
     	}
         cmp.find("title").getElement().focus();
         this.superAfterRender();

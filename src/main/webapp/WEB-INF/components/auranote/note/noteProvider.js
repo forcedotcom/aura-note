@@ -15,6 +15,6 @@
  */
 ({
 	provide : function(cmp){
-		return cmp.getAttributes().get("mode")==="view"?"auranote:noteView":"auranote:noteEdit";
+		return cmp.get("v.mode") === "view" ? "auranote:noteView" : "auranote:noteEdit";
 	}
 })

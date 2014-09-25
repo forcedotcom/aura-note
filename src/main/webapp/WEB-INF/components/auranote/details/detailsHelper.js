@@ -34,8 +34,7 @@
             this,
             function(newCmp){
                 var content = component.find("notes");
-                var body = content.getValue("v.body");
-                body.setValue(newCmp);
+                content.set("v.body", newCmp)
 
                 setTimeout(function() {
                     // Let the world know that we need resize calcs

@@ -18,20 +18,20 @@ package org.auraframework.test;
 import junit.framework.TestCase;
 
 import org.auraframework.Aura;
-import org.auraframework.system.AuraContext.Access;
+import org.auraframework.system.AuraContext.Authentication;
 import org.auraframework.system.AuraContext.Format;
 import org.auraframework.system.AuraContext.Mode;
 
 /**
  * Unit tests for Aura Note. Establishes and tears down context for running tests.
- *
+ * 
  */
 public class AuraNoteUnitTestCase extends TestCase {
 
     @Override
     public void setUp() throws Exception {
         if (!Aura.getContextService().isEstablished()) {
-            Aura.getContextService().startContext(Mode.UTEST, Format.JSON, Access.AUTHENTICATED);
+            Aura.getContextService().startContext(Mode.UTEST, Format.JSON, Authentication.AUTHENTICATED);
         }
 
         AuraNoteTestUtil.saveDbState();

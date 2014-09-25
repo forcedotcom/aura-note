@@ -21,8 +21,8 @@
     },
 
     sort : function(component) {
-        var sortVal = component.find("sort").getValue('v.value');
-        component.getValue("v.sort").setValue(sortVal.getValue());
+        var sortVal = component.find("sort").get('v.value');
+        component.set("v.sort", sortVal);
         $A.newCmpAsync(
             this,
             function(newCmp){
@@ -36,7 +36,7 @@
                 },
                 attributes : {
                     values: {
-                        sort: sortVal.getValue()
+                        sort: sortVal
                     }
                 }
             }
@@ -44,13 +44,11 @@
     },
 
     noteAdded : function(cmp, event){
-        var list = cmp.find("list").getValue("v.body");
-        list.destroy();
-        list.setValue(event.getParam("noteList"));
+        cmp.find("list").set("v.body", event.getParam("noteList"));
     },
 
     search : function(component, event){
-        var sort = component.find("sort").getValue('v.value');
+        var sort = component.find("sort").get('v.value');
         var action = $A.get("c.aura://ComponentController.getComponent");
         var query = component.find("searchbox").getElement();
 
@@ -67,7 +65,7 @@
                 },
                 attributes : {
                     values: {
-                        sort: sort.getValue(),
+                        sort: sort,
                         query: query.value
                     }
                 }

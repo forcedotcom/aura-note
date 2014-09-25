@@ -19,13 +19,8 @@
     <aura:dependency resource="auranote:noteEdit" />
     <aura:dependency resource="auranote:noteView" />  
 
-    <!-- Save original title/body here in case user cancels after modifying -->
-    <aura:attribute name="origTitle" type="String" default="" />
-    <aura:attribute name="origBody" type="String" default="" />
-
 	<aura:attribute name="mode" type="String" default="view" />
-	<aura:attribute name="note"
-		type="java://org.auraframework.demo.notes.Note" />
+	<aura:attribute name="note" type="java://org.auraframework.demo.notes.Note" />
 	<aura:attribute name="sort" type="String" />
 
 	<aura:attribute name="buttons" type="Aura.Component[]" />
@@ -41,7 +36,7 @@
 					<aura:set attribute="right">{!v.buttons}</aura:set>
 				</ui:block>
 				<ul class="tags">
-					<aura:if isTrue="{!v.note.latitude != null}">
+					<aura:if isTrue="{!and(v.note.latitude != null, v.mode == 'view')}">
 						<ui:button label="{!v.note.longitude+', '+v.note.latitude}" class="locationButton" iconClass="icon"
 							press="{!c.togggleLocationImages}">
 					    	<a

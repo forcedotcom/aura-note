@@ -16,6 +16,9 @@
 
 -->
 <aura:component extends="auranote:note" controller="java://org.auraframework.demo.notes.controllers.NoteEditController" >
+    <aura:attribute name="origTitle" type="String" default="" />
+    <aura:attribute name="origBody" type="String" default="" />
+    
     <aura:set attribute="class" value="edit"/>
     <aura:set attribute="buttons">
         <ui:button label="Cancel" press="{!c.cancel}" class="cancel_t"/>
@@ -26,9 +29,7 @@
         <ui:inputText value="{!v.note.title}" aura:id="title" placeholder="Note Title" class="title_t" updateOn="keyup"/>
     </aura:set>
     <aura:set attribute="tags">
-        <aura:renderIf isTrue="{!v.note.latitude == null}">
-            <ui:button aura:id="ui_button_set_location" label="Set Location"  disabled="false" press="{!c.setLocation}" class="locationButton" iconClass="icon" />
-        </aura:renderIf>
+        <ui:button aura:id="ui_button_set_location" label="Set Location"  disabled="false" press="{!c.setLocation}" class="locationButton" iconClass="icon" />
     </aura:set>
     <aura:set attribute="body">
        <!-- updateOn="keyup" for safari/ipad WebDriver tests W-1420533 -->
