@@ -174,12 +174,6 @@
 			<version>${selenium.version}</version>
 		</dependency>
 		<dependency>
-			<!-- needed by selenium -->
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
-			<version>4.3</version>
-		</dependency>
-		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>1.9.5</version>
@@ -191,19 +185,27 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-
+		
+		<!-- needed by selenium in runtime \\ -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.uiautomation</groupId>
 			<artifactId>ios-client</artifactId>
 			<version>0.6.5</version>
+			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.3.5</version>
+			<scope>test</scope>
 		</dependency>
-
+		<!-- // -->
 	</dependencies>
 
 	<build>
