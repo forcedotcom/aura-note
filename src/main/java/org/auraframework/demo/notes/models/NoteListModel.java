@@ -40,27 +40,29 @@ enum SortDir {
 	asc, desc
 }
 
-
 @Model
 public class NoteListModel {
 
 	private static DataStore dataStore = DataStore.getInstance();
 	private List<Note> notes;
 
-	private static String replaceAllRegex(String source, String pattern, String replacement) {
-	    if (source == null)
-	          return null;
-	    Pattern regex = Pattern.compile(pattern);
-	    Matcher matcher = regex.matcher(source);
-	    return matcher.replaceAll(replacement);
+	private static String replaceAllRegex(String source, String pattern,
+			String replacement) {
+		if (source == null)
+			return null;
+		Pattern regex = Pattern.compile(pattern);
+		Matcher matcher = regex.matcher(source);
+		return matcher.replaceAll(replacement);
 	}
-	
+
 	public NoteListModel() throws Exception {
 		Dao<Note, Long> noteDao = dataStore.getNoteDao();
 
-		BaseComponent<?, ?> cmp = Aura.getContextService().getCurrentContext().getCurrentComponent();
+		BaseComponent<?, ?> cmp = Aura.getContextService().getCurrentContext()
+				.getCurrentComponent();
 
-		List<String> sortSplit = AuraTextUtil.splitSimple(".", (String) cmp.getAttributes().getValue("sort"));
+		List<String> sortSplit = AuraTextUtil.splitSimple(".", (String) cmp
+				.getAttributes().getValue("sort"));
 
 		SortCol sortCol = SortCol.createdOn;
 		SortDir sortDir = SortDir.desc;
@@ -74,7 +76,8 @@ public class NoteListModel {
 		QueryBuilder<Note, Long> qb = noteDao.queryBuilder();
 		if (!AuraTextUtil.isNullEmptyOrWhitespace(query)) {
 			List<Long> ids = Lists.newArrayList();
-			GenericRawResults<String[]> searchResults = noteDao.queryRaw("SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
+			GenericRawResults<String[]> searchResults = noteDao.queryRaw(
+					"SELECT KEYS FROM FT_SEARCH_DATA(?,0,0)", query);
 			try {
 				for (String[] row : searchResults) {
 					ids.add(Long.parseLong(replaceAllRegex(row[0], "[()]", "")));
@@ -85,21 +88,21 @@ public class NoteListModel {
 
 			qb.setWhere(qb.where().in("id", ids));
 		}
-		
+
 		qb.orderBy(sortCol.name(), sortDir == SortDir.asc);
 		qb.limit(100L);
 
 		notes = qb.query();
 
 		if (notes.isEmpty()) {
-			notes.add(new Note("Sample Note", "Just a simple note to let you know <h1>Aura</h1> loves you!"));
+			notes.add(new Note("Sample Note",
+					"Just a simple note to let you know <h1>Aura</h1> loves you!"));
 		}
 	}
-	
-	
 
 	@AuraEnabled
 	public List<Note> getNotes() {
 		return notes;
 	}
+	
 }

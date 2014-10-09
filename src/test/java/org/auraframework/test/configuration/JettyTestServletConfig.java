@@ -20,14 +20,13 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.auraframework.Aura;
 
 public class JettyTestServletConfig implements TestServletConfig {
@@ -36,6 +35,7 @@ public class JettyTestServletConfig implements TestServletConfig {
     public JettyTestServletConfig() throws MalformedURLException, URISyntaxException {
         int port = Integer.parseInt(System.getProperty("jetty.port", "8080"));
         String host = System.getProperty("jetty.host");
+        
         if (host == null) {
             try {
                 host = InetAddress.getLocalHost().getHostName();
@@ -43,6 +43,7 @@ public class JettyTestServletConfig implements TestServletConfig {
                 host = "localhost";
             }
         }
+        
         baseUrl = new URL("http", host, port, "/");
     }
 
@@ -53,22 +54,23 @@ public class JettyTestServletConfig implements TestServletConfig {
 
     @Override
     public HttpClient getHttpClient() {
-        // 10 minute timeout for making a connection and for waiting for data on
-        // the connection.
-        // This prevents tests from hanging in the http code, which in turn can
+        // timeout for making a connection and for waiting for data on the connection.
+        // this prevents tests from hanging in the http code, which in turn can
         // prevent the server from exiting.
-        int timeout = 10 * 60 * 1000;
+        int timeout = (int) TimeUnit.MINUTES.toSeconds(10);
 
         CookieStore cookieStore = new BasicCookieStore();
+        
+        RequestConfig.Builder requestBuilder = RequestConfig.custom();
+        requestBuilder = requestBuilder.setConnectTimeout(timeout);
+        requestBuilder = requestBuilder.setSocketTimeout(timeout);
 
-        HttpParams params = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(params, timeout);
-        HttpConnectionParams.setSoTimeout(params, timeout);
+        HttpClientBuilder builder = HttpClientBuilder.create();     
+        builder.setDefaultRequestConfig(requestBuilder.build());
+        builder.setDefaultCookieStore(cookieStore);
+        HttpClient client = builder.build();
 
-        DefaultHttpClient http = new DefaultHttpClient(params);
-        http.setCookieStore(cookieStore);
-
-        return http;
+        return client;
     }
 
     @Override
@@ -76,4 +78,5 @@ public class JettyTestServletConfig implements TestServletConfig {
         String token = Aura.getConfigAdapter().getCSRFToken();
         return token == null ? "" : token;
     }
+    
 }
