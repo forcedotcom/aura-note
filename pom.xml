@@ -36,8 +36,8 @@
 		<selenium.version>2.43.1</selenium.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
-		<chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
-		<chromedriver.version>26.0.1383.0</chromedriver.version>
+		<chromedriver.url>http://chromedriver.storage.googleapis.com/{version}/{artifactId}_{classifier}.zip</chromedriver.url>
+		<chromedriver.version>2.9</chromedriver.version>
 		<webdriver.reusebrowser>true</webdriver.reusebrowser>
 		<webdriver.remote.server /> <!-- http://localhost:4444/wd/hub/ -->
 		<webdriver.reusebrowser>true</webdriver.reusebrowser>
