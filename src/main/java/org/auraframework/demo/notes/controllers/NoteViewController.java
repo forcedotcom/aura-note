@@ -31,6 +31,6 @@ public class NoteViewController {
     public static void deleteNote(@Key("id") Long id, @Key("sort") String sort) throws Exception {
         Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
         noteDao.deleteById(id);
-        return;
     }
+
 }

@@ -22,11 +22,10 @@ import org.openqa.grid.selenium.GridLauncher;
 
 /**
  * Get WebDriver instances for Aura tests.
- *
  */
 public class SeleniumServerLauncher {
     private static String browsers = "-browser browserName=chrome,maxInstances=4 -browser browserName=firefox,maxInstances=4";
-	
+
     public static void main(String args[]) throws Exception {
         final String host = "localhost";
         final int serverPort = Integer.parseInt(args[0]);

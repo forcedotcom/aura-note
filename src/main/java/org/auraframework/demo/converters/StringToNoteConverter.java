@@ -20,33 +20,33 @@ import org.auraframework.util.type.Converter;
 
 public class StringToNoteConverter implements Converter<String, Note> {
 
-	/**
-	 * everytime we send in a string to a note attribute, we will go to this converter
-	 * expected input: "title:SOMETHING HERE, body:SOMETHING ELSE HERE"
-	 */
-	@Override
-	public Note convert(String titleAndBody) {
-		String []  str =  titleAndBody.split(",");
-		
-		str[0] = str[0].split(":")[1];
-		str[1] = str[1].split(":")[1];
-		
-		return new Note(str[0], str[1]);
-	}
+    /**
+     * everytime we send in a string to a note attribute, we will go to this converter expected input:
+     * "title:SOMETHING HERE, body:SOMETHING ELSE HERE"
+     */
+    @Override
+    public Note convert(String titleAndBody) {
+        String[] str = titleAndBody.split(",");
 
-	@Override
-	public Class<String> getFrom() {
-		return String.class;
-	}
+        str[0] = str[0].split(":")[1];
+        str[1] = str[1].split(":")[1];
 
-	@Override
-	public Class<Note> getTo() {
-		return Note.class;
-	}
+        return new Note(str[0], str[1]);
+    }
 
-	@Override
-	public Class<?>[] getToParameters() {
-		return null;
-	}
+    @Override
+    public Class<String> getFrom() {
+        return String.class;
+    }
+
+    @Override
+    public Class<Note> getTo() {
+        return Note.class;
+    }
+
+    @Override
+    public Class<?>[] getToParameters() {
+        return null;
+    }
 
 }

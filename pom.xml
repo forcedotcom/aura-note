@@ -7,12 +7,12 @@
 	<artifactId>aura-note</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-    <licenses>
-        <license>
-            <name>Apache License Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-            <distribution>repo</distribution>
-            <comments>
+	<licenses>
+		<license>
+			<name>Apache License Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+			<comments>
                   Copyright (C) 2014 salesforce.com, inc.
                  
                   Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,17 +27,17 @@
                   See the License for the specific language governing permissions and
                   limitations under the License.
             </comments>
-        </license>
-    </licenses>
+		</license>
+	</licenses>
 
 	<!-- these properties can be set by passing in -D<property_name>=<property_value> -->
 	<properties>
 		<aura.framework.version>0.1418</aura.framework.version>
-		<selenium.version>2.33.0</selenium.version>
+		<selenium.version>2.43.1</selenium.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<webdriver.chrome.driver>${basedir}/bin/chromedriverlauncher</webdriver.chrome.driver>
-		<chromedriver.url>http://chromedriver.googlecode.com/files/{artifactId}_{classifier}_{version}.zip</chromedriver.url>
-		<chromedriver.version>26.0.1383.0</chromedriver.version>
+		<chromedriver.url>http://chromedriver.storage.googleapis.com/{version}/{artifactId}_{classifier}.zip</chromedriver.url>
+		<chromedriver.version>2.9</chromedriver.version>
 		<webdriver.reusebrowser>true</webdriver.reusebrowser>
 		<webdriver.remote.server /> <!-- http://localhost:4444/wd/hub/ -->
 		<webdriver.reusebrowser>true</webdriver.reusebrowser>
@@ -55,27 +55,27 @@
 	</properties>
 
 	<repositories>
-        <repository>
-            <id>libs-internal</id>
-            <url>http://maven.auraframework.org/libs-release</url>
-        </repository>
-        
-        <repository>
-            <id>libs</id>
-            <url>http://repo.auraframework.org/libs-release</url>
-        </repository>
-        
-        <repository>
-            <snapshots />
-            <id>repo.auraframework.org-chromedriver</id>
-            <url>http://repo.auraframework.org/chromedriver</url>
-        </repository>
-        
-        <repository>
-	      <id>phloc.com</id>
-	      <url>http://repo.phloc.com/maven2</url>
-	    </repository>
-    </repositories>
+		<repository>
+			<id>libs-internal</id>
+			<url>http://maven.auraframework.org/libs-release</url>
+		</repository>
+
+		<repository>
+			<id>libs</id>
+			<url>http://repo.auraframework.org/libs-release</url>
+		</repository>
+
+		<repository>
+			<snapshots />
+			<id>repo.auraframework.org-chromedriver</id>
+			<url>http://repo.auraframework.org/chromedriver</url>
+		</repository>
+
+		<repository>
+			<id>phloc.com</id>
+			<url>http://repo.phloc.com/maven2</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<!-- Update auraframework versions here to use more up-to-date versions -->
@@ -152,32 +152,31 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-support</artifactId>
 			<version>${selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
 			<version>${selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-api</artifactId>
 			<version>${selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-chrome-driver</artifactId>
 			<version>${selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-remote-driver</artifactId>
 			<version>${selenium.version}</version>
-		</dependency>
-		<dependency>
-			<!-- needed by selenium -->
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
-			<version>4.3</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -191,6 +190,27 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- needed by selenium in runtime \\ -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.uiautomation</groupId>
+			<artifactId>ios-client</artifactId>
+			<version>0.6.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.5</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- // -->
 	</dependencies>
 
 	<build>
@@ -239,72 +259,72 @@
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
-            <plugin>
-                <inherited>false</inherited>
-                <groupId>com.mycila.maven-license-plugin</groupId>
-                <artifactId>maven-license-plugin</artifactId>
-                <version>1.9.0</version>
-                <configuration>
-                    <strictCheck>true</strictCheck>
-                    <mapping>
-                        <java>SLASHSTAR_STYLE</java>
-                        <groovy>JAVADOC_STYLE</groovy>
-                        <js>SLASHSTAR_STYLE</js>
-                        <css>SLASHSTAR_STYLE</css>
-                        <xml>XML_STYLE</xml>
-                        <dtd>XML_STYLE</dtd>
-                        <xsd>XML_STYLE</xsd>
-                        <html>XML_STYLE</html>
-                        <htm>XML_STYLE</htm>
-                        <xsl>XML_STYLE</xsl>
-                        <fml>XML_STYLE</fml>
-                        <cmp>XML_STYLE</cmp>
-                        <app>XML_STYLE</app>
-                        <intf>XML_STYLE</intf>
-                        <evt>XML_STYLE</evt>
-                        <apt>DOUBLETILDE_STYLE</apt>
-                        <properties>SCRIPT_STYLE</properties>
-                        <sh>SCRIPT_STYLE</sh>
-                        <txt>TEXT</txt>
-                        <bat>BATCH</bat>
-                        <cmd>BATCH</cmd>
-                        <sql>DOUBLEDASHES_STYLE</sql>
-                        <jsp>DYNASCRIPT_STYLE</jsp>
-                        <ftl>FTL</ftl>
-                        <xhtml>XML_STYLE</xhtml>
-                        <vm>SHARPSTAR_STYLE</vm>
-                        <jspx>XML_STYLE</jspx>
-                    </mapping>
-                    <header>${aura.home}/src/test/resources/header.txt</header>
-                    <failIfMissing>true</failIfMissing>
-                    <aggregate>true</aggregate>
-                    <properties>
-                        <owner>salesforce.com, inc.</owner>
-                        <year>2014</year>
-                    </properties>
-                    <includes>
-                        <include>**/src/main/java/**</include>
-                        <include>**/src/main/webapp/WEB-INF/components/**</include>
-                        <include>**/src/test/java/**</include>
-                    </includes>
-                    <excludes>
-                        <exclude>LICENSE.txt</exclude>
-                        <exclude>**/src/test/resources/**</exclude>
-                        <exclude>**/.gitignore</exclude>
-                        <exclude>**/.index</exclude>
-                        <exclude>**/target/**</exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>check-headers</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+			<plugin>
+				<inherited>false</inherited>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.9.0</version>
+				<configuration>
+					<strictCheck>true</strictCheck>
+					<mapping>
+						<java>SLASHSTAR_STYLE</java>
+						<groovy>JAVADOC_STYLE</groovy>
+						<js>SLASHSTAR_STYLE</js>
+						<css>SLASHSTAR_STYLE</css>
+						<xml>XML_STYLE</xml>
+						<dtd>XML_STYLE</dtd>
+						<xsd>XML_STYLE</xsd>
+						<html>XML_STYLE</html>
+						<htm>XML_STYLE</htm>
+						<xsl>XML_STYLE</xsl>
+						<fml>XML_STYLE</fml>
+						<cmp>XML_STYLE</cmp>
+						<app>XML_STYLE</app>
+						<intf>XML_STYLE</intf>
+						<evt>XML_STYLE</evt>
+						<apt>DOUBLETILDE_STYLE</apt>
+						<properties>SCRIPT_STYLE</properties>
+						<sh>SCRIPT_STYLE</sh>
+						<txt>TEXT</txt>
+						<bat>BATCH</bat>
+						<cmd>BATCH</cmd>
+						<sql>DOUBLEDASHES_STYLE</sql>
+						<jsp>DYNASCRIPT_STYLE</jsp>
+						<ftl>FTL</ftl>
+						<xhtml>XML_STYLE</xhtml>
+						<vm>SHARPSTAR_STYLE</vm>
+						<jspx>XML_STYLE</jspx>
+					</mapping>
+					<header>${aura.home}/src/test/resources/header.txt</header>
+					<failIfMissing>true</failIfMissing>
+					<aggregate>true</aggregate>
+					<properties>
+						<owner>salesforce.com, inc.</owner>
+						<year>2014</year>
+					</properties>
+					<includes>
+						<include>**/src/main/java/**</include>
+						<include>**/src/main/webapp/WEB-INF/components/**</include>
+						<include>**/src/test/java/**</include>
+					</includes>
+					<excludes>
+						<exclude>LICENSE.txt</exclude>
+						<exclude>**/src/test/resources/**</exclude>
+						<exclude>**/.gitignore</exclude>
+						<exclude>**/.index</exclude>
+						<exclude>**/target/**</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>check-headers</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>

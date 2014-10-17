@@ -27,6 +27,7 @@ import com.j256.ormlite.dao.DaoManager;
 
 @Model
 public class TestNoteListModel {
+
     private static AtomicLong count = new AtomicLong();
     private String key = "test" + count.getAndIncrement() + System.currentTimeMillis();
 
@@ -52,4 +53,5 @@ public class TestNoteListModel {
         note.setBody(body);
         noteDao.create(note);
     }
+
 }
