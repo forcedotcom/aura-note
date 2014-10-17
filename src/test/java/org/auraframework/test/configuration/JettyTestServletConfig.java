@@ -35,7 +35,7 @@ public class JettyTestServletConfig implements TestServletConfig {
     public JettyTestServletConfig() throws MalformedURLException, URISyntaxException {
         int port = Integer.parseInt(System.getProperty("jetty.port", "8080"));
         String host = System.getProperty("jetty.host");
-        
+
         if (host == null) {
             try {
                 host = InetAddress.getLocalHost().getHostName();
@@ -43,7 +43,7 @@ public class JettyTestServletConfig implements TestServletConfig {
                 host = "localhost";
             }
         }
-        
+
         baseUrl = new URL("http", host, port, "/");
     }
 
@@ -57,15 +57,15 @@ public class JettyTestServletConfig implements TestServletConfig {
         // timeout for making a connection and for waiting for data on the connection.
         // this prevents tests from hanging in the http code, which in turn can
         // prevent the server from exiting.
-        int timeout = (int) TimeUnit.MINUTES.toSeconds(10);
+        int timeout = (int)TimeUnit.MINUTES.toSeconds(10);
 
         CookieStore cookieStore = new BasicCookieStore();
-        
+
         RequestConfig.Builder requestBuilder = RequestConfig.custom();
         requestBuilder = requestBuilder.setConnectTimeout(timeout);
         requestBuilder = requestBuilder.setSocketTimeout(timeout);
 
-        HttpClientBuilder builder = HttpClientBuilder.create();     
+        HttpClientBuilder builder = HttpClientBuilder.create();
         builder.setDefaultRequestConfig(requestBuilder.build());
         builder.setDefaultCookieStore(cookieStore);
         HttpClient client = builder.build();
@@ -78,5 +78,4 @@ public class JettyTestServletConfig implements TestServletConfig {
         String token = Aura.getConfigAdapter().getCSRFToken();
         return token == null ? "" : token;
     }
-    
 }

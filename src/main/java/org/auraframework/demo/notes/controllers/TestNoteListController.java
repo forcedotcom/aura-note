@@ -33,14 +33,13 @@ import com.j256.ormlite.dao.GenericRawResults;
 @Controller
 public class TestNoteListController {
 
-	private static String replaceAllRegex(String source, String pattern, String replacement) {
-	    if (source == null)
-	          return null;
-	    Pattern regex = Pattern.compile(pattern);
-	    Matcher matcher = regex.matcher(source);
-	    return matcher.replaceAll(replacement);
-	}
-	
+    private static String replaceAllRegex(String source, String pattern, String replacement) {
+        if (source == null) return null;
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(source);
+        return matcher.replaceAll(replacement);
+    }
+
     @AuraEnabled
     public static void deleteNotesByKey(@Key("key") String key) throws Exception {
         Dao<Note, Long> noteDao = DaoManager.createDao(DataStore.getInstance().getConnectionSource(), Note.class);
@@ -55,4 +54,5 @@ public class TestNoteListController {
         }
         noteDao.deleteIds(ids);
     }
+
 }

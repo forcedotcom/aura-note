@@ -24,7 +24,6 @@ import org.auraframework.system.AuraContext.Mode;
 
 /**
  * Unit tests for Aura Note. Establishes and tears down context for running tests.
- * 
  */
 public class AuraNoteUnitTestCase extends TestCase {
 

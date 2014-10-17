@@ -190,7 +190,7 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- needed by selenium in runtime \\ -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

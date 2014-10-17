@@ -24,9 +24,9 @@ import org.auraframework.util.type.Converter;
 @AuraConfiguration
 public class NoteConverterConfig {
 
-	@Impl
-	public static Converter<String, Note> exampleTypeConverter() {
-		return new StringToNoteConverter();
-	}
+    @Impl
+    public static Converter<String, Note> exampleTypeConverter() {
+        return new StringToNoteConverter();
+    }
 
 }
