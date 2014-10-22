@@ -479,10 +479,10 @@
 				<plugin>
 					<groupId>com.savage7.maven.plugins</groupId>
 					<artifactId>maven-external-dependency-plugin</artifactId>
-					<version>0.4</version>
+					<version>0.5</version>
 					<configuration>
-						<createChecksum>true</createChecksum>
-						<skipChecksumVerification>false</skipChecksumVerification>
+						<createChecksum>false</createChecksum>
+						<skipChecksumVerification>true</skipChecksumVerification>
 						<force>false</force>
 						<artifactItems>
 							<artifactItem>
@@ -756,7 +756,7 @@
 				</os>
 			</activation>
 			<properties>
-				<platform.chromedriver>mac</platform.chromedriver>
+				<platform.chromedriver>mac32</platform.chromedriver>
 			</properties>
 		</profile>
 		<profile>
@@ -767,8 +767,9 @@
 				</os>
 			</activation>
 			<properties>
-				<platform.chromedriver>win</platform.chromedriver>
-				<webdriver.chrome.driver>${basedir}/bin/chromedriver.exe</webdriver.chrome.driver>
+			    <xdisplay.skip>true</xdisplay.skip>
+				<platform.chromedriver>win32</platform.chromedriver>
+				<webdriver.chrome.driver>${basedir}/target/bin/chromedriver.exe</webdriver.chrome.driver>
 			</properties>
 		</profile>
 	</profiles>
