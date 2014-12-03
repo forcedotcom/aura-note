@@ -54,6 +54,5 @@
                 }
             }
         );
-        $A.eventService.finishFiring();
     }
 })
