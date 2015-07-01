@@ -29,6 +29,8 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.auraframework.Aura;
 
+import org.auraframework.util.test.configuration.TestServletConfig;
+
 public class JettyTestServletConfig implements TestServletConfig {
     private final URL baseUrl;
 

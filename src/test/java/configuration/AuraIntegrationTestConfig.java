@@ -19,15 +19,16 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.auraframework.test.PooledRemoteWebDriverFactory;
-import org.auraframework.test.RemoteWebDriverFactory;
-import org.auraframework.test.SauceUtil;
+import org.auraframework.test.util.PooledRemoteWebDriverFactory;
+import org.auraframework.test.util.RemoteWebDriverFactory;
+import org.auraframework.test.util.SauceUtil;
 import org.auraframework.test.SeleniumServerLauncher;
-import org.auraframework.test.WebDriverProvider;
+import org.auraframework.test.util.WebDriverProvider;
 import org.auraframework.test.configuration.JettyTestServletConfig;
-import org.auraframework.test.configuration.TestServletConfig;
 import org.auraframework.util.ServiceLoaderImpl.AuraConfiguration;
 import org.auraframework.util.ServiceLoaderImpl.Impl;
+import org.auraframework.util.test.configuration.TestServletConfig;
+
 import org.openqa.selenium.net.PortProber;
 
 @AuraConfiguration
