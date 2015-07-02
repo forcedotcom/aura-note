@@ -94,6 +94,11 @@
 			<artifactId>aura-impl</artifactId>
 			<version>${aura.framework.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.auraframework</groupId>
+            <artifactId>aura-components</artifactId>
+            <version>${aura.framework.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.auraframework</groupId>
 			<artifactId>aura-impl-expression</artifactId>
