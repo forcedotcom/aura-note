@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.auraframework.demo.notes.DataStore;
 import org.auraframework.demo.notes.Note;
+import org.auraframework.test.util.WebDriverTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;

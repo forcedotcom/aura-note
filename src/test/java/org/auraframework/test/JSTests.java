@@ -17,11 +17,11 @@ package org.auraframework.test;
 
 import junit.framework.TestSuite;
 
-import org.auraframework.test.ComponentJSTestSuiteTest.NamespaceTestSuite;
+import org.auraframework.test.ComponentJSTest.NamespaceTestSuite;
 
 /**
- * Specify what namespace to look under for all javascript tests.
- * Tests should follow naming convention: <componentName>Test.js
+ * Specify what namespace to look under for all javascript tests. Tests should follow naming convention:
+ * <componentName>Test.js
  */
 public class JSTests {
     public static TestSuite suite() throws Exception {
