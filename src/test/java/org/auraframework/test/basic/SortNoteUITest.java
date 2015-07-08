@@ -146,24 +146,23 @@ public class SortNoteUITest extends AuraNoteUITestCase {
      * Verifies changing sorting between clicking New Note button and clicking Save still saves new note in correctly
      * sorted order.
      */
-    // TODO(W-1381036): note added to wrong place in sorted list
-    public void _testChangeSortingWhileAddingNote() throws Exception {
+    public void testChangeSortingWhileAddingNote() throws Exception {
         open("/auranote/notes.app");
         addInitialNotes();
 
-        clickElement(AuraNoteTestUtil.SORT_OLDEST_FIRST);
-        checkSidebarOrder(new String[] { "Banana", "Cat", "Apple", "Dog", "Elephant" });
+        clickElement(AuraNoteTestUtil.SORT_A_FIRST);
+        checkSidebarOrder(new String[] { "Apple", "Banana", "Cat", "Dog", "Elephant" });
 
         clickElement(AuraNoteTestUtil.NEW_NOTE_BUTTON);
-        sendText("aaaaa", AuraNoteTestUtil.TITLE_INPUT);
-        sendText("aaaaa", AuraNoteTestUtil.BODY_INPUT);
-        clickElement(AuraNoteTestUtil.SORT_NEWEST_FIRST);
+        sendText("azzz", AuraNoteTestUtil.TITLE_INPUT);
+        sendText("azzz", AuraNoteTestUtil.BODY_INPUT);
+        clickElement(AuraNoteTestUtil.SORT_Z_FIRST);
         waitFor(4);
         clickElement(AuraNoteTestUtil.SAVE_BUTTON);
-        waitForSidebarUpdate("First note not added to sidebar", "aaaaa", "aaaaa", true);
+        waitForSidebarUpdate("Note not added to sidebar", "azzz", "azzz", true);
 
         List<WebElement> sidebar = getSidebar();
-        assertEquals("Note not added to beginning of list", "aaaaa", sidebar.get(0)
+        assertEquals("Note not added in correctly sorted order", "azzz", sidebar.get(4)
                 .findElement(By.cssSelector(AuraNoteTestUtil.SIDEBAR_TITLE)).getText());
     }
 
