@@ -41,6 +41,10 @@
                 }
             }
         );
+        
+        var event = $A.get("e.auranote:sortChanged")
+        event.setParams({sort : sortVal});
+        event.fire();
     },
 
     noteAdded : function(cmp, event){

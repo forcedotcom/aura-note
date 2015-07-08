@@ -16,6 +16,8 @@
 
 -->
 <aura:component extends="auranote:note" controller="java://org.auraframework.demo.notes.controllers.NoteEditController" >
+	<aura:handler event="auranote:sortChanged" action="{!c.sortChanged}" />
+
     <aura:attribute name="origTitle" type="String" default="" />
     <aura:attribute name="origBody" type="String" default="" />
     

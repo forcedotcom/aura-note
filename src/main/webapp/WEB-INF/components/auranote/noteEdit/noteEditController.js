@@ -118,5 +118,10 @@
         } else {
             failure();
         }
+    },
+    
+    sortChanged : function(component, event){
+    	var sortVal = event.getParam("sort");
+        component.set("v.sort", sortVal);
     }
 })
