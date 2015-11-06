@@ -166,7 +166,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
      *            note to be removed.
      */
     protected void waitForSidebarUpdate(String msg, final String title, final String body, final boolean appear) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
+        WebDriverWait wait = new WebDriverWait(getDriver(), auraUITestingUtil.getTimeout());
         wait.withMessage(msg);
         // StaleElementReferenceException gets thrown when sidebar is updated while we're checking, ignore the exception
         // and look again until we timeout.
@@ -193,7 +193,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
      * @param index Index note should be sorted into in sidebar, 0 being the first note at the top of the sidebar.
      */
     protected void waitForSidebarSortByTitle(String msg, final String title, final int index) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
+        WebDriverWait wait = new WebDriverWait(getDriver(), auraUITestingUtil.getTimeout());
         wait.withMessage(msg);
         // StaleElementReferenceException gets thrown when sidebar is updated while we're checking, ignore the exception
         // and look again until we timeout.
@@ -215,7 +215,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
      * @param cssSelector CSS selector of element waiting for.
      */
     protected void waitForElementAppear(String msg, final String cssSelector) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
+        WebDriverWait wait = new WebDriverWait(getDriver(), auraUITestingUtil.getTimeout());
         wait.withMessage(msg);
         wait.until(new ExpectedCondition<Boolean>() {
             @Override
@@ -231,7 +231,7 @@ public class AuraNoteUITestCase extends WebDriverTestCase {
     }
 
     protected void waitForTextChange(String errorMsg, final String selector, final String newText) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSecs);
+        WebDriverWait wait = new WebDriverWait(getDriver(), auraUITestingUtil.getTimeout());
         wait.withMessage(errorMsg);
         wait.ignoring(NoSuchElementException.class);
         wait.until(new ExpectedCondition<Boolean>() {
